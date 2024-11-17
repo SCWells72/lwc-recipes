@@ -1,4 +1,4 @@
-// noinspection LocalVariableNamingConventionJS
+// noinspection LocalVariableNamingConventionJS,DuplicatedCode
 
 import { createElement } from 'lwc';
 import RecordFormDynamicContact from 'c/recordFormDynamicContact';

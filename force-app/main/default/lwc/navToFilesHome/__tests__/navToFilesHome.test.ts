@@ -1,4 +1,4 @@
-// noinspection LocalVariableNamingConventionJS
+// noinspection LocalVariableNamingConventionJS,DuplicatedCode
 
 import { createElement } from 'lwc';
 import NavToFilesHome from 'c/navToFilesHome';

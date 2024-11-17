@@ -1,3 +1,5 @@
+// noinspection DuplicatedCode
+
 import { createElement } from 'lwc';
 import ApiSpread from 'c/apiSpread';
 import Child from 'c/child';

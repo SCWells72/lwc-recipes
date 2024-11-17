@@ -1,4 +1,4 @@
-// noinspection LocalVariableNamingConventionJS
+// noinspection LocalVariableNamingConventionJS,DuplicatedCode
 
 import { createElement } from 'lwc';
 import ContactInfo from 'c/contactInfo';

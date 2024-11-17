@@ -1,3 +1,5 @@
+// noinspection LocalVariableNamingConventionJS,DuplicatedCode
+
 import { createElement } from 'lwc';
 import DatatableInlineEditWithApex from 'c/datatableInlineEditWithApex';
 import getContacts from '@salesforce/apex/ContactController.getContactList';

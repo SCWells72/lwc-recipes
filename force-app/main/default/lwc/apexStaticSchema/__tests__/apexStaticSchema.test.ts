@@ -5,6 +5,7 @@ import getSingleContact from '@salesforce/apex/ContactController.getSingleContac
 // Realistic data with a single record
 import mockGetSingleContact from './data/getSingleContact.json';
 import { ApexTestWireAdapter } from '@salesforce/wire-service-jest-util';
+import LightningFormattedEmail from 'lightning/formattedEmail';
 
 // Mock Apex wire adapter
 jest.mock(
@@ -56,7 +57,7 @@ describe('c-apex-static-schema', () => {
             expect(detailEls[0].textContent).toBe(mockGetSingleContact.Name);
             expect(detailEls[1].textContent).toBe(mockGetSingleContact.Title);
 
-            const emailEl = element.shadowRoot.querySelector(
+            const emailEl = element.shadowRoot.querySelector<LightningFormattedEmail>(
                 'lightning-formatted-email'
             );
             expect(emailEl.value).toBe(mockGetSingleContact.Email);
