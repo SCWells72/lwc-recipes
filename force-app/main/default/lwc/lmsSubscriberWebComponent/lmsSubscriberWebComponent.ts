@@ -1,10 +1,10 @@
 import { LightningElement, wire } from 'lwc';
-import { getRecord, getFieldValue } from 'lightning/uiRecordApi';
+import { getFieldValue, getRecord, RecordRepresentation } from 'lightning/uiRecordApi';
 import { ShowToastEvent } from 'lightning/platformShowToastEvent';
 import { reduceErrors } from 'c/ldsUtils';
 
 // Import message service features required for subscribing and the message channel
-import { subscribe, MessageContext, MessageContextType } from 'lightning/messageService';
+import { MessageContext, MessageContextType, subscribe } from 'lightning/messageService';
 import RECORD_SELECTED_CHANNEL from '@salesforce/messageChannel/Record_Selected__c';
 
 import NAME_FIELD from '@salesforce/schema/Contact.Name';
@@ -33,12 +33,12 @@ export default class LmsSubscriberWebComponent extends LightningElement {
     Picture__c: string;
 
     @wire(getRecord, { recordId: '$recordId', fields })
-    wiredRecord({ error, data }) {
-        if (error) {
-            this.dispatchToast(error);
-        } else if (data) {
+    wiredRecord(result: WireResult<RecordRepresentation>) {
+        if (result.error) {
+            this.dispatchToast(result.error);
+        } else if (result.data) {
             fields.forEach(
-                (item) => (this[item.fieldApiName] = getFieldValue(data, item))
+                (item) => (this[item.fieldApiName] = getFieldValue(result.data, item))
             );
         }
     }

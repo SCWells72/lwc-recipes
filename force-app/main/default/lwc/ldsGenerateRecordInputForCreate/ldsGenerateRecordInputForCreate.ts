@@ -2,8 +2,9 @@ import { LightningElement, wire } from 'lwc';
 import { ShowToastEvent } from 'lightning/platformShowToastEvent';
 import {
     createRecord,
-    getRecordCreateDefaults,
     generateRecordInputForCreate,
+    getRecordCreateDefaults,
+    RecordDefaults,
     RecordInputRepresentation
 } from 'lightning/uiRecordApi';
 import { reduceErrors } from 'c/ldsUtils';
@@ -21,20 +22,20 @@ export default class LdsGenerateRecordInputForCreate extends LightningElement {
     recordInput: RecordInputRepresentation;
 
     @wire(getRecordCreateDefaults, { objectApiName: ACCOUNT_OBJECT })
-    loadAccountCreateDefaults({ data, error }) {
-        if (data) {
+    loadAccountCreateDefaults(result: WireResult<RecordDefaults>) {
+        if (result.data) {
             // Creates a record input with default field values
             this.recordInput = generateRecordInputForCreate(
-                data.record,
-                data.objectInfos[ACCOUNT_OBJECT.objectApiName] // Filters it to only createable fields
+                result.data.record,
+                result.data.objectInfos[ACCOUNT_OBJECT.objectApiName] // Filters it to only createable fields
             );
             const fields = this.recordInput.fields;
             this.areaNumberCreateable = AREANUMBER_FIELD.fieldApiName in fields;
             this.areaNumber = fields[AREANUMBER_FIELD.fieldApiName];
             this.error = undefined;
-        } else if (error) {
+        } else if (result.error) {
             this.recordInput = undefined;
-            this.error = error;
+            this.error = result.error;
         }
     }
 

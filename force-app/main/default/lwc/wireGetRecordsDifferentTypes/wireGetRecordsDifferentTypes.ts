@@ -11,11 +11,11 @@ export default class WireGetRecordsDifferentTypes extends LightningElement {
     error: any;
 
     @wire(getAccountList)
-    wiredAccounts({ error, data }) {
-        if (data) {
+    wiredAccounts(result: WireResult<Account[]>) {
+        if (result.data) {
             const accountRecord = [
                 {
-                    recordIds: [data[0].Id],
+                    recordIds: [result.data[0].Id],
                     fields: [ACCOUNT_NAME_FIELD]
                 }
             ];
@@ -23,17 +23,17 @@ export default class WireGetRecordsDifferentTypes extends LightningElement {
                 ? this.records.concat(accountRecord)
                 : accountRecord;
             this.error = undefined;
-        } else if (error) {
-            this.error = error;
+        } else if (result.error) {
+            this.error = result.error;
         }
     }
 
     @wire(getContactList)
-    wiredContacts({ error, data }) {
-        if (data) {
+    wiredContacts(result: WireResult<Contact[]>) {
+        if (result.data) {
             const contactRecord = [
                 {
-                    recordIds: [data[0].Id],
+                    recordIds: [result.data[0].Id],
                     fields: [NAME_FIELD],
                     optionalFields: [EMAIL_FIELD]
                 }
@@ -42,8 +42,8 @@ export default class WireGetRecordsDifferentTypes extends LightningElement {
                 ? this.records.concat(contactRecord)
                 : contactRecord;
             this.error = undefined;
-        } else if (error) {
-            this.error = error;
+        } else if (result.error) {
+            this.error = result.error;
             this.records = undefined;
         }
     }
