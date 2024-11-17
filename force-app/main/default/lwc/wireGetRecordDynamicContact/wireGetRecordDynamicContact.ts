@@ -18,8 +18,8 @@ export default class WireGetRecordDynamicContact extends LightningElement {
         return this.contact.data.fields.Name.value;
     }
 
-    // NOTE: Renamed to avoid conflict with inherited property
-    get myTitle() {
+    // @ts-expect-error Overrides a base property; should probably rename it
+    get title() {
         return this.contact.data.fields.Title.value;
     }
 

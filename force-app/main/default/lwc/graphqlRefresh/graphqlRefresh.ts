@@ -1,5 +1,5 @@
 import { LightningElement, wire } from 'lwc';
-import { gql, graphql, GraphQlQueryResponse, refreshGraphql } from 'lightning/uiGraphQLApi';
+import { gql, graphql, GraphQlQueryResponse, refreshGraphQL } from 'lightning/uiGraphQLApi';
 import randomizeAccountData from '@salesforce/apex/AccountController.randomizeAccountData';
 
 export default class GraphqlRefresh extends LightningElement {
@@ -54,8 +54,10 @@ export default class GraphqlRefresh extends LightningElement {
                 this.account = accounts[0];
             }
         }
-        if (result.error) {
-            this.errors = result.error;
+        // @ts-expect-error Why is this "errors" instead of "error"?
+        if (result.errors) {
+            // @ts-expect-error Why is this "errors" instead of "error"?
+            this.errors = result.errors;
         }
     }
 
@@ -73,7 +75,7 @@ export default class GraphqlRefresh extends LightningElement {
     async handleRefreshClick() {
         this.isLoading = true;
         try {
-            refreshGraphql(this.graphqlResult);
+            refreshGraphQL(this.graphqlResult);
         } catch (e) {
             this.errors = e;
         } finally {

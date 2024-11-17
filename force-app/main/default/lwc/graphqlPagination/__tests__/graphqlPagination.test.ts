@@ -78,7 +78,7 @@ describe('c-graphql-pagination', () => {
             // Wait for wire config to update
             await flushPromises();
 
-            expect((<LdsTestWireAdapter><unknown>graphql).getLastConfig().variables.myAfter).toEqual(
+            expect((<LdsTestWireAdapter><unknown>graphql).getLastConfig().variables.after).toEqual(
                 mockGraphQLFirstPage.uiapi.query.Contact.pageInfo.endCursor
             );
             (<LdsTestWireAdapter><unknown>graphql).emit(mockGraphQLLastPage);

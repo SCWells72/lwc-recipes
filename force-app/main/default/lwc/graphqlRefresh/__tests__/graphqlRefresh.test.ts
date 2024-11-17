@@ -1,6 +1,6 @@
 import { createElement } from 'lwc';
 import GraphqlRefresh from 'c/graphqlRefresh';
-import { graphql, refreshGraphql } from 'lightning/uiGraphQLApi';
+import { graphql, refreshGraphQL } from 'lightning/uiGraphQLApi';
 import randomizeAccountData from '@salesforce/apex/AccountController.randomizeAccountData';
 import { LdsTestWireAdapter } from '@salesforce/wire-service-jest-util';
 import LightningButton from 'lightning/button';
@@ -173,7 +173,7 @@ describe('c-graphql-refresh', () => {
                 .click();
 
             // Check that refreshGraphQL was called
-            expect(refreshGraphql).toHaveBeenCalled();
+            expect(refreshGraphQL).toHaveBeenCalled();
         });
     });
 

@@ -61,7 +61,8 @@ describe('c-editRecordScreenAction', () => {
         element.addEventListener(ShowToastEventName, handler);
 
         // Emit data from @wire to populate name field
-        (<LdsTestWireAdapter><unknown>getRecord).emit(mockGetRecord);
+        // NOTE: This "await" must be present or the test fails
+        await (<LdsTestWireAdapter><unknown>getRecord).emit(mockGetRecord);
         // Find the save button and click
         const inputEl = element.shadowRoot.querySelectorAll<LightningButton>('lightning-button');
         inputEl[1].click();
