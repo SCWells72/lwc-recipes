@@ -1,10 +1,16 @@
 import { LightningElement } from 'lwc';
 import LightningInput from 'lightning/input';
 
+export interface TodoItem {
+    id?: number;
+    description?: string;
+    priority?: boolean;
+}
+
 export default class ApiSetterGetter extends LightningElement {
     lastTodoId = 2;
 
-    todos = [
+    todos: TodoItem[] = [
         { id: 1, description: 'Explore recipes', priority: true },
         { id: 2, description: 'Install Ebikes sample app', priority: false }
     ];

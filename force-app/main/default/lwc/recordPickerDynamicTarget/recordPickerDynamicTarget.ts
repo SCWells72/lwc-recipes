@@ -1,14 +1,13 @@
 import { LightningElement } from 'lwc';
 import LightningRecordPicker from 'lightning/recordPicker';
-import LightningCombobox from 'lightning/combobox';
-import { LightningSelectOption } from 'lightning/select';
+import LightningCombobox, { LightningComboboxOption } from 'lightning/combobox';
 
 // As of today, `lightning-record-picker` only supports a single target.
 // This sample component shows how you can turn `lightning-record-picker` into
 // a multi-target record picker, where the user can select the target object
 // before searching.
 export default class RecordPickerDynamicTarget extends LightningElement {
-    targetObjects: LightningSelectOption[] = [
+    targetObjects: LightningComboboxOption[] = [
         {
             label: 'Account',
             value: 'Account'

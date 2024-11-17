@@ -9,9 +9,9 @@ import LASTNAME_FIELD from '@salesforce/schema/Contact.LastName';
 import TITLE_FIELD from '@salesforce/schema/Contact.Title';
 import PHONE_FIELD from '@salesforce/schema/Contact.Phone';
 import EMAIL_FIELD from '@salesforce/schema/Contact.Email';
-import LightningDatatable from 'lightning/datatable';
+import LightningDatatable, { DatatableColumn } from 'lightning/datatable';
 
-const COLS = [
+const COLS: DatatableColumn[] = [
     {
         label: 'First Name',
         fieldName: FIRSTNAME_FIELD.fieldApiName,

@@ -1,7 +1,7 @@
 import { LightningElement } from 'lwc';
 
 export default class CompositionParent extends LightningElement {
-    contact = {
+    contact: Contact = {
         Name: 'Amy Taylor',
         Title: 'VP of Engineering',
         Phone: '6172559632',

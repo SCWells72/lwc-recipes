@@ -26,7 +26,8 @@ export default class ApexImperativeMethodWithComplexParams extends LightningElem
     async handleButtonClick() {
         // Creating the object that represents the shape
         // of the Apex wrapper class.
-        const parameterObject = {
+        // NOTE: IC generates the actual type so we can use it directly
+        const parameterObject: CustomWrapper = {
             someString: this.stringValue,
             someInteger: this.numberValue,
             someList: []

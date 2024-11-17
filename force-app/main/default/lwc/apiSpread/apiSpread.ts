@@ -1,8 +1,13 @@
 import { LightningElement } from 'lwc';
 import LightningInput from 'lightning/input';
 
+export interface PersonName {
+    firstName: string;
+    lastName: string;
+}
+
 export default class ApiSpread extends LightningElement {
-    props = {
+    props: PersonName = {
         firstName: 'Amy',
         lastName: 'Taylor'
     };

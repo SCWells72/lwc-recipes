@@ -6,7 +6,7 @@ export default class NavToNewRecordWithDefaults extends NavigationMixin(
     LightningElement
 ) {
     navigateToNewContactWithDefaults() {
-        const defaultValues = encodeDefaultFieldValues({
+        const defaultValues = encodeDefaultFieldValues(<Contact>{
             FirstName: 'Morag',
             LastName: 'de Fault',
             LeadSource: 'Other'

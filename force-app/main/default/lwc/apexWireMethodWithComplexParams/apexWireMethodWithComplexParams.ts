@@ -7,7 +7,8 @@ export default class ApexWireMethodWithComplexParams extends LightningElement {
     numberValue = 50;
     stringValue = 'Some string';
 
-    parameterObject = {
+    // NOTE: IC generates the actual type so we can use it directly
+    parameterObject: CustomWrapper = {
         someString: this.stringValue,
         someInteger: this.numberValue,
         someList: []
@@ -17,14 +18,14 @@ export default class ApexWireMethodWithComplexParams extends LightningElement {
     apexResponse: WireResult<string>;
 
     handleStringChange(event: CustomEvent<LightningInput>) {
-        this.parameterObject = {
+        this.parameterObject = <CustomWrapper>{
             ...this.parameterObject,
             someString: (this.stringValue = (<LightningInput>event.target).value)
         };
     }
 
     handleNumberChange(event: CustomEvent<LightningInput>) {
-        this.parameterObject = {
+        this.parameterObject = <CustomWrapper>{
             ...this.parameterObject,
             someInteger: (this.numberValue = parseInt((<LightningInput>event.target).value, 10))
         };
@@ -35,7 +36,7 @@ export default class ApexWireMethodWithComplexParams extends LightningElement {
         for (let i = 0; i < (<LightningInput>event.target).value; i++) {
             someList.push(this.stringValue);
         }
-        this.parameterObject = {
+        this.parameterObject = <CustomWrapper>{
             ...this.parameterObject,
             someList
         };

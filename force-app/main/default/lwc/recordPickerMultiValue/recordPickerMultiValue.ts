@@ -1,6 +1,6 @@
 import { LightningElement, wire } from 'lwc';
 import { gql, graphql } from 'lightning/uiGraphQLApi';
-import LightningRecordPicker from 'lightning/recordPicker';
+import LightningRecordPicker, { LightningRecordPickerFilter } from 'lightning/recordPicker';
 import LightningPillContainer from 'lightning/pillContainer';
 
 // As of Winter '24, `lightning-record-picker` only supports a single selection.
@@ -8,6 +8,7 @@ import LightningPillContainer from 'lightning/pillContainer';
 // a multi-selection record picker.
 
 // Converts a record to a lightning-pill element
+// NOTE: Technically this is creating a LightningPill, but that component doesn't have "iconName" or "type"
 const toContactPill = (record: { id: any; name: any; }) => ({
     name: record.id,
     label: record.name,
@@ -16,7 +17,7 @@ const toContactPill = (record: { id: any; name: any; }) => ({
 });
 
 // Converts a list a IDs to lightning-record-picker filter
-const toRecordPickerFilter = (ids: string[]) => ({
+const toRecordPickerFilter = (ids: string[]) => (<LightningRecordPickerFilter>{
     criteria: [
         {
             fieldPath: 'Id',

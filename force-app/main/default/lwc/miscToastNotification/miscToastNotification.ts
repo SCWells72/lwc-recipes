@@ -1,13 +1,13 @@
 import { LightningElement } from 'lwc';
 import { ShowToastEvent } from 'lightning/platformShowToastEvent';
 import LightningInput from 'lightning/input';
-import LightningCombobox from 'lightning/combobox';
+import LightningCombobox, { LightningComboboxOption } from 'lightning/combobox';
 
 export default class MiscToastNotification extends LightningElement {
     titleText = 'Sample Title';
     messageText = 'Sample Message';
     variant = 'error';
-    variantOptions = [
+    variantOptions: LightningComboboxOption[] = [
         { label: 'error', value: 'error' },
         { label: 'warning', value: 'warning' },
         { label: 'success', value: 'success' },

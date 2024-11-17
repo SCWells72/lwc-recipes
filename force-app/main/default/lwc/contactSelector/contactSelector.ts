@@ -1,20 +1,15 @@
 import { LightningElement, wire } from 'lwc';
 import getContactList from '@salesforce/apex/ContactController.getContactList';
-import LightningCombobox from 'lightning/combobox';
-
-interface ContactOption {
-    value?: string;
-    label?: string;
-}
+import LightningCombobox, { LightningComboboxOption } from 'lightning/combobox';
 
 export default class ContactSelector extends LightningElement {
-    contactOptions: ContactOption[] = [];
+    contactOptions: LightningComboboxOption[] = [];
     error: any;
 
     @wire(getContactList)
     wiredContacts(result: WireResult<Contact[]>) {
         if (result.data) {
-            this.contactOptions = result.data.map((record) => (<ContactOption>{
+            this.contactOptions = result.data.map((record) => (<LightningComboboxOption>{
                 value: record.Id,
                 label: record.Name
             }));

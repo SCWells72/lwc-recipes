@@ -1,6 +1,6 @@
-import { LightningSelectOption } from 'lightning/select';
+import { LightningComboboxOption } from 'lightning/combobox';
 
-const getTermOptions = (): LightningSelectOption[] => {
+const getTermOptions = (): LightningComboboxOption[] => {
     return [
         { label: '20 years', value: 20 },
         { label: '25 years', value: 25 },
