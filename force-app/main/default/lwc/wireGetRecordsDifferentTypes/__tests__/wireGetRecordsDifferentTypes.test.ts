@@ -1,10 +1,10 @@
 import { createElement } from 'lwc';
 import WireGetRecordsDifferentTypes from 'c/wireGetRecordsDifferentTypes';
 import { getRecords } from 'lightning/uiRecordApi';
+import { LdsTestWireAdapter } from '@salesforce/wire-service-jest-util';
 
 // Mock realistic data
 import mockGetRecords from './data/wireGetRecordsDifferentTypesResponse.json';
-import { LdsTestWireAdapter } from '@salesforce/wire-service-jest-util';
 
 describe('c-wire-get-records-different-types', () => {
     afterEach(() => {

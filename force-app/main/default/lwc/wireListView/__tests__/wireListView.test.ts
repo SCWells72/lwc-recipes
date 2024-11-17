@@ -3,10 +3,10 @@
 import { createElement } from 'lwc';
 import WireListView from 'c/wireListView';
 import { getListUi } from 'lightning/uiListApi';
+import { TestWireAdapter } from '@salesforce/wire-service-jest-util';
 
 // Mock realistic data
 import mockGetListUi from './data/getListUi.json';
-import { TestWireAdapter } from '@salesforce/wire-service-jest-util';
 
 describe('c-wire-list-view', () => {
     afterEach(() => {

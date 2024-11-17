@@ -10,14 +10,14 @@ import {
 import { ShowToastEventName } from 'lightning/platformShowToastEvent';
 import NAME_FIELD from '@salesforce/schema/Account.Name';
 import AREANUMBER_FIELD from '@salesforce/schema/Account.AreaNumber__c';
+import { LdsTestWireAdapter } from '@salesforce/wire-service-jest-util';
+import LightningInput from 'lightning/input';
+import LightningButton from 'lightning/button';
 
 // Mock realistic data
 import mockGetRecordCreateDefaults from './data/getRecordCreateDefaults.json';
 import mockGenerateRecordInputForCreate from './data/generateRecordInputForCreate.json';
 import mockCreateRecord from './data/createRecord.json';
-import { LdsTestWireAdapter } from '@salesforce/wire-service-jest-util';
-import LightningInput from 'lightning/input';
-import LightningButton from 'lightning/button';
 
 describe('c-lds-generate-record-input-for-create', () => {
     afterEach(() => {

@@ -3,11 +3,11 @@
 import { createElement } from 'lwc';
 import ContactInfo from 'c/contactInfo';
 import { getRecord } from 'lightning/uiRecordApi';
-
-import mockGetRecord from './data/getRecord.json';
 import { LdsTestWireAdapter } from '@salesforce/wire-service-jest-util';
 import LightningFormattedPhone from 'lightning/formattedPhone';
 import LightningFormattedEmail from 'lightning/formattedEmail';
+
+import mockGetRecord from './data/getRecord.json';
 
 describe('c-contact-info', () => {
     afterEach(() => {

@@ -1,11 +1,11 @@
 import { createElement } from 'lwc';
 import WireGetPicklistValues from 'c/wireGetPicklistValues';
 import { getPicklistValues } from 'lightning/uiObjectInfoApi';
+import { TestWireAdapter } from '@salesforce/wire-service-jest-util';
+import LightningInput from 'lightning/input';
 
 // Mock realistic data
 import mockGetPicklistValues from './data/getPicklistValues.json';
-import { TestWireAdapter } from '@salesforce/wire-service-jest-util';
-import LightningInput from 'lightning/input';
 
 describe('c-wire-get-picklist-values', () => {
     afterEach(() => {

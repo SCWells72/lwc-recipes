@@ -1,11 +1,11 @@
 import { createElement } from 'lwc';
 import ApexStaticSchema from 'c/apexStaticSchema';
 import getSingleContact from '@salesforce/apex/ContactController.getSingleContact';
+import { ApexTestWireAdapter } from '@salesforce/wire-service-jest-util';
+import LightningFormattedEmail from 'lightning/formattedEmail';
 
 // Realistic data with a single record
 import mockGetSingleContact from './data/getSingleContact.json';
-import { ApexTestWireAdapter } from '@salesforce/wire-service-jest-util';
-import LightningFormattedEmail from 'lightning/formattedEmail';
 
 // Mock Apex wire adapter
 jest.mock(

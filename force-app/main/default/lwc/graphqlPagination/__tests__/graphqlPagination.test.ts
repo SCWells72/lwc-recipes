@@ -3,12 +3,12 @@
 import { createElement } from 'lwc';
 import GraphqlPagination from 'c/graphqlPagination';
 import { graphql } from 'lightning/uiGraphQLApi';
+import { LdsTestWireAdapter } from '@salesforce/wire-service-jest-util';
+import LightningButtonIcon from 'lightning/buttonIcon';
 
 // Mock realistic data
 import mockGraphQLFirstPage from './data/graphqlPaginationResponseFirstPage.json';
 import mockGraphQLLastPage from './data/graphqlPaginationResponseLastPage.json';
-import { LdsTestWireAdapter } from '@salesforce/wire-service-jest-util';
-import LightningButtonIcon from 'lightning/buttonIcon';
 
 describe('c-graphql-pagination', () => {
     afterEach(() => {

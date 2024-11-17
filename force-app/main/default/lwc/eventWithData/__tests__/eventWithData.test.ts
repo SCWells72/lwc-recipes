@@ -3,6 +3,7 @@
 import { createElement } from 'lwc';
 import EventWithData from 'c/eventWithData';
 import getContactList from '@salesforce/apex/ContactController.getContactList';
+import { ApexTestWireAdapter } from '@salesforce/wire-service-jest-util';
 
 // Realistic data with a list of records
 import mockGetContactList from './data/getContactList.json';
@@ -10,7 +11,6 @@ import mockGetContactList from './data/getContactList.json';
 // An empty list of records to verify the component does something reasonable
 // when there is no data to display
 import mockGetContactListNoRecords from './data/getContactListNoRecords.json';
-import { ApexTestWireAdapter } from '@salesforce/wire-service-jest-util';
 
 // Mock Apex wire adapter
 jest.mock(

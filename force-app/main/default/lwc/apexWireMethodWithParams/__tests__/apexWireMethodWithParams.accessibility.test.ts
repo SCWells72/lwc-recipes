@@ -1,10 +1,10 @@
 import { createElement } from 'lwc';
 import ApexWireMethodWithParams from 'c/apexWireMethodWithParams';
 import findContacts from '@salesforce/apex/ContactController.findContacts';
+import { ApexTestWireAdapter } from '@salesforce/wire-service-jest-util';
 
 // Realistic data with a list of contacts
 import mockFindContacts from './data/findContacts.json';
-import { ApexTestWireAdapter } from '@salesforce/wire-service-jest-util';
 
 // Mock Apex wire adapter
 jest.mock(

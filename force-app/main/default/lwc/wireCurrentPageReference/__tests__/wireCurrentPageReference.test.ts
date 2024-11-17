@@ -1,10 +1,10 @@
 import { createElement } from 'lwc';
 import WireCurrentPageReference from 'c/wireCurrentPageReference';
 import { CurrentPageReference } from 'lightning/navigation';
+import { TestWireAdapter } from '@salesforce/wire-service-jest-util';
 
 // Mock realistic data
 import mockCurrentPageReference from './data/CurrentPageReference.json';
-import { TestWireAdapter } from '@salesforce/wire-service-jest-util';
 
 describe('c-wire-current-page-reference', () => {
     afterEach(() => {

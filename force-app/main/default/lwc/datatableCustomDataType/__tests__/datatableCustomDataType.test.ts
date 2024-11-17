@@ -1,11 +1,11 @@
 import { createElement } from 'lwc';
 import DatatableCustomDataType from 'c/datatableCustomDataType';
 import getContacts from '@salesforce/apex/ContactController.getContactList';
+import { ApexTestWireAdapter } from '@salesforce/wire-service-jest-util';
+import CustomDataTypes from 'c/customDataTypes';
 
 // Realistic data with a list of contacts
 import mockGetContactList from './data/getContactList.json';
-import { ApexTestWireAdapter } from '@salesforce/wire-service-jest-util';
-import CustomDataTypes from 'c/customDataTypes';
 
 // Mock getContactList Apex wire adapter
 jest.mock(

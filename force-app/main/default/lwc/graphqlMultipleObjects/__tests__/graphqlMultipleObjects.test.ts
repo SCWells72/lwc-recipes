@@ -1,10 +1,10 @@
 import { createElement } from 'lwc';
 import GraphqlMultipleObjects from 'c/graphqlMultipleObjects';
 import { graphql } from 'lightning/uiGraphQLApi';
+import { LdsTestWireAdapter } from '@salesforce/wire-service-jest-util';
 
 // Mock realistic data
 import mockGraphQL from './data/graphqlMultipleObjectsResponse.json';
-import { LdsTestWireAdapter } from '@salesforce/wire-service-jest-util';
 
 describe('c-graphql-multiple-objects', () => {
     afterEach(() => {

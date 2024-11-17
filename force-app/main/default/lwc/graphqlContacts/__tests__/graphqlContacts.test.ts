@@ -1,10 +1,10 @@
 import { createElement } from 'lwc';
 import GraphqlContacts from 'c/graphqlContacts';
 import { graphql } from 'lightning/uiGraphQLApi';
+import { LdsTestWireAdapter } from '@salesforce/wire-service-jest-util';
 
 // Mock realistic data
 import mockGraphQL from './data/graphqlContactsResponse.json';
-import { LdsTestWireAdapter } from '@salesforce/wire-service-jest-util';
 
 describe('c-graphql-contacts', () => {
     afterEach(() => {

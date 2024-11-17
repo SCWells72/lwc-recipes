@@ -2,16 +2,17 @@
 
 import { createElement } from 'lwc';
 import MiscRestApiCall from 'c/miscRestApiCall';
+import LightningInput from 'lightning/input';
+import LightningButton from 'lightning/button';
 
 // Query URL for connecting to Google API
 const QUERY_URL =
     'https://www.googleapis.com/books/v1/volumes?langRestrict=en&q=';
+
 // Realistic test data for a successful fetch request.
 import FETCH_DATA from './data/fetch.json';
 // Realistic test data for an unsuccessful fetch request.
 import FETCH_ERROR from './data/fetchError.json';
-import LightningInput from 'lightning/input';
-import LightningButton from 'lightning/button';
 
 describe('c-misc-rest-api-call', () => {
     afterEach(() => {

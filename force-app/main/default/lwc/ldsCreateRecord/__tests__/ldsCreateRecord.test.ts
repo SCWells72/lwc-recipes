@@ -4,11 +4,11 @@ import { createElement } from 'lwc';
 import LdsCreateRecord from 'c/ldsCreateRecord';
 import { ShowToastEventName } from 'lightning/platformShowToastEvent';
 import { createRecord } from 'lightning/uiRecordApi';
+import LightningInput from 'lightning/input';
+import LightningButton from 'lightning/button';
 
 // Realistic data after a create record call
 import mockCreateRecord from './data/createRecord.json';
-import LightningInput from 'lightning/input';
-import LightningButton from 'lightning/button';
 
 describe('c-lds-create-record', () => {
     afterEach(() => {

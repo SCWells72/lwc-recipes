@@ -3,12 +3,12 @@
 import { createElement } from 'lwc';
 import WireGetRecordStaticContact from 'c/wireGetRecordStaticContact';
 import { getRecord } from 'lightning/uiRecordApi';
-
-// Mock realistic data
-import mockGetRecord from './data/getRecord.json';
 import { LdsTestWireAdapter } from '@salesforce/wire-service-jest-util';
 import LightningFormattedPhone from 'lightning/formattedPhone';
 import LightningFormattedEmail from 'lightning/formattedEmail';
+
+// Mock realistic data
+import mockGetRecord from './data/getRecord.json';
 
 describe('c-wire-get-record-static-contact', () => {
     afterEach(() => {

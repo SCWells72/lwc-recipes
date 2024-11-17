@@ -1,10 +1,10 @@
 import { createElement } from 'lwc';
 import GraphqlVariables from 'c/graphqlVariables';
 import { graphql } from 'lightning/uiGraphQLApi';
+import { LdsTestWireAdapter } from '@salesforce/wire-service-jest-util';
 
 // Mock realistic data
 import mockGraphQL from './data/graphqlVariablesResponse.json';
-import { LdsTestWireAdapter } from '@salesforce/wire-service-jest-util';
 
 describe('c-graphql-variables', () => {
     afterEach(() => {

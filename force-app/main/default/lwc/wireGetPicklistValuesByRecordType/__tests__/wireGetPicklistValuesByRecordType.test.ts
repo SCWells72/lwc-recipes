@@ -1,10 +1,10 @@
 import { createElement } from 'lwc';
 import WireGetPicklistValuesByRecordType from 'c/wireGetPicklistValuesByRecordType';
 import { getPicklistValuesByRecordType } from 'lightning/uiObjectInfoApi';
+import { TestWireAdapter } from '@salesforce/wire-service-jest-util';
 
 // Mock realistic data
 import mockGetPicklistValuesByRecordType from './data/getPicklistValuesByRecordType.json';
-import { TestWireAdapter } from '@salesforce/wire-service-jest-util';
 
 describe('c-wire-get-picklist-values-by-record-type', () => {
     afterEach(() => {

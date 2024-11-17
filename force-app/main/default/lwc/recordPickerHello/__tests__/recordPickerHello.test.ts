@@ -3,12 +3,12 @@
 import { createElement } from 'lwc';
 import RecordPickerHello from 'c/recordPickerHello';
 import { graphql } from 'lightning/uiGraphQLApi';
+import { LdsTestWireAdapter } from '@salesforce/wire-service-jest-util';
+import LightningRecordPicker from 'lightning/recordPicker';
 
 // Mock realistic data
 import mockGraphQL from './data/graphqlContactResult.json';
 import mockGraphQLEmptyResults from './data/graphqlContactEmptyResult.json';
-import { LdsTestWireAdapter } from '@salesforce/wire-service-jest-util';
-import LightningRecordPicker from 'lightning/recordPicker';
 
 describe('recordPickerHello', () => {
     let element: RecordPickerHello;

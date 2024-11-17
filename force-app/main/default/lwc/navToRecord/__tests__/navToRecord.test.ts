@@ -4,6 +4,9 @@ import { createElement } from 'lwc';
 import NavToRecord from 'c/navToRecord';
 import { getNavigateCalledWith } from 'lightning/navigation';
 import getSingleContact from '@salesforce/apex/ContactController.getSingleContact';
+import { ApexTestWireAdapter } from '@salesforce/wire-service-jest-util';
+import LightningButton from 'lightning/button';
+
 // This test uses a mocked navigation plugin and mocked apex wire.
 // See force-app/test/jest-mocks/navigation.js for the navigation mock,
 // the apex mock is standard with sfdx-lwc-jest,
@@ -11,8 +14,6 @@ import getSingleContact from '@salesforce/apex/ContactController.getSingleContac
 
 // Mocked single contact record Id is only field required
 import mockGetSingleContact from './data/getSingleContact.json';
-import { ApexTestWireAdapter } from '@salesforce/wire-service-jest-util';
-import LightningButton from 'lightning/button';
 
 // Mock Apex wire adapter
 jest.mock(

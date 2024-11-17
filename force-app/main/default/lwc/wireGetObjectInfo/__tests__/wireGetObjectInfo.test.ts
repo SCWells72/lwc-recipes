@@ -3,12 +3,12 @@
 import { createElement } from 'lwc';
 import WireGetObjectInfo from 'c/wireGetObjectInfo';
 import { getObjectInfo } from 'lightning/uiObjectInfoApi';
-
-// Mock realistic data
-import mockGetObjectInfo from './data/getObjectInfo.json';
 import LightningInput from 'lightning/input';
 import LightningButton from 'lightning/button';
 import { TestWireAdapter } from '@salesforce/wire-service-jest-util';
+
+// Mock realistic data
+import mockGetObjectInfo from './data/getObjectInfo.json';
 
 describe('c-wire-get-object-info', () => {
     afterEach(() => {

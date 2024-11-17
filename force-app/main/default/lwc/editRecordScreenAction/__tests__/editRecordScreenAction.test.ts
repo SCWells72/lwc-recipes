@@ -3,13 +3,12 @@ import { CloseScreenEventName } from 'lightning/actions';
 import EditRecordScreenAction from '../editRecordScreenAction';
 import { ShowToastEventName } from 'lightning/platformShowToastEvent';
 import { getRecord, updateRecord } from 'lightning/uiRecordApi';
-
-
-// Mock realistic data
-import mockGetRecord from './data/getRecord.json';
 import { LdsTestWireAdapter } from '@salesforce/wire-service-jest-util';
 import LightningInput from 'lightning/input';
 import LightningButton from 'lightning/button';
+
+// Mock realistic data
+import mockGetRecord from './data/getRecord.json';
 
 const RECORD_ID = 'a00xx000000bqqDAAQ';
 const TOAST_MESSAGE = 'Contact updated';

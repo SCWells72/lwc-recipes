@@ -3,12 +3,12 @@ import LdsNotifyRecordUpdateAvailable from 'c/ldsNotifyRecordUpdateAvailable';
 import { getRecord, notifyRecordUpdateAvailable } from 'lightning/uiRecordApi';
 import updateContact from '@salesforce/apex/ContactController.updateContact';
 import { ShowToastEventName } from 'lightning/platformShowToastEvent';
-
-// Mock realistic data
-import mockGetRecord from './data/getRecord.json';
 import { LdsTestWireAdapter } from '@salesforce/wire-service-jest-util';
 import LightningInput from 'lightning/input';
 import LightningButton from 'lightning/button';
+
+// Mock realistic data
+import mockGetRecord from './data/getRecord.json';
 
 // Mock updateContact
 jest.mock(

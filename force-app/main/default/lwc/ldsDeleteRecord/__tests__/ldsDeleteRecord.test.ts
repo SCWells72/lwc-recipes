@@ -2,14 +2,14 @@ import { createElement } from 'lwc';
 import LdsDeleteRecord from 'c/ldsDeleteRecord';
 import { deleteRecord } from 'lightning/uiRecordApi';
 import getAccountList from '@salesforce/apex/AccountController.getAccountList';
+import { ApexTestWireAdapter } from '@salesforce/wire-service-jest-util';
+import LightningButtonIcon from 'lightning/buttonIcon';
 
 // Realistic data with a list of contacts
 import mockGetAccountList from './data/getAccountList.json';
 // An empty list of records to verify the component does something reasonable
 // when there is no data to display
 import mockGetAccountListNoRecords from './data/getAccountListNoRecords.json';
-import { ApexTestWireAdapter } from '@salesforce/wire-service-jest-util';
-import LightningButtonIcon from 'lightning/buttonIcon';
 
 // Mock getAccountList Apex wire adapter
 jest.mock(

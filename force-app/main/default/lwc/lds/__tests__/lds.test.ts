@@ -4,11 +4,11 @@ import { createElement } from 'lwc';
 import Lds from 'c/lds';
 import { getNavigateCalledWith } from 'lightning/navigation';
 import getSingleContact from '@salesforce/apex/ContactController.getSingleContact';
+import { ApexTestWireAdapter } from '@salesforce/wire-service-jest-util';
+import LightningButton from 'lightning/button';
 
 // Realistic data with a single record
 import mockGetSingleContact from './data/getSingleContact.json';
-import { ApexTestWireAdapter } from '@salesforce/wire-service-jest-util';
-import LightningButton from 'lightning/button';
 
 // Mock getSingleContact Apex wire adapter
 jest.mock(

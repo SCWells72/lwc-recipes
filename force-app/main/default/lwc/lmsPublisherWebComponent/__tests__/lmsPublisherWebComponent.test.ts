@@ -6,10 +6,10 @@ import { publish } from 'lightning/messageService';
 import RECORD_SELECTED_CHANNEL from '@salesforce/messageChannel/Record_Selected__c';
 
 import getContactList from '@salesforce/apex/ContactController.getContactList';
+import { ApexTestWireAdapter } from '@salesforce/wire-service-jest-util';
 
 // Realistic data with a list of contacts
 import mockGetContactList from './data/getContactList.json';
-import { ApexTestWireAdapter } from '@salesforce/wire-service-jest-util';
 
 // Mock getContactList Apex wire adapter
 jest.mock(

@@ -1,10 +1,10 @@
 import { createElement } from 'lwc';
 import WireGetRecord from 'c/wireGetRecord';
 import { getRecord } from 'lightning/uiRecordApi';
+import { LdsTestWireAdapter } from '@salesforce/wire-service-jest-util';
 
 // Mock realistic data
 import mockGetRecord from './data/wireGetRecordResponse.json';
-import { LdsTestWireAdapter } from '@salesforce/wire-service-jest-util';
 
 describe('c-wire-get-record', () => {
     afterEach(() => {

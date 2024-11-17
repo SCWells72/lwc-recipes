@@ -6,12 +6,12 @@ import { ShowToastEventName } from 'lightning/platformShowToastEvent';
 import { getRecord } from 'lightning/uiRecordApi';
 import { subscribe, MessageContext, publish } from 'lightning/messageService';
 import RECORD_SELECTED_CHANNEL from '@salesforce/messageChannel/Record_Selected__c';
-
-import mockGetRecord from './data/getRecord.json';
-import mockGetRecordNoPicture from './data/getRecordNoPicture.json';
 import { LdsTestWireAdapter } from '@salesforce/wire-service-jest-util';
 import LightningFormattedPhone from 'lightning/formattedPhone';
 import LightningFormattedEmail from 'lightning/formattedEmail';
+
+import mockGetRecord from './data/getRecord.json';
+import mockGetRecordNoPicture from './data/getRecordNoPicture.json';
 
 describe('c-lms-subscriber-web-component', () => {
     afterEach(() => {

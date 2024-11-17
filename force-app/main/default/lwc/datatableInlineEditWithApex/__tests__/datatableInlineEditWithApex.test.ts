@@ -6,11 +6,11 @@ import getContacts from '@salesforce/apex/ContactController.getContactList';
 import updateContacts from '@salesforce/apex/ContactController.updateContacts';
 import { ShowToastEventName } from 'lightning/platformShowToastEvent';
 import { refreshApex } from '@salesforce/apex';
+import { ApexTestWireAdapter } from '@salesforce/wire-service-jest-util';
+import LightningDatatable from 'lightning/datatable';
 
 // Realistic data with a list of contacts
 import mockGetContactList from './data/getContactList.json';
-import { ApexTestWireAdapter } from '@salesforce/wire-service-jest-util';
-import LightningDatatable from 'lightning/datatable';
 
 // Mock getContactList Apex wire adapter
 jest.mock(
