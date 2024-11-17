@@ -1,9 +1,8 @@
 import { LightningElement } from 'lwc';
-
 export default class HelloConditionalRendering extends LightningElement {
     areDetailsVisible = false;
-
     handleChange(event) {
         this.areDetailsVisible = event.target.checked;
     }
 }
+//# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiaGVsbG9Db25kaXRpb25hbFJlbmRlcmluZy5qcyIsInNvdXJjZVJvb3QiOiIiLCJzb3VyY2VzIjpbImhlbGxvQ29uZGl0aW9uYWxSZW5kZXJpbmcudHMiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IkFBQUEsT0FBTyxFQUFFLGdCQUFnQixFQUFFLE1BQU0sS0FBSyxDQUFDO0FBR3ZDLE1BQU0sQ0FBQyxPQUFPLE9BQU8seUJBQTBCLFNBQVEsZ0JBQWdCO0lBQ25FLGlCQUFpQixHQUFHLEtBQUssQ0FBQztJQUUxQixZQUFZLENBQUMsS0FBa0M7UUFDM0MsSUFBSSxDQUFDLGlCQUFpQixHQUFvQixLQUFLLENBQUMsTUFBTyxDQUFDLE9BQU8sQ0FBQztJQUNwRSxDQUFDO0NBQ0oifQ==

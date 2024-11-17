@@ -1,12 +1,10 @@
 import { LightningElement, wire, api } from 'lwc';
 import { getRecord, getFieldValue } from 'lightning/uiRecordApi';
-
 import NAME_FIELD from '@salesforce/schema/Contact.Name';
 import TITLE_FIELD from '@salesforce/schema/Contact.Title';
 import PHONE_FIELD from '@salesforce/schema/Contact.Phone';
 import EMAIL_FIELD from '@salesforce/schema/Contact.Email';
 import PICTURE_FIELD from '@salesforce/schema/Contact.Picture__c';
-
 const fields = [
     NAME_FIELD,
     TITLE_FIELD,
@@ -14,29 +12,25 @@ const fields = [
     EMAIL_FIELD,
     PICTURE_FIELD
 ];
-
 export default class ContactInfo extends LightningElement {
-    @api recordId;
-
-    @wire(getRecord, { recordId: '$recordId', fields }) contact;
-
+    @api
+    recordId;
+    @wire(getRecord, { recordId: '$recordId', fields })
+    contact;
     get name() {
         return getFieldValue(this.contact.data, NAME_FIELD);
     }
-
     get title() {
         return getFieldValue(this.contact.data, TITLE_FIELD);
     }
-
     get phone() {
         return getFieldValue(this.contact.data, PHONE_FIELD);
     }
-
     get email() {
         return getFieldValue(this.contact.data, EMAIL_FIELD);
     }
-
     get picture() {
         return getFieldValue(this.contact.data, PICTURE_FIELD);
     }
 }
+//# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiY29udGFjdEluZm8uanMiLCJzb3VyY2VSb290IjoiIiwic291cmNlcyI6WyJjb250YWN0SW5mby50cyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiQUFBQSxPQUFPLEVBQUUsZ0JBQWdCLEVBQUUsSUFBSSxFQUFFLEdBQUcsRUFBRSxNQUFNLEtBQUssQ0FBQztBQUNsRCxPQUFPLEVBQUUsU0FBUyxFQUFFLGFBQWEsRUFBd0IsTUFBTSx1QkFBdUIsQ0FBQztBQUV2RixPQUFPLFVBQVUsTUFBTSxpQ0FBaUMsQ0FBQztBQUN6RCxPQUFPLFdBQVcsTUFBTSxrQ0FBa0MsQ0FBQztBQUMzRCxPQUFPLFdBQVcsTUFBTSxrQ0FBa0MsQ0FBQztBQUMzRCxPQUFPLFdBQVcsTUFBTSxrQ0FBa0MsQ0FBQztBQUMzRCxPQUFPLGFBQWEsTUFBTSx1Q0FBdUMsQ0FBQztBQUVsRSxNQUFNLE1BQU0sR0FBRztJQUNYLFVBQVU7SUFDVixXQUFXO0lBQ1gsV0FBVztJQUNYLFdBQVc7SUFDWCxhQUFhO0NBQ2hCLENBQUM7QUFFRixNQUFNLENBQUMsT0FBTyxPQUFPLFdBQVksU0FBUSxnQkFBZ0I7SUFDckQsQ0FBQyxHQUFHO0lBQUMsUUFBUSxDQUFTO0lBRXRCLENBQUMsSUFBSSxDQUFDLFNBQVMsRUFBRSxFQUFFLFFBQVEsRUFBRSxXQUFXLEVBQUUsTUFBTSxFQUFFLENBQUM7SUFBQyxPQUFPLENBQW1DO0lBRTlGLElBQUksSUFBSTtRQUNKLE9BQU8sYUFBYSxDQUFDLElBQUksQ0FBQyxPQUFPLENBQUMsSUFBSSxFQUFFLFVBQVUsQ0FBQyxDQUFDO0lBQ3hELENBQUM7SUFFRCxJQUFJLEtBQUs7UUFDTCxPQUFPLGFBQWEsQ0FBQyxJQUFJLENBQUMsT0FBTyxDQUFDLElBQUksRUFBRSxXQUFXLENBQUMsQ0FBQztJQUN6RCxDQUFDO0lBRUQsSUFBSSxLQUFLO1FBQ0wsT0FBTyxhQUFhLENBQUMsSUFBSSxDQUFDLE9BQU8sQ0FBQyxJQUFJLEVBQUUsV0FBVyxDQUFDLENBQUM7SUFDekQsQ0FBQztJQUVELElBQUksS0FBSztRQUNMLE9BQU8sYUFBYSxDQUFDLElBQUksQ0FBQyxPQUFPLENBQUMsSUFBSSxFQUFFLFdBQVcsQ0FBQyxDQUFDO0lBQ3pELENBQUM7SUFFRCxJQUFJLE9BQU87UUFDUCxPQUFPLGFBQWEsQ0FBQyxJQUFJLENBQUMsT0FBTyxDQUFDLElBQUksRUFBRSxhQUFhLENBQUMsQ0FBQztJQUMzRCxDQUFDO0NBQ0oifQ==

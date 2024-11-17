@@ -1,7 +1,10 @@
 import { LightningElement, api } from 'lwc';
-
 export default class CompositionWithAppBuilder extends LightningElement {
-    @api picklistValue;
-    @api stringValue;
-    @api numberValue;
+    @api
+    picklistValue;
+    @api
+    stringValue;
+    @api
+    numberValue;
 }
+//# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiY29tcG9zaXRpb25XaXRoQXBwQnVpbGRlci5qcyIsInNvdXJjZVJvb3QiOiIiLCJzb3VyY2VzIjpbImNvbXBvc2l0aW9uV2l0aEFwcEJ1aWxkZXIudHMiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IkFBQUEsT0FBTyxFQUFFLGdCQUFnQixFQUFFLEdBQUcsRUFBRSxNQUFNLEtBQUssQ0FBQztBQUU1QyxNQUFNLENBQUMsT0FBTyxPQUFPLHlCQUEwQixTQUFRLGdCQUFnQjtJQUNuRSxDQUFDLEdBQUc7SUFBQyxhQUFhLENBQVM7SUFDM0IsQ0FBQyxHQUFHO0lBQUMsV0FBVyxDQUFTO0lBQ3pCLENBQUMsR0FBRztJQUFDLFdBQVcsQ0FBUztDQUM1QiJ9

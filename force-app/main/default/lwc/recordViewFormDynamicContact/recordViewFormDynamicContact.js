@@ -1,7 +1,9 @@
 import { LightningElement, api } from 'lwc';
-
 export default class RecordViewFormDynamicContact extends LightningElement {
     // Flexipage provides recordId and objectApiName
-    @api recordId;
-    @api objectApiName;
+    @api
+    recordId;
+    @api
+    objectApiName;
 }
+//# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoicmVjb3JkVmlld0Zvcm1EeW5hbWljQ29udGFjdC5qcyIsInNvdXJjZVJvb3QiOiIiLCJzb3VyY2VzIjpbInJlY29yZFZpZXdGb3JtRHluYW1pY0NvbnRhY3QudHMiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IkFBQUEsT0FBTyxFQUFFLGdCQUFnQixFQUFFLEdBQUcsRUFBRSxNQUFNLEtBQUssQ0FBQztBQUU1QyxNQUFNLENBQUMsT0FBTyxPQUFPLDRCQUE2QixTQUFRLGdCQUFnQjtJQUN0RSxnREFBZ0Q7SUFDaEQsQ0FBQyxHQUFHO0lBQUMsUUFBUSxDQUFTO0lBQ3RCLENBQUMsR0FBRztJQUFDLGFBQWEsQ0FBUztDQUM5QiJ9

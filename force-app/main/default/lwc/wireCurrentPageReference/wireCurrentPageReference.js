@@ -1,10 +1,10 @@
 import { LightningElement, wire } from 'lwc';
 import { CurrentPageReference } from 'lightning/navigation';
-
 export default class WireCurrentPageReference extends LightningElement {
-    @wire(CurrentPageReference) pageRef;
-
+    @wire(CurrentPageReference)
+    pageRef;
     get currentPageReference() {
         return this.pageRef ? JSON.stringify(this.pageRef, null, 2) : '';
     }
 }
+//# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoid2lyZUN1cnJlbnRQYWdlUmVmZXJlbmNlLmpzIiwic291cmNlUm9vdCI6IiIsInNvdXJjZXMiOlsid2lyZUN1cnJlbnRQYWdlUmVmZXJlbmNlLnRzIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiJBQUFBLE9BQU8sRUFBRSxnQkFBZ0IsRUFBRSxJQUFJLEVBQUUsTUFBTSxLQUFLLENBQUM7QUFDN0MsT0FBTyxFQUFFLG9CQUFvQixFQUFFLE1BQU0sc0JBQXNCLENBQUM7QUFHNUQsTUFBTSxDQUFDLE9BQU8sT0FBTyx3QkFBeUIsU0FBUSxnQkFBZ0I7SUFDbEUsQ0FBQyxJQUFJLENBQUMsb0JBQW9CLENBQUM7SUFBQyxPQUFPLENBQWdCO0lBRW5ELElBQUksb0JBQW9CO1FBQ3BCLE9BQU8sSUFBSSxDQUFDLE9BQU8sQ0FBQyxDQUFDLENBQUMsSUFBSSxDQUFDLFNBQVMsQ0FBQyxJQUFJLENBQUMsT0FBTyxFQUFFLElBQUksRUFBRSxDQUFDLENBQUMsQ0FBQyxDQUFDLENBQUMsRUFBRSxDQUFDO0lBQ3JFLENBQUM7Q0FDSiJ9

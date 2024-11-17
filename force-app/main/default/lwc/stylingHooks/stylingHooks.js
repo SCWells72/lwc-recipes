@@ -1,3 +1,4 @@
 import { LightningElement } from 'lwc';
-
-export default class StylingHooks extends LightningElement {}
+export default class StylingHooks extends LightningElement {
+}
+//# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoic3R5bGluZ0hvb2tzLmpzIiwic291cmNlUm9vdCI6IiIsInNvdXJjZXMiOlsic3R5bGluZ0hvb2tzLnRzIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiJBQUFBLE9BQU8sRUFBRSxnQkFBZ0IsRUFBRSxNQUFNLEtBQUssQ0FBQztBQUV2QyxNQUFNLENBQUMsT0FBTyxPQUFPLFlBQWEsU0FBUSxnQkFBZ0I7Q0FBRyJ9

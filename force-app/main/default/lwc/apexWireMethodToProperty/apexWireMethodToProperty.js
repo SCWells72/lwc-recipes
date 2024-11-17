@@ -1,6 +1,7 @@
 import { LightningElement, wire } from 'lwc';
 import getContactList from '@salesforce/apex/ContactController.getContactList';
-
 export default class ApexWireMethodToProperty extends LightningElement {
-    @wire(getContactList) contacts;
+    @wire(getContactList)
+    contacts;
 }
+//# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiYXBleFdpcmVNZXRob2RUb1Byb3BlcnR5LmpzIiwic291cmNlUm9vdCI6IiIsInNvdXJjZXMiOlsiYXBleFdpcmVNZXRob2RUb1Byb3BlcnR5LnRzIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiJBQUFBLE9BQU8sRUFBRSxnQkFBZ0IsRUFBRSxJQUFJLEVBQUUsTUFBTSxLQUFLLENBQUM7QUFDN0MsT0FBTyxjQUFjLE1BQU0sbURBQW1ELENBQUM7QUFFL0UsTUFBTSxDQUFDLE9BQU8sT0FBTyx3QkFBeUIsU0FBUSxnQkFBZ0I7SUFDbEUsQ0FBQyxJQUFJLENBQUMsY0FBYyxDQUFDO0lBQUMsUUFBUSxDQUF3QjtDQUN6RCJ9

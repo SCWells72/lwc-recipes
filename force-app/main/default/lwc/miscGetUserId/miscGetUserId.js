@@ -1,6 +1,6 @@
 import { LightningElement } from 'lwc';
 import Id from '@salesforce/user/Id';
-
 export default class MiscGetUserId extends LightningElement {
     userId = Id;
 }
+//# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoibWlzY0dldFVzZXJJZC5qcyIsInNvdXJjZVJvb3QiOiIiLCJzb3VyY2VzIjpbIm1pc2NHZXRVc2VySWQudHMiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IkFBQUEsT0FBTyxFQUFFLGdCQUFnQixFQUFFLE1BQU0sS0FBSyxDQUFDO0FBQ3ZDLE9BQU8sRUFBRSxNQUFNLHFCQUFxQixDQUFDO0FBRXJDLE1BQU0sQ0FBQyxPQUFPLE9BQU8sYUFBYyxTQUFRLGdCQUFnQjtJQUN2RCxNQUFNLEdBQUcsRUFBRSxDQUFDO0NBQ2YifQ==

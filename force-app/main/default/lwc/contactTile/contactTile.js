@@ -1,5 +1,6 @@
 import { LightningElement, api } from 'lwc';
-
 export default class ContactTile extends LightningElement {
-    @api contact;
+    @api
+    contact;
 }
+//# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiY29udGFjdFRpbGUuanMiLCJzb3VyY2VSb290IjoiIiwic291cmNlcyI6WyJjb250YWN0VGlsZS50cyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiQUFBQSxPQUFPLEVBQUUsZ0JBQWdCLEVBQUUsR0FBRyxFQUFFLE1BQU0sS0FBSyxDQUFDO0FBRTVDLE1BQU0sQ0FBQyxPQUFPLE9BQU8sV0FBWSxTQUFRLGdCQUFnQjtJQUNyRCxDQUFDLEdBQUc7SUFBQyxPQUFPLENBQVU7Q0FDekIifQ==

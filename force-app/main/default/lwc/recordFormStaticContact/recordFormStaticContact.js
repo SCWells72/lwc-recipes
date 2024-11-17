@@ -1,15 +1,15 @@
 import { LightningElement, api } from 'lwc';
-
 import ACCOUNT_FIELD from '@salesforce/schema/Contact.AccountId';
 import NAME_FIELD from '@salesforce/schema/Contact.Name';
 import TITLE_FIELD from '@salesforce/schema/Contact.Title';
 import PHONE_FIELD from '@salesforce/schema/Contact.Phone';
 import EMAIL_FIELD from '@salesforce/schema/Contact.Email';
-
 export default class RecordFormStaticContact extends LightningElement {
     // Flexipage provides recordId and objectApiName
-    @api recordId;
-    @api objectApiName;
-
+    @api
+    recordId;
+    @api
+    objectApiName;
     fields = [ACCOUNT_FIELD, NAME_FIELD, TITLE_FIELD, PHONE_FIELD, EMAIL_FIELD];
 }
+//# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoicmVjb3JkRm9ybVN0YXRpY0NvbnRhY3QuanMiLCJzb3VyY2VSb290IjoiIiwic291cmNlcyI6WyJyZWNvcmRGb3JtU3RhdGljQ29udGFjdC50cyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiQUFBQSxPQUFPLEVBQUUsZ0JBQWdCLEVBQUUsR0FBRyxFQUFFLE1BQU0sS0FBSyxDQUFDO0FBRTVDLE9BQU8sYUFBYSxNQUFNLHNDQUFzQyxDQUFDO0FBQ2pFLE9BQU8sVUFBVSxNQUFNLGlDQUFpQyxDQUFDO0FBQ3pELE9BQU8sV0FBVyxNQUFNLGtDQUFrQyxDQUFDO0FBQzNELE9BQU8sV0FBVyxNQUFNLGtDQUFrQyxDQUFDO0FBQzNELE9BQU8sV0FBVyxNQUFNLGtDQUFrQyxDQUFDO0FBRTNELE1BQU0sQ0FBQyxPQUFPLE9BQU8sdUJBQXdCLFNBQVEsZ0JBQWdCO0lBQ2pFLGdEQUFnRDtJQUNoRCxDQUFDLEdBQUc7SUFBQyxRQUFRLENBQVM7SUFDdEIsQ0FBQyxHQUFHO0lBQUMsYUFBYSxDQUFTO0lBRTNCLE1BQU0sR0FBRyxDQUFDLGFBQWEsRUFBRSxVQUFVLEVBQUUsV0FBVyxFQUFFLFdBQVcsRUFBRSxXQUFXLENBQUMsQ0FBQztDQUMvRSJ9

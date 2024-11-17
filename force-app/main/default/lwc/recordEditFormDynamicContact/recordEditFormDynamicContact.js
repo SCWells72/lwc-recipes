@@ -1,6 +1,8 @@
 import { LightningElement, api } from 'lwc';
-
 export default class RecordEditFormDynamicContact extends LightningElement {
-    @api recordId;
-    @api objectApiName;
+    @api
+    recordId;
+    @api
+    objectApiName;
 }
+//# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoicmVjb3JkRWRpdEZvcm1EeW5hbWljQ29udGFjdC5qcyIsInNvdXJjZVJvb3QiOiIiLCJzb3VyY2VzIjpbInJlY29yZEVkaXRGb3JtRHluYW1pY0NvbnRhY3QudHMiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IkFBQUEsT0FBTyxFQUFFLGdCQUFnQixFQUFFLEdBQUcsRUFBRSxNQUFNLEtBQUssQ0FBQztBQUU1QyxNQUFNLENBQUMsT0FBTyxPQUFPLDRCQUE2QixTQUFRLGdCQUFnQjtJQUN0RSxDQUFDLEdBQUc7SUFBQyxRQUFRLENBQVM7SUFDdEIsQ0FBQyxHQUFHO0lBQUMsYUFBYSxDQUFTO0NBQzlCIn0=

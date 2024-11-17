@@ -1,7 +1,7 @@
 import { LightningElement } from 'lwc';
 import recipesLogo from '@salesforce/contentAssetUrl/recipes_sq_logo';
-
 export default class MiscStaticResource extends LightningElement {
     // Expose the content asset URL for use in the template
     recipesLogoUrl = recipesLogo;
 }
+//# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoibWlzY0NvbnRlbnRBc3NldC5qcyIsInNvdXJjZVJvb3QiOiIiLCJzb3VyY2VzIjpbIm1pc2NDb250ZW50QXNzZXQudHMiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IkFBQUEsT0FBTyxFQUFFLGdCQUFnQixFQUFFLE1BQU0sS0FBSyxDQUFDO0FBQ3ZDLE9BQU8sV0FBVyxNQUFNLDZDQUE2QyxDQUFDO0FBRXRFLE1BQU0sQ0FBQyxPQUFPLE9BQU8sa0JBQW1CLFNBQVEsZ0JBQWdCO0lBQzVELHVEQUF1RDtJQUN2RCxjQUFjLEdBQUcsV0FBVyxDQUFDO0NBQ2hDIn0=

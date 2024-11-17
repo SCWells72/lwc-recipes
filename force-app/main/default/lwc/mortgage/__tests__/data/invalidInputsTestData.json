@@ -1,7 +1,7 @@
 {
     "inputs": [
         {
-            "principal": false,
+            "principal": 0,
             "years": 1,
             "rate": 1
         },
