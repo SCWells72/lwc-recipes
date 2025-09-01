@@ -1,15 +1,15 @@
 public with sharing class AccountController {
-    @AuraEnabled(cacheable=true)
+    @AuraEnabled(Cacheable=true)
     public static List<Account> getAccountList() {
         return [SELECT Id, Name FROM Account WITH USER_MODE LIMIT 10];
     }
 
-    @AuraEnabled(cacheable=true)
+    @AuraEnabled(Cacheable=true)
     public static Integer getTotalNumber() {
         return [SELECT COUNT() FROM Account WITH USER_MODE];
     }
 
-    @AuraEnabled(cacheable=true)
+    @AuraEnabled(Cacheable=true)
     public static Account getSingleAccount() {
         return [
             SELECT Id, Name, Phone, Type
@@ -29,7 +29,7 @@ public with sharing class AccountController {
                 WITH USER_MODE
                 LIMIT 1
             ];
-            acc.NumberOfEmployees = Integer.valueof((Math.random() * 100000));
+            acc.NumberOfEmployees = Integer.valueOf((Math.random() * 100000));
             update as user acc;
         } catch (Exception e) {
             throw new AccountUpdateException(

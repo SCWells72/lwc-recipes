@@ -4,6 +4,8 @@ import { createElement } from 'lwc';
 import EventBubbling from 'c/eventBubbling';
 import getContactList from '@salesforce/apex/ContactController.getContactList';
 import { ApexTestWireAdapter } from '@salesforce/wire-service-jest-util';
+import ContactListItemBubbling from 'c/contactListItemBubbling';
+import ErrorPanel from 'c/errorPanel';
 
 // Realistic data with a list of records
 import mockGetContactList from './data/getContactList.json';
@@ -44,7 +46,7 @@ describe('c-event-bubbling', () => {
     describe('getContactList @wire data', () => {
         it('renders two c-contact-list-item-bubbling elements', async () => {
             // Create component
-            const element = createElement('c-event-bubbling', {
+            const element = createElement<EventBubbling>('c-event-bubbling', {
                 is: EventBubbling
             });
             document.body.appendChild(element);
@@ -56,7 +58,7 @@ describe('c-event-bubbling', () => {
             await flushPromises();
 
             // Select elements for validation
-            const contactListItemEls = element.shadowRoot.querySelectorAll(
+            const contactListItemEls = element.shadowRoot.querySelectorAll<ContactListItemBubbling>(
                 'c-contact-list-item-bubbling'
             );
             expect(contactListItemEls.length).toBe(mockGetContactList.length);
@@ -64,7 +66,7 @@ describe('c-event-bubbling', () => {
 
         it('renders no c-contact-list-item-bubbling elements when no data', async () => {
             // Create component
-            const element = createElement('c-event-bubbling', {
+            const element = createElement<EventBubbling>('c-event-bubbling', {
                 is: EventBubbling
             });
             document.body.appendChild(element);
@@ -76,7 +78,7 @@ describe('c-event-bubbling', () => {
             await flushPromises();
 
             // Select elements for validation
-            const contactListItemEls = element.shadowRoot.querySelectorAll(
+            const contactListItemEls = element.shadowRoot.querySelectorAll<ContactListItemBubbling>(
                 'c-contact-list-item-bubbling'
             );
             expect(contactListItemEls.length).toBe(
@@ -88,7 +90,7 @@ describe('c-event-bubbling', () => {
     describe('getContactList @wire error', () => {
         it('shows error panel element', async () => {
             // Create component
-            const element = createElement('c-event-bubbling', {
+            const element = createElement<EventBubbling>('c-event-bubbling', {
                 is: EventBubbling
             });
             document.body.appendChild(element);
@@ -101,7 +103,7 @@ describe('c-event-bubbling', () => {
 
             // Check for error panel
             const errorPanelEl =
-                element.shadowRoot.querySelector('c-error-panel');
+                element.shadowRoot.querySelector<ErrorPanel>('c-error-panel');
             expect(errorPanelEl).not.toBeNull();
         });
     });
@@ -118,7 +120,7 @@ describe('c-event-bubbling', () => {
         };
 
         // Create component
-        const element = createElement('c-event-bubbling', {
+        const element = createElement<EventBubbling>('c-event-bubbling', {
             is: EventBubbling
         });
         document.body.appendChild(element);
@@ -130,7 +132,7 @@ describe('c-event-bubbling', () => {
         await flushPromises();
 
         // Select element for validation
-        const contactListItemEls = element.shadowRoot.querySelectorAll(
+        const contactListItemEls = element.shadowRoot.querySelectorAll<ContactListItemBubbling>(
             'c-contact-list-item-bubbling'
         );
         expect(contactListItemEls.length).toBe(mockGetContactList.length);
@@ -147,13 +149,13 @@ describe('c-event-bubbling', () => {
         await flushPromises();
 
         // Select element for validation
-        const contactNameEl = element.shadowRoot.querySelector('p');
+        const contactNameEl = element.shadowRoot.querySelector<HTMLParagraphElement>('p');
         expect(contactNameEl.textContent).toBe(CONTACT.Name);
     });
 
     it('is accessible when data is returned', async () => {
         // Create component
-        const element = createElement('c-event-bubbling', {
+        const element = createElement<EventBubbling>('c-event-bubbling', {
             is: EventBubbling
         });
         document.body.appendChild(element);
@@ -170,7 +172,7 @@ describe('c-event-bubbling', () => {
 
     it('is accessible when error is returned', async () => {
         // Create component
-        const element = createElement('c-event-bubbling', {
+        const element = createElement<EventBubbling>('c-event-bubbling', {
             is: EventBubbling
         });
         document.body.appendChild(element);
@@ -197,7 +199,7 @@ describe('c-event-bubbling', () => {
         };
 
         // Create component
-        const element = createElement('c-event-bubbling', {
+        const element = createElement<EventBubbling>('c-event-bubbling', {
             is: EventBubbling
         });
         document.body.appendChild(element);
@@ -209,7 +211,7 @@ describe('c-event-bubbling', () => {
         await flushPromises();
 
         // Select element for validation
-        const contactListItemEls = element.shadowRoot.querySelectorAll(
+        const contactListItemEls = element.shadowRoot.querySelectorAll<ContactListItemBubbling>(
             'c-contact-list-item-bubbling'
         );
         expect(contactListItemEls.length).toBe(mockGetContactList.length);

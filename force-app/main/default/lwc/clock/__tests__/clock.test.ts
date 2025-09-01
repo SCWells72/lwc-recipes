@@ -41,7 +41,7 @@ describe('c-clock', () => {
 
     it('is accessible', async () => {
         // Create component
-        const element = createElement('c-clock', {
+        const element = createElement<Clock>('c-clock', {
             is: Clock
         });
         document.body.appendChild(element);

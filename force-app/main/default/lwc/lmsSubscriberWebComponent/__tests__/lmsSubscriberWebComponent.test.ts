@@ -29,7 +29,7 @@ describe('c-lms-subscriber-web-component', () => {
 
     it('registers the LMS subscriber during the component lifecycle', () => {
         // Create component
-        const element = createElement('c-lms-subscriber-web-component', {
+        const element = createElement<LmsSubscriberWebComponent>('c-lms-subscriber-web-component', {
             is: LmsSubscriberWebComponent
         });
         document.body.appendChild(element);
@@ -41,7 +41,7 @@ describe('c-lms-subscriber-web-component', () => {
 
     it('invokes getRecord with the published message payload value', async () => {
         // Create component
-        const element = createElement('c-lms-subscriber-web-component', {
+        const element = createElement<LmsSubscriberWebComponent>('c-lms-subscriber-web-component', {
             is: LmsSubscriberWebComponent
         });
         document.body.appendChild(element);
@@ -63,7 +63,7 @@ describe('c-lms-subscriber-web-component', () => {
     describe('getRecord @wire data', () => {
         it('renders contact details with picture', async () => {
             // Create component
-            const element = createElement('c-lms-subscriber-web-component', {
+            const element = createElement<LmsSubscriberWebComponent>('c-lms-subscriber-web-component', {
                 is: LmsSubscriberWebComponent
             });
             document.body.appendChild(element);
@@ -75,10 +75,10 @@ describe('c-lms-subscriber-web-component', () => {
             await flushPromises();
 
             // Select elements for validation
-            const imgEl = element.shadowRoot.querySelector('img');
+            const imgEl = element.shadowRoot.querySelector<HTMLImageElement>('img');
             expect(imgEl.src).toBe(mockGetRecord.fields.Picture__c.value);
 
-            const nameEl = element.shadowRoot.querySelector('p');
+            const nameEl = element.shadowRoot.querySelector<HTMLParagraphElement>('p');
             expect(nameEl.textContent).toBe(mockGetRecord.fields.Name.value);
 
             const phoneEl = element.shadowRoot.querySelector<LightningFormattedPhone>(
@@ -94,7 +94,7 @@ describe('c-lms-subscriber-web-component', () => {
 
         it('renders contact details without picture', async () => {
             // Create component
-            const element = createElement('c-lms-subscriber-web-component', {
+            const element = createElement<LmsSubscriberWebComponent>('c-lms-subscriber-web-component', {
                 is: LmsSubscriberWebComponent
             });
             document.body.appendChild(element);
@@ -106,10 +106,10 @@ describe('c-lms-subscriber-web-component', () => {
             await flushPromises();
 
             // Select elements for validation
-            const imgEl = element.shadowRoot.querySelector('img');
+            const imgEl = element.shadowRoot.querySelector<HTMLImageElement>('img');
             expect(imgEl).toBeNull();
 
-            const nameEl = element.shadowRoot.querySelector('p');
+            const nameEl = element.shadowRoot.querySelector<HTMLParagraphElement>('p');
             expect(nameEl.textContent).toBe(
                 mockGetRecordNoPicture.fields.Name.value
             );
@@ -133,7 +133,7 @@ describe('c-lms-subscriber-web-component', () => {
     describe('getRecord @wire error', () => {
         it('displays a toast message', async () => {
             // Create component
-            const element = createElement('c-lms-subscriber-web-component', {
+            const element = createElement<LmsSubscriberWebComponent>('c-lms-subscriber-web-component', {
                 is: LmsSubscriberWebComponent
             });
             document.body.appendChild(element);
@@ -155,7 +155,7 @@ describe('c-lms-subscriber-web-component', () => {
 
     it('is accessible when contacts returned with picture', async () => {
         // Create component
-        const element = createElement('c-lms-subscriber-web-component', {
+        const element = createElement<LmsSubscriberWebComponent>('c-lms-subscriber-web-component', {
             is: LmsSubscriberWebComponent
         });
         document.body.appendChild(element);
@@ -172,7 +172,7 @@ describe('c-lms-subscriber-web-component', () => {
 
     it('is accessible when contacts returned without picture', async () => {
         // Create component
-        const element = createElement('c-lms-subscriber-web-component', {
+        const element = createElement<LmsSubscriberWebComponent>('c-lms-subscriber-web-component', {
             is: LmsSubscriberWebComponent
         });
         document.body.appendChild(element);
@@ -189,7 +189,7 @@ describe('c-lms-subscriber-web-component', () => {
 
     it('is accessible when error returned', async () => {
         // Create component
-        const element = createElement('c-lms-subscriber-web-component', {
+        const element = createElement<LmsSubscriberWebComponent>('c-lms-subscriber-web-component', {
             is: LmsSubscriberWebComponent
         });
         document.body.appendChild(element);

@@ -22,7 +22,7 @@ describe('c-hello-binding', () => {
         const EXPECTED_NAME = 'Codey';
 
         // Create component
-        const element = createElement('c-hello-binding', {
+        const element = createElement<HelloBinding>('c-hello-binding', {
             is: HelloBinding
         });
         document.body.appendChild(element);
@@ -36,12 +36,12 @@ describe('c-hello-binding', () => {
         await flushPromises();
 
         // Verify displayed greeting
-        const div = element.shadowRoot.querySelector('div');
+        const div = element.shadowRoot.querySelector<HTMLDivElement>('div');
         expect(div.textContent).toBe(`Hello, ${EXPECTED_NAME}!`);
     });
 
     it('is accessible', async () => {
-        const element = createElement('c-hello-binding', {
+        const element = createElement<HelloBinding>('c-hello-binding', {
             is: HelloBinding
         });
         document.body.appendChild(element);

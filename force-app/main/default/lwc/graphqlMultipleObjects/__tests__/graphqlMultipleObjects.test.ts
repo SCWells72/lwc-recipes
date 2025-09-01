@@ -2,6 +2,7 @@ import { createElement } from 'lwc';
 import GraphqlMultipleObjects from 'c/graphqlMultipleObjects';
 import { graphql } from 'lightning/uiGraphQLApi';
 import { LdsTestWireAdapter } from '@salesforce/wire-service-jest-util';
+import ErrorPanel from 'c/errorPanel';
 
 // Mock realistic data
 import mockGraphQL from './data/graphqlMultipleObjectsResponse.json';
@@ -23,7 +24,7 @@ describe('c-graphql-multiple-objects', () => {
     describe('graphql @wire data', () => {
         it('renders accounts and contacts', async () => {
             // Create component
-            const element = createElement('c-graphql-multiple-objects', {
+            const element = createElement<GraphqlMultipleObjects>('c-graphql-multiple-objects', {
                 is: GraphqlMultipleObjects
             });
             document.body.appendChild(element);
@@ -57,7 +58,7 @@ describe('c-graphql-multiple-objects', () => {
     describe('graphql @wire error', () => {
         it('shows error panel element', async () => {
             // Create component
-            const element = createElement('c-graphql-multiple-objects', {
+            const element = createElement<GraphqlMultipleObjects>('c-graphql-multiple-objects', {
                 is: GraphqlMultipleObjects
             });
             document.body.appendChild(element);
@@ -72,14 +73,14 @@ describe('c-graphql-multiple-objects', () => {
             // Verify error panel is displayed
             // Check for error panel
             const errorPanelEl =
-                element.shadowRoot.querySelector('c-error-panel');
+                element.shadowRoot.querySelector<ErrorPanel>('c-error-panel');
             expect(errorPanelEl).not.toBeNull();
         });
     });
 
     it('is accessible when data returned', async () => {
         // Create component
-        const element = createElement('c-graphql-multiple-objects', {
+        const element = createElement<GraphqlMultipleObjects>('c-graphql-multiple-objects', {
             is: GraphqlMultipleObjects
         });
         document.body.appendChild(element);
@@ -96,7 +97,7 @@ describe('c-graphql-multiple-objects', () => {
 
     it('is accessible when error returned', async () => {
         // Create component
-        const element = createElement('c-graphql-multiple-objects', {
+        const element = createElement<GraphqlMultipleObjects>('c-graphql-multiple-objects', {
             is: GraphqlMultipleObjects
         });
         document.body.appendChild(element);

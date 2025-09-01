@@ -34,15 +34,13 @@ export default class LibsFullCalendar extends LightningElement {
     }
 
     initializeCalendar() {
-        const calendarEl = this.template.querySelector('.calendar');
-        // eslint-disable-next-line no-undef
+        const calendarEl = this.template.querySelector<HTMLDivElement>('.calendar');
         // @ts-expect-error How do we resolve types imported from static resources?
         if (typeof FullCalendar === 'undefined') {
             throw new Error(
                 'Could not load FullCalendar. Make sure that Lightning Web Security is enabled for your org. See link below.'
             );
         }
-        // eslint-disable-next-line no-undef
         // @ts-expect-error How do we resolve types imported from static resources?
         const calendar = new FullCalendar.Calendar(calendarEl, {
             initialView: 'dayGridMonth'

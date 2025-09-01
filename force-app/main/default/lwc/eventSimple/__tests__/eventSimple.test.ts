@@ -1,6 +1,7 @@
 import { createElement } from 'lwc';
 import EventSimple from 'c/eventSimple';
 import LightningButton from 'lightning/button';
+import Paginator from 'c/paginator';
 
 describe('c-event-simple', () => {
     afterEach(() => {
@@ -18,12 +19,12 @@ describe('c-event-simple', () => {
 
     it('increments and decrements the page value by 1 on button click', async () => {
         // Create component
-        const element = createElement('c-event-simple', {
+        const element = createElement<EventSimple>('c-event-simple', {
             is: EventSimple
         });
         document.body.appendChild(element);
 
-        const paginatorEl = element.shadowRoot.querySelector('c-paginator');
+        const paginatorEl = element.shadowRoot.querySelector<Paginator>('c-paginator');
         const buttonEls =
             paginatorEl.shadowRoot.querySelectorAll<LightningButton>('lightning-button');
 
@@ -34,7 +35,7 @@ describe('c-event-simple', () => {
             }
         });
 
-        const pageEl = element.shadowRoot.querySelector('p');
+        const pageEl = element.shadowRoot.querySelector<HTMLParagraphElement>('p');
 
         // Wait for any asynchronous DOM updates
         await flushPromises();
@@ -70,7 +71,7 @@ describe('c-event-simple', () => {
     });
 
     it('is accessible', async () => {
-        const element = createElement('c-event-simple', {
+        const element = createElement<EventSimple>('c-event-simple', {
             is: EventSimple
         });
         document.body.appendChild(element);

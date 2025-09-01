@@ -75,7 +75,7 @@ describe('c-datatable-inline-edit-with-ui-api', () => {
     }
 
     it('renders six rows in the lightning datatable', async () => {
-        const element = createElement('c-datatable-inline-edit-with-ui-api', {
+        const element = createElement<DatatableInlineEditWithUiApi>('c-datatable-inline-edit-with-ui-api', {
             is: DatatableInlineEditWithUiApi
         });
         document.body.appendChild(element);
@@ -100,7 +100,7 @@ describe('c-datatable-inline-edit-with-ui-api', () => {
         const INPUT_PARAMETERS = { fields: DRAFT_VALUES[0] };
 
         // Create component
-        const element = createElement('c-datatable-inline-edit-with-ui-api', {
+        const element = createElement<DatatableInlineEditWithUiApi>('c-datatable-inline-edit-with-ui-api', {
             is: DatatableInlineEditWithUiApi
         });
         document.body.appendChild(element);
@@ -112,7 +112,7 @@ describe('c-datatable-inline-edit-with-ui-api', () => {
         await flushPromises();
 
         // Update multiple records with the INPUT_PARAMETERS and simulate the Save event
-        const tableEl = element.shadowRoot.querySelector('lightning-datatable');
+        const tableEl = element.shadowRoot.querySelector<LightningDatatable>('lightning-datatable');
         tableEl.dispatchEvent(
             new CustomEvent('save', {
                 detail: {
@@ -142,7 +142,7 @@ describe('c-datatable-inline-edit-with-ui-api', () => {
         (<jest.MockInstance<any, any>><unknown>updateRecord).mockResolvedValue(INPUT_PARAMETERS);
 
         // Create component
-        const element = createElement('c-datatable-inline-edit-with-ui-api', {
+        const element = createElement<DatatableInlineEditWithUiApi>('c-datatable-inline-edit-with-ui-api', {
             is: DatatableInlineEditWithUiApi
         });
         document.body.appendChild(element);
@@ -189,7 +189,7 @@ describe('c-datatable-inline-edit-with-ui-api', () => {
         });
 
         // Create component
-        const element = createElement('c-datatable-inline-edit-with-ui-api', {
+        const element = createElement<DatatableInlineEditWithUiApi>('c-datatable-inline-edit-with-ui-api', {
             is: DatatableInlineEditWithUiApi
         });
         document.body.appendChild(element);
@@ -206,7 +206,7 @@ describe('c-datatable-inline-edit-with-ui-api', () => {
         await flushPromises();
 
         // Update multiple records with the INPUT_PARAMETERS and simulate the Save event
-        const tableEl = element.shadowRoot.querySelector('lightning-datatable');
+        const tableEl = element.shadowRoot.querySelector<LightningDatatable>('lightning-datatable');
         tableEl.dispatchEvent(
             new CustomEvent('save', {
                 detail: {
@@ -225,7 +225,7 @@ describe('c-datatable-inline-edit-with-ui-api', () => {
 
     it('is accessible when data is returned', async () => {
         // Create component
-        const element = createElement('c-datatable-inline-edit-with-ui-api', {
+        const element = createElement<DatatableInlineEditWithUiApi>('c-datatable-inline-edit-with-ui-api', {
             is: DatatableInlineEditWithUiApi
         });
         document.body.appendChild(element);
@@ -242,7 +242,7 @@ describe('c-datatable-inline-edit-with-ui-api', () => {
 
     it('is accessible when error is returned', async () => {
         // Create component
-        const element = createElement('c-datatable-inline-edit-with-ui-api', {
+        const element = createElement<DatatableInlineEditWithUiApi>('c-datatable-inline-edit-with-ui-api', {
             is: DatatableInlineEditWithUiApi
         });
         document.body.appendChild(element);

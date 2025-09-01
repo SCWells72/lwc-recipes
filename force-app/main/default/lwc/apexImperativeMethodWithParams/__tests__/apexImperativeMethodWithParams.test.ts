@@ -5,6 +5,7 @@ import ApexImperativeMethodWithParams from 'c/apexImperativeMethodWithParams';
 import findContacts from '@salesforce/apex/ContactController.findContacts';
 import LightningInput from 'lightning/input';
 import LightningButton from 'lightning/button';
+import ErrorPanel from 'c/errorPanel';
 
 // Mocking imperative Apex method call
 jest.mock(
@@ -60,7 +61,7 @@ describe('c-apex-imperative-method-with-params', () => {
         (<jest.MockInstance<any, any>><unknown>findContacts).mockResolvedValue(APEX_CONTACTS_SUCCESS);
 
         // Create component
-        const element = createElement('c-apex-imperative-method-with-params', {
+        const element = createElement<ApexImperativeMethodWithParams>('c-apex-imperative-method-with-params', {
             is: ApexImperativeMethodWithParams
         });
         document.body.appendChild(element);
@@ -88,7 +89,7 @@ describe('c-apex-imperative-method-with-params', () => {
         (<jest.MockInstance<any, any>><unknown>findContacts).mockResolvedValue(APEX_CONTACTS_SUCCESS);
 
         // Create component
-        const element = createElement('c-apex-imperative-method-with-params', {
+        const element = createElement<ApexImperativeMethodWithParams>('c-apex-imperative-method-with-params', {
             is: ApexImperativeMethodWithParams
         });
         document.body.appendChild(element);
@@ -107,7 +108,7 @@ describe('c-apex-imperative-method-with-params', () => {
         await flushPromises();
 
         // Select div for validating conditionally changed text content
-        const detailEls = element.shadowRoot.querySelectorAll('p');
+        const detailEls = element.shadowRoot.querySelectorAll<HTMLParagraphElement>('p');
         expect(detailEls.length).toBe(APEX_CONTACTS_SUCCESS.length);
         expect(detailEls[0].textContent).toBe(APEX_CONTACTS_SUCCESS[0].Name);
     });
@@ -117,7 +118,7 @@ describe('c-apex-imperative-method-with-params', () => {
         (<jest.MockInstance<any, any>><unknown>findContacts).mockRejectedValue(APEX_CONTACTS_ERROR);
 
         // Create component
-        const element = createElement('c-apex-imperative-method-with-params', {
+        const element = createElement<ApexImperativeMethodWithParams>('c-apex-imperative-method-with-params', {
             is: ApexImperativeMethodWithParams
         });
         document.body.appendChild(element);
@@ -131,7 +132,7 @@ describe('c-apex-imperative-method-with-params', () => {
         await flushPromises();
 
         // Check for error panel
-        const errorPanelEl = element.shadowRoot.querySelector('c-error-panel');
+        const errorPanelEl = element.shadowRoot.querySelector<ErrorPanel>('c-error-panel');
         expect(errorPanelEl).not.toBeNull();
     });
 
@@ -140,7 +141,7 @@ describe('c-apex-imperative-method-with-params', () => {
         (<jest.MockInstance<any, any>><unknown>findContacts).mockResolvedValue(APEX_CONTACTS_SUCCESS);
 
         // Create component
-        const element = createElement('c-apex-imperative-method-with-params', {
+        const element = createElement<ApexImperativeMethodWithParams>('c-apex-imperative-method-with-params', {
             is: ApexImperativeMethodWithParams
         });
         document.body.appendChild(element);
@@ -162,7 +163,7 @@ describe('c-apex-imperative-method-with-params', () => {
         (<jest.MockInstance<any, any>><unknown>findContacts).mockRejectedValue(APEX_CONTACTS_ERROR);
 
         // Create component
-        const element = createElement('c-apex-imperative-method-with-params', {
+        const element = createElement<ApexImperativeMethodWithParams>('c-apex-imperative-method-with-params', {
             is: ApexImperativeMethodWithParams
         });
         document.body.appendChild(element);

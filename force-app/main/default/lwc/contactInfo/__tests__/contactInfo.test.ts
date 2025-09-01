@@ -8,6 +8,7 @@ import LightningFormattedPhone from 'lightning/formattedPhone';
 import LightningFormattedEmail from 'lightning/formattedEmail';
 
 import mockGetRecord from './data/getRecord.json';
+import ErrorPanel from 'c/errorPanel';
 
 describe('c-contact-info', () => {
     afterEach(() => {
@@ -61,7 +62,7 @@ describe('c-contact-info', () => {
         await flushPromises();
 
         // Select elements for validation
-        const nameEl = element.shadowRoot.querySelector('p');
+        const nameEl = element.shadowRoot.querySelector<HTMLParagraphElement>('p');
         expect(nameEl.textContent).toBe(mockGetRecord.fields.Name.value);
 
         const phoneEl = element.shadowRoot.querySelector<LightningFormattedPhone>(
@@ -90,7 +91,7 @@ describe('c-contact-info', () => {
 
         // Validate that the error panel is displayed
         // Check for error panel
-        const errorPanelEl = element.shadowRoot.querySelector('c-error-panel');
+        const errorPanelEl = element.shadowRoot.querySelector<ErrorPanel>('c-error-panel');
         expect(errorPanelEl).not.toBeNull();
     });
 

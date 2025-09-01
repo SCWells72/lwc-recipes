@@ -18,13 +18,13 @@ describe('c-hello-conditional-rendering', () => {
 
     it('does not show details by default', () => {
         // Create component
-        const element = createElement('c-hello-conditional-rendering', {
+        const element = createElement<HelloConditionalRendering>('c-hello-conditional-rendering', {
             is: HelloConditionalRendering
         });
         document.body.appendChild(element);
 
         // Verify displayed message
-        const detailEl = element.shadowRoot.querySelector(
+        const detailEl = element.shadowRoot.querySelector<HTMLDivElement>(
             '.slds-var-m-vertical_medium'
         );
         expect(detailEl.textContent.trim()).toBe('Not showing details.');
@@ -32,7 +32,7 @@ describe('c-hello-conditional-rendering', () => {
 
     it('shows details when checkbox toggled', async () => {
         // Create component
-        const element = createElement('c-hello-conditional-rendering', {
+        const element = createElement<HelloConditionalRendering>('c-hello-conditional-rendering', {
             is: HelloConditionalRendering
         });
         document.body.appendChild(element);
@@ -46,14 +46,14 @@ describe('c-hello-conditional-rendering', () => {
         await flushPromises();
 
         // Verify displayed message
-        const detailEl = element.shadowRoot.querySelector(
+        const detailEl = element.shadowRoot.querySelector<HTMLDivElement>(
             '.slds-var-m-vertical_medium'
         );
         expect(detailEl.textContent).toBe('These are the details!');
     });
 
     it('is accessible when details are visible', async () => {
-        const element = createElement('c-hello-conditional-rendering', {
+        const element = createElement<HelloConditionalRendering>('c-hello-conditional-rendering', {
             is: HelloConditionalRendering
         });
         document.body.appendChild(element);
@@ -71,7 +71,7 @@ describe('c-hello-conditional-rendering', () => {
     });
 
     it('is accessible when details are not visible', async () => {
-        const element = createElement('c-hello-conditional-rendering', {
+        const element = createElement<HelloConditionalRendering>('c-hello-conditional-rendering', {
             is: HelloConditionalRendering
         });
         document.body.appendChild(element);

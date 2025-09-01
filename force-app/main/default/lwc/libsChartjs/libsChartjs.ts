@@ -69,7 +69,7 @@ export default class LibsChartjs extends LightningElement {
         try {
             await loadScript(this, chartjs);
             const canvas = document.createElement('canvas');
-            this.template.querySelector('div.chart').appendChild(canvas);
+            (this.template.querySelector<HTMLDivElement>('div.chart')).appendChild(canvas);
             const ctx = canvas.getContext('2d');
             // @ts-expect-error How do we get strong types for static resource imports?
             this.chart = new window.Chart(ctx, this.config);

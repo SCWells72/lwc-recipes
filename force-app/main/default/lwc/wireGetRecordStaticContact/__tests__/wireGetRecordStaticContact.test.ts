@@ -6,6 +6,8 @@ import { getRecord } from 'lightning/uiRecordApi';
 import { LdsTestWireAdapter } from '@salesforce/wire-service-jest-util';
 import LightningFormattedPhone from 'lightning/formattedPhone';
 import LightningFormattedEmail from 'lightning/formattedEmail';
+import WireGetRecordDynamicContact from 'c/wireGetRecordDynamicContact';
+import ErrorPanel from 'c/errorPanel';
 
 // Mock realistic data
 import mockGetRecord from './data/getRecord.json';
@@ -27,7 +29,7 @@ describe('c-wire-get-record-static-contact', () => {
     describe('getRecord @wire data', () => {
         it('renders contact details', async () => {
             // Create component
-            const element = createElement('c-wire-get-record-dynamic-contact', {
+            const element = createElement<WireGetRecordDynamicContact>('c-wire-get-record-dynamic-contact', {
                 is: WireGetRecordStaticContact
             });
             document.body.appendChild(element);
@@ -39,7 +41,7 @@ describe('c-wire-get-record-static-contact', () => {
             await flushPromises();
 
             // Select elements for validation
-            const nameEl = element.shadowRoot.querySelector('p');
+            const nameEl = element.shadowRoot.querySelector<HTMLParagraphElement>('p');
             expect(nameEl.textContent).toBe(mockGetRecord.fields.Name.value);
 
             const phoneEl = element.shadowRoot.querySelector<LightningFormattedPhone>(
@@ -57,7 +59,7 @@ describe('c-wire-get-record-static-contact', () => {
     describe('getRecord @wire error', () => {
         it('shows error panel element', async () => {
             // Create component
-            const element = createElement('c-wire-get-record-static-contact', {
+            const element = createElement<WireGetRecordStaticContact>('c-wire-get-record-static-contact', {
                 is: WireGetRecordStaticContact
             });
             document.body.appendChild(element);
@@ -70,14 +72,14 @@ describe('c-wire-get-record-static-contact', () => {
 
             // Check for error panel
             const errorPanelEl =
-                element.shadowRoot.querySelector('c-error-panel');
+                element.shadowRoot.querySelector<ErrorPanel>('c-error-panel');
             expect(errorPanelEl).not.toBeNull();
         });
     });
 
     it('is accessible when data is returned', async () => {
         // Create component
-        const element = createElement('c-wire-get-record-dynamic-contact', {
+        const element = createElement<WireGetRecordDynamicContact>('c-wire-get-record-dynamic-contact', {
             is: WireGetRecordStaticContact
         });
         document.body.appendChild(element);
@@ -94,7 +96,7 @@ describe('c-wire-get-record-static-contact', () => {
 
     it('is accessible when error is returned', async () => {
         // Create component
-        const element = createElement('c-wire-get-record-dynamic-contact', {
+        const element = createElement<WireGetRecordDynamicContact>('c-wire-get-record-dynamic-contact', {
             is: WireGetRecordStaticContact
         });
         document.body.appendChild(element);

@@ -3,6 +3,7 @@
 import { createElement } from 'lwc';
 import CompositionIteration from 'c/compositionIteration';
 import ContactTile from 'c/contactTile';
+import CompositionParent from 'c/compositionBasics';
 
 describe('c-composition-iteration', () => {
     afterEach(() => {
@@ -14,20 +15,20 @@ describe('c-composition-iteration', () => {
 
     it('renders three contact tiles', () => {
         // Create component
-        const element = createElement('c-composition-iteration', {
+        const element = createElement<CompositionIteration>('c-composition-iteration', {
             is: CompositionIteration
         });
         document.body.appendChild(element);
 
         // Select rendered contact tile elements for length check
         const contactTileEls =
-            element.shadowRoot.querySelectorAll('c-contact-tile');
+            element.shadowRoot.querySelectorAll<ContactTile>('c-contact-tile');
         expect(contactTileEls.length).toBe(3);
     });
 
     it('renders contact tiles that contain specific names as contact tile data', () => {
         // Create component
-        const element = createElement('c-composition-basics', {
+        const element = createElement<CompositionParent>('c-composition-basics', {
             is: CompositionIteration
         });
         document.body.appendChild(element);
@@ -45,7 +46,7 @@ describe('c-composition-iteration', () => {
     });
 
     it('is accessible on initialization', async () => {
-        const element = createElement('c-composition-iteration', {
+        const element = createElement<CompositionIteration>('c-composition-iteration', {
             is: CompositionIteration
         });
         document.body.appendChild(element);

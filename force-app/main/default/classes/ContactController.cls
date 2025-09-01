@@ -1,5 +1,5 @@
 public with sharing class ContactController {
-    @AuraEnabled(cacheable=true)
+    @AuraEnabled(Cacheable=true)
     public static List<Contact> getContactList() {
         return [
             SELECT
@@ -18,7 +18,7 @@ public with sharing class ContactController {
         ];
     }
 
-    @AuraEnabled(cacheable=true)
+    @AuraEnabled(Cacheable=true)
     public static List<Contact> findContacts(String searchKey) {
         String key = '%' + searchKey + '%';
         return [
@@ -30,7 +30,7 @@ public with sharing class ContactController {
         ];
     }
 
-    @AuraEnabled(cacheable=true)
+    @AuraEnabled(Cacheable=true)
     public static Contact getSingleContact() {
         return [
             SELECT Id, Name, Title, Phone, Email, Picture__c
@@ -43,7 +43,7 @@ public with sharing class ContactController {
     @AuraEnabled
     public static void updateContacts(List<Contact> contactsForUpdate) {
         // Make sure we can update the database before trying to update
-        if (!Schema.sObjectType.Contact.isUpdateable()) {
+        if (!Schema.SObjectType.Contact.isUpdateable()) {
             throw new SecurityException(
                 'Insufficient permissions to update contacts'
             );

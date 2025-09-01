@@ -1,4 +1,4 @@
-@isTest
+@IsTest
 public with sharing class TestContactController {
     public static void createContacts(Integer amount) {
         List<Contact> contacts = new List<Contact>();
@@ -23,7 +23,7 @@ public with sharing class TestContactController {
             .Id,
             LastName = 'last',
             Email = 'testUser@test.com',
-            UserName = 'Test.User' + DateTime.now().getTime() + '@test.com',
+            Username = 'Test.User' + Datetime.now().getTime() + '@test.com',
             Alias = 'alias',
             TimeZoneSidKey = 'America/Los_Angeles',
             EmailEncodingKey = 'UTF-8',
@@ -32,7 +32,7 @@ public with sharing class TestContactController {
         );
     }
 
-    @isTest
+    @IsTest
     static void getContactList() {
         TestContactController.createContacts(10);
 
@@ -43,7 +43,7 @@ public with sharing class TestContactController {
         Assert.areEqual(10, conts.size(), 'The contact list size should be 10');
     }
 
-    @isTest
+    @IsTest
     static void findContacts() {
         TestContactController.createContacts(10);
 
@@ -58,7 +58,7 @@ public with sharing class TestContactController {
         );
     }
 
-    @isTest
+    @IsTest
     static void getSingleContact() {
         TestContactController.createContacts(1);
 
@@ -73,7 +73,7 @@ public with sharing class TestContactController {
         );
     }
 
-    @isTest
+    @IsTest
     public static void updateContactList() {
         TestContactController.createContacts(2);
         List<Contact> conts = [SELECT Id, FirstName FROM Contact];
@@ -91,7 +91,7 @@ public with sharing class TestContactController {
         );
     }
 
-    @isTest
+    @IsTest
     public static void updateContactListNegative() {
         TestContactController.createContacts(2);
         List<Contact> conts = [SELECT Id, FirstName FROM Contact];
@@ -115,7 +115,7 @@ public with sharing class TestContactController {
         }
     }
 
-    @isTest
+    @IsTest
     static void updateContact() {
         TestContactController.createContacts(1);
         Contact contact = [SELECT Id, FirstName, LastName FROM Contact LIMIT 1];

@@ -3,6 +3,7 @@ import WireGetPicklistValues from 'c/wireGetPicklistValues';
 import { getPicklistValues } from 'lightning/uiObjectInfoApi';
 import { TestWireAdapter } from '@salesforce/wire-service-jest-util';
 import LightningInput from 'lightning/input';
+import ErrorPanel from 'c/errorPanel';
 
 // Mock realistic data
 import mockGetPicklistValues from './data/getPicklistValues.json';
@@ -24,7 +25,7 @@ describe('c-wire-get-picklist-values', () => {
     describe('getPicklistValues @wire data', () => {
         it('renders seven lightning-input fields of type checkbox', async () => {
             // Create component
-            const element = createElement('c-wire-get-picklist-values', {
+            const element = createElement<WireGetPicklistValues>('c-wire-get-picklist-values', {
                 is: WireGetPicklistValues
             });
             document.body.appendChild(element);
@@ -50,7 +51,7 @@ describe('c-wire-get-picklist-values', () => {
     describe('getObjectInfo @wire error', () => {
         it('shows error panel element', async () => {
             // Create component
-            const element = createElement('c-wire-get-picklist-values', {
+            const element = createElement<WireGetPicklistValues>('c-wire-get-picklist-values', {
                 is: WireGetPicklistValues
             });
             document.body.appendChild(element);
@@ -63,14 +64,14 @@ describe('c-wire-get-picklist-values', () => {
 
             // Check for error panel
             const errorPanelEl =
-                element.shadowRoot.querySelector('c-error-panel');
+                element.shadowRoot.querySelector<ErrorPanel>('c-error-panel');
             expect(errorPanelEl).not.toBeNull();
         });
     });
 
     it('is accessible when picklist values are returned', async () => {
         // Create component
-        const element = createElement('c-wire-get-picklist-values', {
+        const element = createElement<WireGetPicklistValues>('c-wire-get-picklist-values', {
             is: WireGetPicklistValues
         });
         document.body.appendChild(element);
@@ -87,7 +88,7 @@ describe('c-wire-get-picklist-values', () => {
 
     it('is accessible when error is returned', async () => {
         // Create component
-        const element = createElement('c-wire-get-picklist-values', {
+        const element = createElement<WireGetPicklistValues>('c-wire-get-picklist-values', {
             is: WireGetPicklistValues
         });
         document.body.appendChild(element);

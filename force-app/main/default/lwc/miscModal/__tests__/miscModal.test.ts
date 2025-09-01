@@ -23,7 +23,7 @@ describe('c-misc-modal', () => {
         const MODAL_PARAMS =
             "{ size: 'small', description: 'MiscModal displays the message in a popup',header: 'The modal header',content: 'The modal content',}";
         // Create component
-        const element = createElement('c-misc-modal', {
+        const element = createElement<MiscModal>('c-misc-modal', {
             is: MiscModal
         });
         document.body.appendChild(element);
@@ -43,7 +43,7 @@ describe('c-misc-modal', () => {
     });
 
     it('is accessible', async () => {
-        const element = createElement('c-misc-modal', {
+        const element = createElement<MiscModal>('c-misc-modal', {
             is: MiscModal
         });
         document.body.appendChild(element);

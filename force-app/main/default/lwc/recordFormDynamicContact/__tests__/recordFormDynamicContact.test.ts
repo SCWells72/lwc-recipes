@@ -42,7 +42,7 @@ describe('c-record-form-dynamic-contact', () => {
     });
 
     it('is accessible', async () => {
-        const element = createElement('c-record-form-dynamic-contact', {
+        const element = createElement<RecordFormDynamicContact>('c-record-form-dynamic-contact', {
             is: RecordFormDynamicContact
         });
         document.body.appendChild(element);

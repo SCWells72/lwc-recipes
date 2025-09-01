@@ -14,6 +14,7 @@ import LightningButton from 'lightning/button';
 
 // Mocked single contact record Id is only field required
 import mockGetSingleContact from './data/getSingleContact.json';
+import ErrorPanel from 'c/errorPanel';
 
 // Mock Apex wire adapter
 jest.mock(
@@ -54,7 +55,7 @@ describe('c-nav-to-record', () => {
         const NAV_RECORD_ID = '0031700000pJRRWAA4';
 
         // Create initial lwc element and attach to virtual DOM
-        const element = createElement('c-nav-to-record', {
+        const element = createElement<NavToRecord>('c-nav-to-record', {
             is: NavToRecord
         });
         document.body.appendChild(element);
@@ -90,7 +91,7 @@ describe('c-nav-to-record', () => {
         const NAV_RECORD_ID = '0031700000pJRRWAA4';
 
         // Create initial lwc element and attach to virtual DOM
-        const element = createElement('c-nav-to-record', {
+        const element = createElement<NavToRecord>('c-nav-to-record', {
             is: NavToRecord
         });
         document.body.appendChild(element);
@@ -122,7 +123,7 @@ describe('c-nav-to-record', () => {
 
     it('shows error panel when there is an error', async () => {
         // Create initial lwc element and attach to virtual DOM
-        const element = createElement('c-nav-to-record', {
+        const element = createElement<NavToRecord>('c-nav-to-record', {
             is: NavToRecord
         });
         document.body.appendChild(element);
@@ -134,13 +135,13 @@ describe('c-nav-to-record', () => {
         await flushPromises();
 
         // Check for error panel
-        const errorPanelEl = element.shadowRoot.querySelector('c-error-panel');
+        const errorPanelEl = element.shadowRoot.querySelector<ErrorPanel>('c-error-panel');
         expect(errorPanelEl).not.toBeNull();
     });
 
     it('is accessible when data is returned', async () => {
         // Create initial lwc element and attach to virtual DOM
-        const element = createElement('c-nav-to-record', {
+        const element = createElement<NavToRecord>('c-nav-to-record', {
             is: NavToRecord
         });
         document.body.appendChild(element);
@@ -157,7 +158,7 @@ describe('c-nav-to-record', () => {
 
     it('is accessible when error is returned', async () => {
         // Create initial lwc element and attach to virtual DOM
-        const element = createElement('c-nav-to-record', {
+        const element = createElement<NavToRecord>('c-nav-to-record', {
             is: NavToRecord
         });
         document.body.appendChild(element);

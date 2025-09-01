@@ -13,7 +13,7 @@ describe('c-api-method', () => {
 
     it('calls the public method "refresh" on the c-clock component', async () => {
         // Create component
-        const element = createElement('c-api-method', {
+        const element = createElement<ApiMethod>('c-api-method', {
             is: ApiMethod
         });
         document.body.appendChild(element);
@@ -32,7 +32,7 @@ describe('c-api-method', () => {
 
     it('is accessible', async () => {
         // Create component
-        const element = createElement('c-api-method', {
+        const element = createElement<ApiMethod>('c-api-method', {
             is: ApiMethod
         });
         document.body.appendChild(element);

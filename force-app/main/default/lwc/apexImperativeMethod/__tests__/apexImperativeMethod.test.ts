@@ -2,6 +2,7 @@ import { createElement } from 'lwc';
 import ApexImperativeMethod from 'c/apexImperativeMethod';
 import getContactList from '@salesforce/apex/ContactController.getContactList';
 import LightningButton from 'lightning/button';
+import ErrorPanel from 'c/errorPanel';
 
 // Mocking imperative Apex method call
 jest.mock(
@@ -53,7 +54,7 @@ describe('c-apex-imperative-method', () => {
         (<jest.MockInstance<any, any>><unknown>getContactList).mockResolvedValue(APEX_CONTACTS_SUCCESS);
 
         // Create component
-        const element = createElement('c-apex-imperative-method', {
+        const element = createElement<ApexImperativeMethod>('c-apex-imperative-method', {
             is: ApexImperativeMethod
         });
         document.body.appendChild(element);
@@ -67,7 +68,7 @@ describe('c-apex-imperative-method', () => {
         await flushPromises();
 
         // Verify displayed text
-        const detailEls = element.shadowRoot.querySelectorAll('p:not([class])');
+        const detailEls = element.shadowRoot.querySelectorAll<HTMLParagraphElement>('p:not([class])');
         expect(detailEls.length).toBe(APEX_CONTACTS_SUCCESS.length);
         expect(detailEls[0].textContent).toBe(APEX_CONTACTS_SUCCESS[0].Name);
         expect(detailEls[1].textContent).toBe(APEX_CONTACTS_SUCCESS[1].Name);
@@ -78,7 +79,7 @@ describe('c-apex-imperative-method', () => {
         (<jest.MockInstance<any, any>><unknown>getContactList).mockRejectedValue(APEX_CONTACTS_ERROR);
 
         // Create component
-        const element = createElement('c-apex-imperative-method', {
+        const element = createElement<ApexImperativeMethod>('c-apex-imperative-method', {
             is: ApexImperativeMethod
         });
         document.body.appendChild(element);
@@ -92,7 +93,7 @@ describe('c-apex-imperative-method', () => {
         await flushPromises();
 
         // Check for error panel
-        const errorPanelEl = element.shadowRoot.querySelector('c-error-panel');
+        const errorPanelEl = element.shadowRoot.querySelector<ErrorPanel>('c-error-panel');
         expect(errorPanelEl).not.toBeNull();
     });
 
@@ -101,7 +102,7 @@ describe('c-apex-imperative-method', () => {
         (<jest.MockInstance<any, any>><unknown>getContactList).mockResolvedValue(APEX_CONTACTS_SUCCESS);
 
         // Create component
-        const element = createElement('c-apex-imperative-method', {
+        const element = createElement<ApexImperativeMethod>('c-apex-imperative-method', {
             is: ApexImperativeMethod
         });
         document.body.appendChild(element);
@@ -122,7 +123,7 @@ describe('c-apex-imperative-method', () => {
         (<jest.MockInstance<any, any>><unknown>getContactList).mockRejectedValue(APEX_CONTACTS_ERROR);
 
         // Create component
-        const element = createElement('c-apex-imperative-method', {
+        const element = createElement<ApexImperativeMethod>('c-apex-imperative-method', {
             is: ApexImperativeMethod
         });
         document.body.appendChild(element);

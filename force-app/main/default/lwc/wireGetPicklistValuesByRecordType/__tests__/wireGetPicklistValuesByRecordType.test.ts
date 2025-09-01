@@ -2,6 +2,8 @@ import { createElement } from 'lwc';
 import WireGetPicklistValuesByRecordType from 'c/wireGetPicklistValuesByRecordType';
 import { getPicklistValuesByRecordType } from 'lightning/uiObjectInfoApi';
 import { TestWireAdapter } from '@salesforce/wire-service-jest-util';
+import ErrorPanel from 'c/errorPanel';
+import LightningTree from 'lightning/tree';
 
 // Mock realistic data
 import mockGetPicklistValuesByRecordType from './data/getPicklistValuesByRecordType.json';
@@ -23,7 +25,7 @@ describe('c-wire-get-picklist-values-by-record-type', () => {
     describe('getPicklistValuesByRecordType @wire data', () => {
         it('renders a lightning-tree with eight entries', async () => {
             // Create component
-            const element = createElement(
+            const element = createElement<WireGetPicklistValuesByRecordType>(
                 'c-wire-get-picklist-values-by-record-type',
                 {
                     is: WireGetPicklistValuesByRecordType
@@ -40,7 +42,7 @@ describe('c-wire-get-picklist-values-by-record-type', () => {
             await flushPromises();
 
             // Select elements for validation
-            const treeEl = element.shadowRoot.querySelector('lightning-tree');
+            const treeEl = element.shadowRoot.querySelector<LightningTree>('lightning-tree');
             expect(treeEl).not.toBeNull();
         });
     });
@@ -48,7 +50,7 @@ describe('c-wire-get-picklist-values-by-record-type', () => {
     describe('getPicklistValuesByRecordType @wire error', () => {
         it('shows error panel element', async () => {
             // Create component
-            const element = createElement(
+            const element = createElement<WireGetPicklistValuesByRecordType>(
                 'c-wire-get-picklist-values-by-record-type',
                 {
                     is: WireGetPicklistValuesByRecordType
@@ -64,14 +66,14 @@ describe('c-wire-get-picklist-values-by-record-type', () => {
 
             // Check for error panel
             const errorPanelEl =
-                element.shadowRoot.querySelector('c-error-panel');
+                element.shadowRoot.querySelector<ErrorPanel>('c-error-panel');
             expect(errorPanelEl).not.toBeNull();
         });
     });
 
     it('is accessible when picklist values are returned', async () => {
         // Create component
-        const element = createElement(
+        const element = createElement<WireGetPicklistValuesByRecordType>(
             'c-wire-get-picklist-values-by-record-type',
             {
                 is: WireGetPicklistValuesByRecordType
@@ -91,7 +93,7 @@ describe('c-wire-get-picklist-values-by-record-type', () => {
 
     it('is accessible when error is returned', async () => {
         // Create component
-        const element = createElement(
+        const element = createElement<WireGetPicklistValuesByRecordType>(
             'c-wire-get-picklist-values-by-record-type',
             {
                 is: WireGetPicklistValuesByRecordType

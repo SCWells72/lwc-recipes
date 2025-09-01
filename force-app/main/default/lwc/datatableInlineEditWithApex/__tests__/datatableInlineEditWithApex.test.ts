@@ -92,7 +92,7 @@ describe('c-datatable-inline-edit-with-apex', () => {
     }
 
     it('renders six rows in the lightning datatable', async () => {
-        const element = createElement('c-datatable-inline-edit-with-apex', {
+        const element = createElement<DatatableInlineEditWithApex>('c-datatable-inline-edit-with-apex', {
             is: DatatableInlineEditWithApex
         });
         document.body.appendChild(element);
@@ -116,7 +116,7 @@ describe('c-datatable-inline-edit-with-apex', () => {
         const INPUT_PARAMETERS = [{ contactsForUpdate: DRAFT_VALUES }];
 
         // Create component
-        const element = createElement('c-datatable-inline-edit-with-apex', {
+        const element = createElement<DatatableInlineEditWithApex>('c-datatable-inline-edit-with-apex', {
             is: DatatableInlineEditWithApex
         });
         document.body.appendChild(element);
@@ -128,7 +128,7 @@ describe('c-datatable-inline-edit-with-apex', () => {
         await flushPromises();
 
         // Update multiple records with the INPUT_PARAMETERS and simulate the Save event
-        const tableEl = element.shadowRoot.querySelector('lightning-datatable');
+        const tableEl = element.shadowRoot.querySelector<LightningDatatable>('lightning-datatable');
         tableEl.dispatchEvent(
             new CustomEvent('save', {
                 detail: {
@@ -154,7 +154,7 @@ describe('c-datatable-inline-edit-with-apex', () => {
         (<jest.MockInstance<any, any>><unknown>updateContacts).mockResolvedValue(INPUT_PARAMETERS);
 
         // Create component
-        const element = createElement('c-datatable-inline-edit-with-apex', {
+        const element = createElement<DatatableInlineEditWithApex>('c-datatable-inline-edit-with-apex', {
             is: DatatableInlineEditWithApex
         });
         document.body.appendChild(element);
@@ -193,7 +193,7 @@ describe('c-datatable-inline-edit-with-apex', () => {
 
     it('displays an error toast on update record error', async () => {
         // Create component
-        const element = createElement('c-datatable-inline-edit-with-apex', {
+        const element = createElement<DatatableInlineEditWithApex>('c-datatable-inline-edit-with-apex', {
             is: DatatableInlineEditWithApex
         });
         document.body.appendChild(element);
@@ -213,7 +213,7 @@ describe('c-datatable-inline-edit-with-apex', () => {
         (<jest.MockInstance<any, any>><unknown>updateContacts).mockRejectedValue(UPDATE_CONTACTS_ERROR);
 
         // Update multiple records with the INPUT_PARAMETERS and simulate the Save event
-        const tableEl = element.shadowRoot.querySelector('lightning-datatable');
+        const tableEl = element.shadowRoot.querySelector<LightningDatatable>('lightning-datatable');
         tableEl.dispatchEvent(
             new CustomEvent('save', {
                 detail: {
@@ -230,7 +230,7 @@ describe('c-datatable-inline-edit-with-apex', () => {
     });
 
     it('is accessible when data is returned', async () => {
-        const element = createElement('c-datatable-inline-edit-with-apex', {
+        const element = createElement<DatatableInlineEditWithApex>('c-datatable-inline-edit-with-apex', {
             is: DatatableInlineEditWithApex
         });
         document.body.appendChild(element);
@@ -247,7 +247,7 @@ describe('c-datatable-inline-edit-with-apex', () => {
 
     it('is accessible when error is returned', async () => {
         // Create component
-        const element = createElement('c-datatable-inline-edit-with-apex', {
+        const element = createElement<DatatableInlineEditWithApex>('c-datatable-inline-edit-with-apex', {
             is: DatatableInlineEditWithApex
         });
         document.body.appendChild(element);

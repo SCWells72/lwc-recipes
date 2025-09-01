@@ -2,6 +2,7 @@ import { createElement } from 'lwc';
 import ApexWireMethodToFunction from 'c/apexWireMethodToFunction';
 import getContactList from '@salesforce/apex/ContactController.getContactList';
 import { ApexTestWireAdapter } from '@salesforce/wire-service-jest-util';
+import ErrorPanel from 'c/errorPanel';
 
 // Realistic data with a list of contacts
 import mockGetContactList from './data/getContactList.json';
@@ -40,7 +41,7 @@ describe('c-apex-wire-method-to-function', () => {
     describe('getContactList @wire', () => {
         it('renders six records when data returned', async () => {
             // Create component
-            const element = createElement('c-apex-wire-method-to-function', {
+            const element = createElement<ApexWireMethodToFunction>('c-apex-wire-method-to-function', {
                 is: ApexWireMethodToFunction
             });
             document.body.appendChild(element);
@@ -52,13 +53,13 @@ describe('c-apex-wire-method-to-function', () => {
             await flushPromises();
 
             // Select elements for validation
-            const detailEls = element.shadowRoot.querySelectorAll('p');
+            const detailEls = element.shadowRoot.querySelectorAll<HTMLParagraphElement>('p');
             expect(detailEls.length).toBe(mockGetContactList.length);
             expect(detailEls[0].textContent).toBe(mockGetContactList[0].Name);
         });
         it('shows error panel element when error returned', async () => {
             // Create component
-            const element = createElement('c-apex-wire-method-to-function', {
+            const element = createElement<ApexWireMethodToFunction>('c-apex-wire-method-to-function', {
                 is: ApexWireMethodToFunction
             });
             document.body.appendChild(element);
@@ -71,14 +72,14 @@ describe('c-apex-wire-method-to-function', () => {
 
             // Check for error panel
             const errorPanelEl =
-                element.shadowRoot.querySelector('c-error-panel');
+                element.shadowRoot.querySelector<ErrorPanel>('c-error-panel');
             expect(errorPanelEl).not.toBeNull();
         });
     });
 
     it('is accessible when data is returned', async () => {
         // Create component
-        const element = createElement('c-apex-wire-method-to-function', {
+        const element = createElement<ApexWireMethodToFunction>('c-apex-wire-method-to-function', {
             is: ApexWireMethodToFunction
         });
         document.body.appendChild(element);
@@ -96,7 +97,7 @@ describe('c-apex-wire-method-to-function', () => {
 
     it('is accessible when error is returned', async () => {
         // Create component
-        const element = createElement('c-apex-wire-method-to-function', {
+        const element = createElement<ApexWireMethodToFunction>('c-apex-wire-method-to-function', {
             is: ApexWireMethodToFunction
         });
         document.body.appendChild(element);

@@ -1,4 +1,4 @@
-@isTest
+@IsTest
 public class TestAccountController {
     public static List<Account> createAccounts(Integer amount) {
         List<Account> accounts = new List<Account>();
@@ -11,7 +11,7 @@ public class TestAccountController {
         return accounts;
     }
 
-    @isTest
+    @IsTest
     static void getAccountList() {
         TestAccountController.createAccounts(10);
 
@@ -22,7 +22,7 @@ public class TestAccountController {
         Assert.areEqual(10, accts.size());
     }
 
-    @isTest
+    @IsTest
     static void getTotalNumber_returnsCount() {
         TestAccountController.createAccounts(10);
 
@@ -33,7 +33,7 @@ public class TestAccountController {
         Assert.areEqual(10, accountNumber);
     }
 
-    @isTest
+    @IsTest
     static void getSingleAccount() {
         TestAccountController.createAccounts(1);
 
@@ -44,7 +44,7 @@ public class TestAccountController {
         Assert.areEqual('Name 1', acc.Name);
     }
 
-    @isTest
+    @IsTest
     static void randomizeAccountData_works() {
         Account acc = TestAccountController.createAccounts(1)[0];
         Integer originalEmployeeCount = acc.NumberOfEmployees;
@@ -62,7 +62,7 @@ public class TestAccountController {
         Assert.areNotEqual(originalEmployeeCount, acc.NumberOfEmployees);
     }
 
-    @isTest
+    @IsTest
     static void randomizeAccountData_failsWithInvalidId() {
         try {
             AccountController.randomizeAccountData(null);

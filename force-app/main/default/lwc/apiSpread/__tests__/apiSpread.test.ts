@@ -38,7 +38,7 @@ describe('c-api-spread', () => {
 
     it('renders c-child component with default values', () => {
         // Create component
-        const element = createElement('c-api-spread', {
+        const element = createElement<ApiSpread>('c-api-spread', {
             is: ApiSpread
         });
         document.body.appendChild(element);
@@ -54,7 +54,7 @@ describe('c-api-spread', () => {
 
     it('changes the value of the c-child component based on user input', async () => {
         // Create component
-        const element = createElement('c-api-spread', {
+        const element = createElement<ApiSpread>('c-api-spread', {
             is: ApiSpread
         });
         document.body.appendChild(element);
@@ -76,7 +76,7 @@ describe('c-api-spread', () => {
 
     it('is accessible', async () => {
         // Create component
-        const element = createElement('c-api-spread', {
+        const element = createElement<ApiSpread>('c-api-spread', {
             is: ApiSpread
         });
         document.body.appendChild(element);

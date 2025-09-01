@@ -14,6 +14,7 @@ import LightningButton from 'lightning/button';
 
 // Mocked single account record Id is only field required
 import mockGetSingleAccount from './data/getSingleAccount.json';
+import ErrorPanel from 'c/errorPanel';
 
 // Mock Apex wire adapter
 jest.mock(
@@ -55,7 +56,7 @@ describe('c-nav-to-related-list', () => {
         const NAV_RECORD_ID = '0013O00000Asx5LQAR';
 
         // Create initial lwc element and attach to virtual DOM
-        const element = createElement('c-nav-to-related-list', {
+        const element = createElement<NavToRelatedList>('c-nav-to-related-list', {
             is: NavToRelatedList
         });
         document.body.appendChild(element);
@@ -87,7 +88,7 @@ describe('c-nav-to-related-list', () => {
 
     it('shows error panel when there is an error', async () => {
         // Create initial lwc element and attach to virtual DOM
-        const element = createElement('c-nav-to-related-list', {
+        const element = createElement<NavToRelatedList>('c-nav-to-related-list', {
             is: NavToRelatedList
         });
         document.body.appendChild(element);
@@ -99,13 +100,13 @@ describe('c-nav-to-related-list', () => {
         await flushPromises();
 
         // Check for error panel
-        const errorPanelEl = element.shadowRoot.querySelector('c-error-panel');
+        const errorPanelEl = element.shadowRoot.querySelector<ErrorPanel>('c-error-panel');
         expect(errorPanelEl).not.toBeNull();
     });
 
     it('is accessible when data is returned', async () => {
         // Create initial lwc element and attach to virtual DOM
-        const element = createElement('c-nav-to-related-list', {
+        const element = createElement<NavToRelatedList>('c-nav-to-related-list', {
             is: NavToRelatedList
         });
         document.body.appendChild(element);
@@ -122,7 +123,7 @@ describe('c-nav-to-related-list', () => {
 
     it('is accessible when error is returned', async () => {
         // Create initial lwc element and attach to virtual DOM
-        const element = createElement('c-nav-to-related-list', {
+        const element = createElement<NavToRelatedList>('c-nav-to-related-list', {
             is: NavToRelatedList
         });
         document.body.appendChild(element);

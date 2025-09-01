@@ -3,6 +3,7 @@
 import { createElement } from 'lwc';
 import LibsFullCalendar from 'c/libsFullCalendar';
 import { loadScript, loadStyle } from 'lightning/platformResourceLoader';
+import ErrorPanel from 'c/errorPanel';
 
 // Sample error for loadScript error
 const LOAD_SCRIPT_ERROR = {
@@ -31,13 +32,13 @@ describe('c-libs-full-calendar', () => {
 
     it('contains a div element for FullCalendar', () => {
         // Create component
-        const element = createElement('c-libs-full-calendar', {
+        const element = createElement<LibsFullCalendar>('c-libs-full-calendar', {
             is: LibsFullCalendar
         });
         document.body.appendChild(element);
 
         // Querying the DOM element that has the lwc:dom directive set.
-        const domEl = element.shadowRoot.querySelector('div.calendar');
+        const domEl = element.shadowRoot.querySelector<HTMLDivElement>('div.calendar');
         expect(domEl).not.toBeNull();
     });
 
@@ -46,7 +47,7 @@ describe('c-libs-full-calendar', () => {
         const FULL_CALENDAR_CSS = 'fullCalendar/main.min.css';
 
         // Create component
-        const element = createElement('c-libs-full-calendar', {
+        const element = createElement<LibsFullCalendar>('c-libs-full-calendar', {
             is: LibsFullCalendar
         });
         document.body.appendChild(element);
@@ -65,7 +66,7 @@ describe('c-libs-full-calendar', () => {
         (<jest.MockInstance<any, any>><unknown>loadScript).mockRejectedValue(LOAD_SCRIPT_ERROR);
 
         // Create component
-        const element = createElement('c-libs-full-calendar', {
+        const element = createElement<LibsFullCalendar>('c-libs-full-calendar', {
             is: LibsFullCalendar
         });
         document.body.appendChild(element);
@@ -75,14 +76,14 @@ describe('c-libs-full-calendar', () => {
 
         // Check if error panel is displayed
         // Check for error panel
-        const errorPanelEl = element.shadowRoot.querySelector('c-error-panel');
+        const errorPanelEl = element.shadowRoot.querySelector<ErrorPanel>('c-error-panel');
         expect(errorPanelEl).not.toBeNull();
     });
 
     it('is accessible when error', async () => {
         (<jest.MockInstance<any, any>><unknown>loadScript).mockRejectedValue(LOAD_SCRIPT_ERROR);
 
-        const element = createElement('c-libs-full-calendar', {
+        const element = createElement<LibsFullCalendar>('c-libs-full-calendar', {
             is: LibsFullCalendar
         });
         document.body.appendChild(element);
@@ -95,7 +96,7 @@ describe('c-libs-full-calendar', () => {
     });
 
     it('is accessible when no error', async () => {
-        const element = createElement('c-libs-full-calendar', {
+        const element = createElement<LibsFullCalendar>('c-libs-full-calendar', {
             is: LibsFullCalendar
         });
         document.body.appendChild(element);

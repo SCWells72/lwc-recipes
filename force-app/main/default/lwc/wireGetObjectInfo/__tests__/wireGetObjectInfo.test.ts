@@ -6,6 +6,7 @@ import { getObjectInfo } from 'lightning/uiObjectInfoApi';
 import LightningInput from 'lightning/input';
 import LightningButton from 'lightning/button';
 import { TestWireAdapter } from '@salesforce/wire-service-jest-util';
+import ErrorPanel from 'c/errorPanel';
 
 // Mock realistic data
 import mockGetObjectInfo from './data/getObjectInfo.json';
@@ -29,7 +30,7 @@ describe('c-wire-get-object-info', () => {
             const USER_INPUT = 'Account';
 
             // Create component
-            const element = createElement('c-wire-get-object-info', {
+            const element = createElement<WireGetObjectInfo>('c-wire-get-object-info', {
                 is: WireGetObjectInfo
             });
             document.body.appendChild(element);
@@ -56,7 +57,7 @@ describe('c-wire-get-object-info', () => {
             const USER_INPUT = 'Account';
 
             // Create component
-            const element = createElement('c-wire-get-object-info', {
+            const element = createElement<WireGetObjectInfo>('c-wire-get-object-info', {
                 is: WireGetObjectInfo
             });
             document.body.appendChild(element);
@@ -79,7 +80,7 @@ describe('c-wire-get-object-info', () => {
             await flushPromises();
 
             // Select element for validation
-            const preEl = element.shadowRoot.querySelector('pre');
+            const preEl = element.shadowRoot.querySelector<HTMLPreElement>('pre');
             expect(preEl.textContent).toEqual(
                 JSON.stringify(mockGetObjectInfo, null, 2)
             );
@@ -89,7 +90,7 @@ describe('c-wire-get-object-info', () => {
     describe('getObjectInfo @wire error', () => {
         it('shows error panel element', async () => {
             // Create component
-            const element = createElement('c-wire-get-object-info', {
+            const element = createElement<WireGetObjectInfo>('c-wire-get-object-info', {
                 is: WireGetObjectInfo
             });
             document.body.appendChild(element);
@@ -102,14 +103,14 @@ describe('c-wire-get-object-info', () => {
 
             // Check for error panel
             const errorPanelEl =
-                element.shadowRoot.querySelector('c-error-panel');
+                element.shadowRoot.querySelector<ErrorPanel>('c-error-panel');
             expect(errorPanelEl).not.toBeNull();
         });
     });
 
     it('is accessible when object info returned', async () => {
         // Create component
-        const element = createElement('c-wire-get-object-info', {
+        const element = createElement<WireGetObjectInfo>('c-wire-get-object-info', {
             is: WireGetObjectInfo
         });
         document.body.appendChild(element);
@@ -126,7 +127,7 @@ describe('c-wire-get-object-info', () => {
 
     it('is accessible when error returned', async () => {
         // Create component
-        const element = createElement('c-wire-get-object-info', {
+        const element = createElement<WireGetObjectInfo>('c-wire-get-object-info', {
             is: WireGetObjectInfo
         });
         document.body.appendChild(element);

@@ -2,6 +2,7 @@ import { createElement } from 'lwc';
 import WireGetRecords from 'c/wireGetRecords';
 import { getRecords } from 'lightning/uiRecordApi';
 import { LdsTestWireAdapter } from '@salesforce/wire-service-jest-util';
+import ErrorPanel from 'c/errorPanel';
 
 // Mock realistic data
 import mockGetRecords from './data/wireGetRecordsResponse.json';
@@ -23,7 +24,7 @@ describe('c-wire-get-records', () => {
     describe('getRecords @wire data', () => {
         it('renders the records value in the pre tag', async () => {
             // Create component
-            const element = createElement('c-wire-get-records', {
+            const element = createElement<WireGetRecords>('c-wire-get-records', {
                 is: WireGetRecords
             });
             document.body.appendChild(element);
@@ -35,7 +36,7 @@ describe('c-wire-get-records', () => {
             await flushPromises();
 
             // Select element for validation
-            const preEl = element.shadowRoot.querySelector('pre');
+            const preEl = element.shadowRoot.querySelector<HTMLPreElement>('pre');
             expect(preEl.textContent).toEqual(
                 JSON.stringify(mockGetRecords, null, 2)
             );
@@ -45,7 +46,7 @@ describe('c-wire-get-records', () => {
     describe('getRecords @wire error', () => {
         it('shows error panel element', async () => {
             // Create component
-            const element = createElement('c-wire-get-records', {
+            const element = createElement<WireGetRecords>('c-wire-get-records', {
                 is: WireGetRecords
             });
             document.body.appendChild(element);
@@ -58,14 +59,14 @@ describe('c-wire-get-records', () => {
 
             // Check for error panel
             const errorPanelEl =
-                element.shadowRoot.querySelector('c-error-panel');
+                element.shadowRoot.querySelector<ErrorPanel>('c-error-panel');
             expect(errorPanelEl).not.toBeNull();
         });
     });
 
     it('is accessible when records returned', async () => {
         // Create component
-        const element = createElement('c-wire-get-records', {
+        const element = createElement<WireGetRecords>('c-wire-get-records', {
             is: WireGetRecords
         });
         document.body.appendChild(element);
@@ -82,7 +83,7 @@ describe('c-wire-get-records', () => {
 
     it('is accessible when error returned', async () => {
         // Create component
-        const element = createElement('c-wire-get-records', {
+        const element = createElement<WireGetRecords>('c-wire-get-records', {
             is: WireGetRecords
         });
         document.body.appendChild(element);

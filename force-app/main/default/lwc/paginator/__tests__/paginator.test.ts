@@ -18,7 +18,7 @@ describe('c-paginator', () => {
 
     it('sends "next" and "previous" events on button click', async () => {
         // Create component
-        const element = createElement('c-paginator', {
+        const element = createElement<Paginator>('c-paginator', {
             is: Paginator
         });
         document.body.appendChild(element);
@@ -45,7 +45,7 @@ describe('c-paginator', () => {
     });
 
     it('is accessible', async () => {
-        const element = createElement('c-paginator', {
+        const element = createElement<Paginator>('c-paginator', {
             is: Paginator
         });
         document.body.appendChild(element);

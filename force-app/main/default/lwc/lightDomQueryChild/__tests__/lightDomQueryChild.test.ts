@@ -6,7 +6,6 @@ import LightningButton from 'lightning/button';
 
 describe('c-light-dom-query-child', () => {
     // Enable light DOM. This is a work around, and it can be removed with the next update of sfdx-lwc-jest.
-    // eslint-disable-next-line no-undef
     // @ts-expect-error What is "lwcRuntimeFlags"?
     lwcRuntimeFlags.ENABLE_LIGHT_DOM_COMPONENTS = true;
 
@@ -21,7 +20,7 @@ describe('c-light-dom-query-child', () => {
         const BUTTON_LABEL = 'Change Text';
         const PARAGRAPH_TEXT = 'Text changed by child';
 
-        const element = createElement('c-light-dom-query-child', {
+        const element = createElement<LightDomQueryChild>('c-light-dom-query-child', {
             is: LightDomQueryChild
         });
         document.body.appendChild(element);
@@ -39,7 +38,7 @@ describe('c-light-dom-query-child', () => {
     });
 
     it('is accessible', async () => {
-        const element = createElement('c-light-dom-query-child', {
+        const element = createElement<LightDomQueryChild>('c-light-dom-query-child', {
             is: LightDomQueryChild
         });
         document.body.appendChild(element);

@@ -5,6 +5,7 @@ import ContactSelector from 'c/contactSelector';
 import getContactList from '@salesforce/apex/ContactController.getContactList';
 import { ApexTestWireAdapter } from '@salesforce/wire-service-jest-util';
 import LightningCombobox from 'lightning/combobox';
+import ErrorPanel from 'c/errorPanel';
 
 // Realistic data with a list of contacts
 import mockGetContactList from './data/getContactList.json';
@@ -44,7 +45,7 @@ describe('c-contact-selector', () => {
         const mockSelectHandler = jest.fn();
 
         // Create component
-        const element = createElement('c-contact-selector', {
+        const element = createElement<ContactSelector>('c-contact-selector', {
             is: ContactSelector
         });
         element.addEventListener('select', mockSelectHandler);
@@ -73,7 +74,7 @@ describe('c-contact-selector', () => {
 
     it('shows error panel element when error returned', async () => {
         // Create component
-        const element = createElement('c-contact-selector', {
+        const element = createElement<ContactSelector>('c-contact-selector', {
             is: ContactSelector
         });
         document.body.appendChild(element);
@@ -86,13 +87,13 @@ describe('c-contact-selector', () => {
 
         // Validate that the error panel is displayed
         // Check for error panel
-        const errorPanelEl = element.shadowRoot.querySelector('c-error-panel');
+        const errorPanelEl = element.shadowRoot.querySelector<ErrorPanel>('c-error-panel');
         expect(errorPanelEl).not.toBeNull();
     });
 
     it('is accessible when data is returned', async () => {
         // Create component
-        const element = createElement('c-contact-selector', {
+        const element = createElement<ContactSelector>('c-contact-selector', {
             is: ContactSelector
         });
         document.body.appendChild(element);
@@ -109,7 +110,7 @@ describe('c-contact-selector', () => {
 
     it('is accessible when error is returned', async () => {
         // Create component
-        const element = createElement('c-contact-selector', {
+        const element = createElement<ContactSelector>('c-contact-selector', {
             is: ContactSelector
         });
         document.body.appendChild(element);

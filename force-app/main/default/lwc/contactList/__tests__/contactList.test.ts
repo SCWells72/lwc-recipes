@@ -42,7 +42,7 @@ describe('c-contact-list', () => {
     describe('getContactList @wire', () => {
         it('renders contact data of six records when data returned', async () => {
             // Create component
-            const element = createElement('c-contact-list', {
+            const element = createElement<ContactList>('c-contact-list', {
                 is: ContactList
             });
             document.body.appendChild(element);
@@ -54,11 +54,11 @@ describe('c-contact-list', () => {
             await flushPromises();
 
             // Select elements for validation
-            const nameEls = element.shadowRoot.querySelectorAll('p');
+            const nameEls = element.shadowRoot.querySelectorAll<HTMLParagraphElement>('p');
             expect(nameEls.length).toBe(mockGetContactList.length);
             expect(nameEls[0].textContent).toBe(mockGetContactList[0].Name);
 
-            const picEl = element.shadowRoot.querySelector('img');
+            const picEl = element.shadowRoot.querySelector<HTMLImageElement>('img');
             expect(picEl.src).toBe(mockGetContactList[0].Picture__c);
         });
     });
@@ -67,7 +67,7 @@ describe('c-contact-list', () => {
         const EVENT_DETAIL_PARAMETER = { contactId: '0031700000pJRRSAA4' };
 
         // Create component
-        const element = createElement('c-contact-list', {
+        const element = createElement<ContactList>('c-contact-list', {
             is: ContactList
         });
         document.body.appendChild(element);
@@ -84,7 +84,7 @@ describe('c-contact-list', () => {
         await flushPromises();
 
         // Select a href to simulate user interaction
-        const linkEl = element.shadowRoot.querySelector('a');
+        const linkEl = element.shadowRoot.querySelector<HTMLAnchorElement>('a');
         linkEl.click();
 
         // Wait for any asynchronous DOM updates
@@ -97,7 +97,7 @@ describe('c-contact-list', () => {
 
     it('is accessible when data is returned', async () => {
         // Create component
-        const element = createElement('c-contact-list', {
+        const element = createElement<ContactList>('c-contact-list', {
             is: ContactList
         });
         document.body.appendChild(element);

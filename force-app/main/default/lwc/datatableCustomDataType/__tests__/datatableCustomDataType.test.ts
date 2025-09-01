@@ -38,7 +38,7 @@ describe('c-datatable-inline-edit', () => {
     }
 
     it('renders six rows in the lightning datatable', async () => {
-        const element = createElement('c-datatable-custom-data-type', {
+        const element = createElement<DatatableCustomDataType>('c-datatable-custom-data-type', {
             is: DatatableCustomDataType
         });
         document.body.appendChild(element);
@@ -65,7 +65,7 @@ describe('c-datatable-inline-edit', () => {
 
     it('is accessible when data is returned', async () => {
         // Create component
-        const element = createElement('c-datatable-custom-data-type', {
+        const element = createElement<DatatableCustomDataType>('c-datatable-custom-data-type', {
             is: DatatableCustomDataType
         });
         document.body.appendChild(element);
@@ -82,7 +82,7 @@ describe('c-datatable-inline-edit', () => {
 
     it('is accessible when error is returned', async () => {
         // Create component
-        const element = createElement('c-datatable-custom-data-type', {
+        const element = createElement<DatatableCustomDataType>('c-datatable-custom-data-type', {
             is: DatatableCustomDataType
         });
         document.body.appendChild(element);

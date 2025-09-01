@@ -11,18 +11,18 @@ describe('c-hello', () => {
 
     it('displays greeting', () => {
         // Create component
-        const element = createElement('c-hello', {
+        const element = createElement<Hello>('c-hello', {
             is: Hello
         });
         document.body.appendChild(element);
 
         // Verify displayed greeting
-        const div = element.shadowRoot.querySelector('div');
+        const div = element.shadowRoot.querySelector<HTMLDivElement>('div');
         expect(div.textContent).toBe('Hello, World!');
     });
 
     it('is accessible', async () => {
-        const element = createElement('c-hello', {
+        const element = createElement<Hello>('c-hello', {
             is: Hello
         });
         document.body.appendChild(element);

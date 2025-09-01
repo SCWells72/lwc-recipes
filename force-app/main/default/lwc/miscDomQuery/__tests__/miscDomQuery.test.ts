@@ -18,7 +18,7 @@ describe('c-misc-dom-query', () => {
 
     it('renders lightning-input checkbox fields unchecked', () => {
         // Create component
-        const element = createElement('c-misc-dom-query', {
+        const element = createElement<MiscDomQuery>('c-misc-dom-query', {
             is: MiscDomQuery
         });
         document.body.appendChild(element);
@@ -33,7 +33,7 @@ describe('c-misc-dom-query', () => {
 
     it('displays labels of checked lightning-input fields as checked items', async () => {
         // Create component
-        const element = createElement('c-misc-dom-query', {
+        const element = createElement<MiscDomQuery>('c-misc-dom-query', {
             is: MiscDomQuery
         });
         document.body.appendChild(element);
@@ -45,7 +45,7 @@ describe('c-misc-dom-query', () => {
         lightningInputEls[0].dispatchEvent(new CustomEvent('change'));
 
         // Query p element
-        const pEl = element.shadowRoot.querySelector('p');
+        const pEl = element.shadowRoot.querySelector<HTMLParagraphElement>('p');
 
         // Wait for any asynchronous DOM updates
         await flushPromises();
@@ -74,7 +74,7 @@ describe('c-misc-dom-query', () => {
     });
 
     it('is accessible', async () => {
-        const element = createElement('c-misc-dom-query', {
+        const element = createElement<MiscDomQuery>('c-misc-dom-query', {
             is: MiscDomQuery
         });
         document.body.appendChild(element);

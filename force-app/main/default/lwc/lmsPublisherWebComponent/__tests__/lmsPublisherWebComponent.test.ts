@@ -7,6 +7,7 @@ import RECORD_SELECTED_CHANNEL from '@salesforce/messageChannel/Record_Selected_
 
 import getContactList from '@salesforce/apex/ContactController.getContactList';
 import { ApexTestWireAdapter } from '@salesforce/wire-service-jest-util';
+import ContactListItemBubbling from 'c/contactListItemBubbling';
 
 // Realistic data with a list of contacts
 import mockGetContactList from './data/getContactList.json';
@@ -43,7 +44,7 @@ describe('c-lms-publisher-web-component', () => {
     describe('getContactList @wire', () => {
         it('renders data of one record when it is returned', async () => {
             // Create component
-            const element = createElement('c-lms-publisher-web-component', {
+            const element = createElement<LmsPublisherWebComponent>('c-lms-publisher-web-component', {
                 is: LmsPublisherWebComponent
             });
             document.body.appendChild(element);
@@ -55,7 +56,7 @@ describe('c-lms-publisher-web-component', () => {
             await flushPromises();
 
             // Select elements for validation
-            const detailEls = element.shadowRoot.querySelectorAll(
+            const detailEls = element.shadowRoot.querySelectorAll<ContactListItemBubbling>(
                 'c-contact-list-item-bubbling'
             );
             expect(detailEls.length).toBe(mockGetContactList.length);
@@ -76,7 +77,7 @@ describe('c-lms-publisher-web-component', () => {
         const PAYLOAD = { recordId: CONTACT.Id };
 
         // Create component
-        const element = createElement('c-lms-publisher-web-component', {
+        const element = createElement<LmsPublisherWebComponent>('c-lms-publisher-web-component', {
             is: LmsPublisherWebComponent
         });
         document.body.appendChild(element);
@@ -87,7 +88,7 @@ describe('c-lms-publisher-web-component', () => {
         // Wait for any asynchronous DOM updates
         await flushPromises();
 
-        const detailEl = element.shadowRoot.querySelector(
+        const detailEl = element.shadowRoot.querySelector<ContactListItemBubbling>(
             'c-contact-list-item-bubbling'
         );
         // Dispatch new event on child component to validate if it triggers
@@ -109,7 +110,7 @@ describe('c-lms-publisher-web-component', () => {
 
     it('is accessible when data is returned', async () => {
         // Create component
-        const element = createElement('c-lms-publisher-web-component', {
+        const element = createElement<LmsPublisherWebComponent>('c-lms-publisher-web-component', {
             is: LmsPublisherWebComponent
         });
         document.body.appendChild(element);

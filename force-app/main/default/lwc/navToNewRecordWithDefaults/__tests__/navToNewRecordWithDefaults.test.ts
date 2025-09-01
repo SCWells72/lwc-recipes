@@ -1,4 +1,3 @@
-/* eslint-disable no-unused-vars */
 // noinspection LocalVariableNamingConventionJS,DuplicatedCode
 
 import { createElement } from 'lwc';
@@ -42,7 +41,7 @@ describe('c-nav-to-new-record', () => {
             encodeDefaultFieldValues(NAV_DEFAULT_VALUES);
 
         // Create initial lwc element and attach to virtual DOM
-        const element = createElement('c-nav-to-new-record-with-defaults', {
+        const element = createElement<NavToNewRecordWithDefaults>('c-nav-to-new-record-with-defaults', {
             is: NavToNewRecordWithDefaults
         });
         document.body.appendChild(element);
@@ -66,7 +65,7 @@ describe('c-nav-to-new-record', () => {
     });
 
     it('is accessible', async () => {
-        const element = createElement('c-nav-to-new-record-with-defaults', {
+        const element = createElement<NavToNewRecordWithDefaults>('c-nav-to-new-record-with-defaults', {
             is: NavToNewRecordWithDefaults
         });
         document.body.appendChild(element);

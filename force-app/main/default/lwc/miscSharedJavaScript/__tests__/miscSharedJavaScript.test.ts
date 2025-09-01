@@ -40,7 +40,7 @@ describe('c-misc-shared-java-script', () => {
     }
     it('calculates mortgage with default values', async () => {
         // Create component
-        const element = createElement('c-misc-shared-java-script', {
+        const element = createElement<MiscSharedJavaScript>('c-misc-shared-java-script', {
             is: MiscSharedJavaScript
         });
         document.body.appendChild(element);
@@ -62,7 +62,7 @@ describe('c-misc-shared-java-script', () => {
 
     it('calculates mortgage with custom values', async () => {
         // Create component
-        const element = createElement('c-misc-shared-java-script', {
+        const element = createElement<MiscSharedJavaScript>('c-misc-shared-java-script', {
             is: MiscSharedJavaScript
         });
         document.body.appendChild(element);
@@ -102,7 +102,7 @@ describe('c-misc-shared-java-script', () => {
     });
 
     it('is accessible', async () => {
-        const element = createElement('c-misc-shared-java-script', {
+        const element = createElement<MiscSharedJavaScript>('c-misc-shared-java-script', {
             is: MiscSharedJavaScript
         });
         document.body.appendChild(element);

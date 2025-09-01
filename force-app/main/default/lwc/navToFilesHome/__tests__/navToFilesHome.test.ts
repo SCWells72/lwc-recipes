@@ -31,7 +31,7 @@ describe('c-nav-to-files-home', () => {
         const NAV_ACTION_NAME = 'home';
 
         // Create initial lwc element and attach to virtual DOM
-        const element = createElement('c-nav-to-files-home', {
+        const element = createElement<NavToFilesHome>('c-nav-to-files-home', {
             is: NavToFilesHome
         });
         document.body.appendChild(element);
@@ -53,7 +53,7 @@ describe('c-nav-to-files-home', () => {
     });
 
     it('is accessible', async () => {
-        const element = createElement('c-nav-to-files-home', {
+        const element = createElement<NavToFilesHome>('c-nav-to-files-home', {
             is: NavToFilesHome
         });
         document.body.appendChild(element);

@@ -33,7 +33,7 @@ describe('c-lds-create-record', () => {
         ];
 
         // Create initial element
-        const element = createElement('c-lds-create-record', {
+        const element = createElement<LdsCreateRecord>('c-lds-create-record', {
             is: LdsCreateRecord
         });
         document.body.appendChild(element);
@@ -64,7 +64,7 @@ describe('c-lds-create-record', () => {
         (<jest.MockInstance<any, any>><unknown>createRecord).mockResolvedValue(mockCreateRecord);
 
         // Create initial element
-        const element = createElement('c-lds-create-record', {
+        const element = createElement<LdsCreateRecord>('c-lds-create-record', {
             is: LdsCreateRecord
         });
         document.body.appendChild(element);
@@ -99,7 +99,7 @@ describe('c-lds-create-record', () => {
         (<jest.MockInstance<any, any>><unknown>createRecord).mockResolvedValue(mockCreateRecord);
 
         // Create initial element
-        const element = createElement('c-lds-create-record', {
+        const element = createElement<LdsCreateRecord>('c-lds-create-record', {
             is: LdsCreateRecord
         });
         document.body.appendChild(element);
@@ -135,7 +135,7 @@ describe('c-lds-create-record', () => {
         (<jest.MockInstance<any, any>><unknown>createRecord).mockRejectedValue(new Error('Account creation error'));
 
         // Create initial element
-        const element = createElement('c-lds-create-record', {
+        const element = createElement<LdsCreateRecord>('c-lds-create-record', {
             is: LdsCreateRecord
         });
         document.body.appendChild(element);
@@ -165,7 +165,7 @@ describe('c-lds-create-record', () => {
     });
 
     it('is accessible', async () => {
-        const element = createElement('c-lds-create-record', {
+        const element = createElement<LdsCreateRecord>('c-lds-create-record', {
             is: LdsCreateRecord
         });
         document.body.appendChild(element);

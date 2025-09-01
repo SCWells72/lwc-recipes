@@ -5,6 +5,8 @@ import ApexImperativeMethodWithComplexParams from 'c/apexImperativeMethodWithCom
 import checkApexTypes from '@salesforce/apex/ApexTypesController.checkApexTypes';
 import LightningInput from 'lightning/input';
 import LightningButton from 'lightning/button';
+import ApexImperativeMethodWithParams from 'c/apexImperativeMethodWithParams';
+import ErrorPanel from 'c/errorPanel';
 
 // Mocking imperative Apex method call
 jest.mock(
@@ -59,7 +61,7 @@ describe('c-apex-imperative-method-with-complex-params', () => {
         (<jest.MockInstance<any, any>><unknown>checkApexTypes).mockResolvedValue(APEX_SUCCESS);
 
         // Create component
-        const element = createElement(
+        const element = createElement<ApexImperativeMethodWithComplexParams>(
             'c-apex-imperative-method-with-complex-params',
             {
                 is: ApexImperativeMethodWithComplexParams
@@ -102,7 +104,7 @@ describe('c-apex-imperative-method-with-complex-params', () => {
         (<jest.MockInstance<any, any>><unknown>checkApexTypes).mockResolvedValue(APEX_SUCCESS);
 
         // Create component
-        const element = createElement(
+        const element = createElement<ApexImperativeMethodWithComplexParams>(
             'c-apex-imperative-method-with-complex-params',
             {
                 is: ApexImperativeMethodWithComplexParams
@@ -135,7 +137,7 @@ describe('c-apex-imperative-method-with-complex-params', () => {
         await flushPromises();
 
         // Select p for validating conditionally changed text content
-        const detailEl = element.shadowRoot.querySelector('p');
+        const detailEl = element.shadowRoot.querySelector<HTMLParagraphElement>('p');
         expect(detailEl.textContent).toBe(APEX_SUCCESS);
     });
 
@@ -144,7 +146,7 @@ describe('c-apex-imperative-method-with-complex-params', () => {
         (<jest.MockInstance<any, any>><unknown>checkApexTypes).mockRejectedValue(APEX_ERROR);
 
         // Create component
-        const element = createElement('c-apex-imperative-method-with-params', {
+        const element = createElement<ApexImperativeMethodWithParams>('c-apex-imperative-method-with-params', {
             is: ApexImperativeMethodWithComplexParams
         });
         document.body.appendChild(element);
@@ -158,13 +160,13 @@ describe('c-apex-imperative-method-with-complex-params', () => {
         await flushPromises();
 
         // Check for error panel
-        const errorPanelEl = element.shadowRoot.querySelector('c-error-panel');
+        const errorPanelEl = element.shadowRoot.querySelector<ErrorPanel>('c-error-panel');
         expect(errorPanelEl).not.toBeNull();
     });
 
     it('is accessible on initialization', async () => {
         // Create component
-        const element = createElement(
+        const element = createElement<ApexImperativeMethodWithComplexParams>(
             'c-apex-imperative-method-with-complex-params',
             {
                 is: ApexImperativeMethodWithComplexParams
@@ -182,7 +184,7 @@ describe('c-apex-imperative-method-with-complex-params', () => {
         (<jest.MockInstance<any, any>><unknown>checkApexTypes).mockRejectedValue(APEX_ERROR);
 
         // Create component
-        const element = createElement('c-apex-imperative-method-with-params', {
+        const element = createElement<ApexImperativeMethodWithParams>('c-apex-imperative-method-with-params', {
             is: ApexImperativeMethodWithComplexParams
         });
         document.body.appendChild(element);

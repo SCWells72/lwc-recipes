@@ -1,5 +1,5 @@
 public with sharing class ApexTypesController {
-    @AuraEnabled(cacheable=true)
+    @AuraEnabled(Cacheable=true)
     public static String checkApexTypes(CustomWrapper wrapper) {
         // Using System.debug() isn't good practice for production applications.
         // It's used here to showcase how the received data looks like in Apex.

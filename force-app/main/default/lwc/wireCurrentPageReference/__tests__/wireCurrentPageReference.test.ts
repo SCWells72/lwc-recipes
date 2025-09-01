@@ -22,13 +22,13 @@ describe('c-wire-current-page-reference', () => {
 
     it('renders the current page reference as <pre> tag', async () => {
         // Create component
-        const element = createElement('c-wire-current-page-reference', {
+        const element = createElement<WireCurrentPageReference>('c-wire-current-page-reference', {
             is: WireCurrentPageReference
         });
         document.body.appendChild(element);
 
         // Select element for validation
-        const preEl = element.shadowRoot.querySelector('pre');
+        const preEl = element.shadowRoot.querySelector<HTMLPreElement>('pre');
         expect(preEl).not.toBeNull();
 
         // Emit data from @wire
@@ -43,7 +43,7 @@ describe('c-wire-current-page-reference', () => {
     });
 
     it('is accessible', async () => {
-        const element = createElement('c-wire-current-page-reference', {
+        const element = createElement<WireCurrentPageReference>('c-wire-current-page-reference', {
             is: WireCurrentPageReference
         });
         document.body.appendChild(element);

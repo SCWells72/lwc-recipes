@@ -2,6 +2,7 @@ import { createElement } from 'lwc';
 import WireGetRecordUser from 'c/wireGetRecordUser';
 import { getRecord, getFieldValue } from 'lightning/uiRecordApi';
 import { LdsTestWireAdapter } from '@salesforce/wire-service-jest-util';
+import ErrorPanel from 'c/errorPanel';
 
 // Mock realistic data
 import mockGetRecord from './data/getRecord.json';
@@ -23,7 +24,7 @@ describe('c-wire-get-record-user', () => {
     describe('getRecord @wire data', () => {
         it('renders user record details', async () => {
             // Create component
-            const element = createElement('c-wire-get-record-user', {
+            const element = createElement<WireGetRecordUser>('c-wire-get-record-user', {
                 is: WireGetRecordUser
             });
             document.body.appendChild(element);
@@ -34,7 +35,7 @@ describe('c-wire-get-record-user', () => {
             // Wait for any asynchronous DOM updates
             await flushPromises();
 
-            const userEls = element.shadowRoot.querySelectorAll('p');
+            const userEls = element.shadowRoot.querySelectorAll<HTMLParagraphElement>('p');
             expect(userEls.length).toBe(3);
             expect((<jest.MockInstance<any, any>><unknown>getFieldValue).mock.calls.length).toBe(2);
         });
@@ -43,7 +44,7 @@ describe('c-wire-get-record-user', () => {
     describe('getRecord @wire error', () => {
         it('shows error panel element', async () => {
             // Create component
-            const element = createElement('c-wire-get-record-user', {
+            const element = createElement<WireGetRecordUser>('c-wire-get-record-user', {
                 is: WireGetRecordUser
             });
             document.body.appendChild(element);
@@ -56,14 +57,14 @@ describe('c-wire-get-record-user', () => {
 
             // Check for error panel
             const errorPanelEl =
-                element.shadowRoot.querySelector('c-error-panel');
+                element.shadowRoot.querySelector<ErrorPanel>('c-error-panel');
             expect(errorPanelEl).not.toBeNull();
         });
     });
 
     it('is accessible when user is returned', async () => {
         // Create component
-        const element = createElement('c-wire-get-record-user', {
+        const element = createElement<WireGetRecordUser>('c-wire-get-record-user', {
             is: WireGetRecordUser
         });
         document.body.appendChild(element);
@@ -80,7 +81,7 @@ describe('c-wire-get-record-user', () => {
 
     it('is accessible when error is returned', async () => {
         // Create component
-        const element = createElement('c-wire-get-record-user', {
+        const element = createElement<WireGetRecordUser>('c-wire-get-record-user', {
             is: WireGetRecordUser
         });
         document.body.appendChild(element);

@@ -13,6 +13,7 @@ import AREANUMBER_FIELD from '@salesforce/schema/Account.AreaNumber__c';
 import { LdsTestWireAdapter } from '@salesforce/wire-service-jest-util';
 import LightningInput from 'lightning/input';
 import LightningButton from 'lightning/button';
+import ErrorPanel from 'c/errorPanel';
 
 // Mock realistic data
 import mockGetRecordCreateDefaults from './data/getRecordCreateDefaults.json';
@@ -60,7 +61,7 @@ describe('c-lds-generate-record-input-for-create', () => {
     describe('getRecordCreateDefaults @wire data', () => {
         it('renders data correctly when field is visible with default value', async () => {
             // Create component
-            const element = createElement(
+            const element = createElement<LdsGenerateRecordInputForCreate>(
                 'c-lds-generate-record-input-for-create',
                 {
                     is: LdsGenerateRecordInputForCreate
@@ -76,7 +77,7 @@ describe('c-lds-generate-record-input-for-create', () => {
             const inputEls =
                 element.shadowRoot.querySelectorAll<LightningInput>('lightning-input');
             const errorPanel =
-                element.shadowRoot.querySelector('c-error-panel');
+                element.shadowRoot.querySelector<ErrorPanel>('c-error-panel');
 
             expect(inputEls.length).toBe(2);
             expect(inputEls[1].value).toBe(
@@ -87,7 +88,7 @@ describe('c-lds-generate-record-input-for-create', () => {
 
         it('renders data correctly when field is not visible', async () => {
             // Create component
-            const element = createElement(
+            const element = createElement<LdsGenerateRecordInputForCreate>(
                 'c-lds-generate-record-input-for-create',
                 {
                     is: LdsGenerateRecordInputForCreate
@@ -104,7 +105,7 @@ describe('c-lds-generate-record-input-for-create', () => {
             const inputEls =
                 element.shadowRoot.querySelectorAll<LightningInput>('lightning-input');
             const errorPanel =
-                element.shadowRoot.querySelector('c-error-panel');
+                element.shadowRoot.querySelector<ErrorPanel>('c-error-panel');
 
             expect(inputEls.length).toBe(2);
             expect(inputEls[1].value).toBe(
@@ -117,7 +118,7 @@ describe('c-lds-generate-record-input-for-create', () => {
     describe('getRecordCreateDefaults @wire error', () => {
         it('shows error panel element', async () => {
             // Create component
-            const element = createElement(
+            const element = createElement<LdsGenerateRecordInputForCreate>(
                 'c-lds-generate-record-input-for-create',
                 {
                     is: LdsGenerateRecordInputForCreate
@@ -132,9 +133,9 @@ describe('c-lds-generate-record-input-for-create', () => {
             await flushPromises();
 
             const inputEls =
-                element.shadowRoot.querySelectorAll('lightning-input');
+                element.shadowRoot.querySelectorAll<LightningInput>('lightning-input');
             const errorPanel =
-                element.shadowRoot.querySelector('c-error-panel');
+                element.shadowRoot.querySelector<ErrorPanel>('c-error-panel');
 
             expect(inputEls.length).toBe(0);
             expect(errorPanel).not.toBeNull();
@@ -147,7 +148,7 @@ describe('c-lds-generate-record-input-for-create', () => {
             (<jest.MockInstance<any, any>><unknown>createRecord).mockResolvedValue(mockCreateRecord);
 
             // Create component
-            const element = createElement(
+            const element = createElement<LdsGenerateRecordInputForCreate>(
                 'c-lds-generate-record-input-for-create',
                 {
                     is: LdsGenerateRecordInputForCreate
@@ -198,7 +199,7 @@ describe('c-lds-generate-record-input-for-create', () => {
             (<jest.MockInstance<any, any>><unknown>createRecord).mockResolvedValue(mockCreateRecord);
 
             // Create component
-            const element = createElement(
+            const element = createElement<LdsGenerateRecordInputForCreate>(
                 'c-lds-generate-record-input-for-create',
                 {
                     is: LdsGenerateRecordInputForCreate
@@ -235,7 +236,7 @@ describe('c-lds-generate-record-input-for-create', () => {
             (<jest.MockInstance<any, any>><unknown>createRecord).mockRejectedValue(new Error('Account creation error'));
 
             // Create component
-            const element = createElement(
+            const element = createElement<LdsGenerateRecordInputForCreate>(
                 'c-lds-generate-record-input-for-create',
                 {
                     is: LdsGenerateRecordInputForCreate
@@ -270,7 +271,7 @@ describe('c-lds-generate-record-input-for-create', () => {
 
     it('is accessible when data is returned', async () => {
         // Create component
-        const element = createElement(
+        const element = createElement<LdsGenerateRecordInputForCreate>(
             'c-lds-generate-record-input-for-create',
             {
                 is: LdsGenerateRecordInputForCreate
@@ -289,7 +290,7 @@ describe('c-lds-generate-record-input-for-create', () => {
 
     it('is accessible when error is returned', async () => {
         // Create component
-        const element = createElement(
+        const element = createElement<LdsGenerateRecordInputForCreate>(
             'c-lds-generate-record-input-for-create',
             {
                 is: LdsGenerateRecordInputForCreate

@@ -29,7 +29,7 @@ describe('c-nav-to-hello-tab', () => {
         const NAV_API_NAME = 'Hello';
 
         // boilerplate code to create lwc element and attach to DOM
-        const element = createElement('c-nav-to-hello-tab', {
+        const element = createElement<NavToHelloTab>('c-nav-to-hello-tab', {
             is: NavToHelloTab
         });
         document.body.appendChild(element);
@@ -49,7 +49,7 @@ describe('c-nav-to-hello-tab', () => {
     });
 
     it('is accessible', async () => {
-        const element = createElement('c-nav-to-hello-tab', {
+        const element = createElement<NavToHelloTab>('c-nav-to-hello-tab', {
             is: NavToHelloTab
         });
         document.body.appendChild(element);

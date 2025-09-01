@@ -31,7 +31,7 @@ describe('c-nav-to-new-record', () => {
         const NAV_ACTION_NAME = 'new';
 
         // Create initial lwc element and attach to virtual DOM
-        const element = createElement('c-nav-to-new-record', {
+        const element = createElement<NavToNewRecord>('c-nav-to-new-record', {
             is: NavToNewRecord
         });
         document.body.appendChild(element);
@@ -54,7 +54,7 @@ describe('c-nav-to-new-record', () => {
     });
 
     it('is accessible', async () => {
-        const element = createElement('c-nav-to-new-record', {
+        const element = createElement<NavToNewRecord>('c-nav-to-new-record', {
             is: NavToNewRecord
         });
         document.body.appendChild(element);

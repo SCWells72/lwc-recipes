@@ -5,6 +5,8 @@ import ApexWireMethodWithComplexParams from 'c/apexWireMethodWithComplexParams';
 import checkApexTypes from '@salesforce/apex/ApexTypesController.checkApexTypes';
 import { ApexTestWireAdapter } from '@salesforce/wire-service-jest-util';
 import LightningInput from 'lightning/input';
+import ErrorPanel from 'c/errorPanel';
+import ApexImperativeMethodWithParams from 'c/apexImperativeMethodWithParams';
 
 // Mock Apex wire adapter
 jest.mock(
@@ -64,7 +66,7 @@ describe('c-apex-wire-method-with-complex-params', () => {
     describe('checkApexTypes @wire data', () => {
         it('gets called with a default configuration', async () => {
             // Create component
-            const element = createElement(
+            const element = createElement<ApexWireMethodWithComplexParams>(
                 'c-apex-wire-method-with-complex-params',
                 {
                     is: ApexWireMethodWithComplexParams
@@ -83,7 +85,7 @@ describe('c-apex-wire-method-with-complex-params', () => {
 
         it('updates the wire parameter based on user input', async () => {
             // Create component
-            const element = createElement(
+            const element = createElement<ApexWireMethodWithComplexParams>(
                 'c-apex-wire-method-with-complex-params',
                 {
                     is: ApexWireMethodWithComplexParams
@@ -120,7 +122,7 @@ describe('c-apex-wire-method-with-complex-params', () => {
 
         it('returns a string value based on user input values', async () => {
             // Create component
-            const element = createElement(
+            const element = createElement<ApexWireMethodWithComplexParams>(
                 'c-apex-wire-method-with-complex-params',
                 {
                     is: ApexWireMethodWithComplexParams
@@ -153,7 +155,7 @@ describe('c-apex-wire-method-with-complex-params', () => {
             await flushPromises();
 
             // Select element for validation
-            const detailEl = element.shadowRoot.querySelector('p');
+            const detailEl = element.shadowRoot.querySelector<HTMLParagraphElement>('p');
             expect(detailEl.textContent).toBe(mockCheckApexTypes);
         });
     });
@@ -161,7 +163,7 @@ describe('c-apex-wire-method-with-complex-params', () => {
     describe('checkApexTypes @wire error', () => {
         it('renders the error panel when the Apex method returns an error', async () => {
             // Create component
-            const element = createElement(
+            const element = createElement<ApexImperativeMethodWithParams>(
                 'c-apex-imperative-method-with-params',
                 {
                     is: ApexWireMethodWithComplexParams
@@ -177,14 +179,14 @@ describe('c-apex-wire-method-with-complex-params', () => {
 
             // Check for error panel
             const errorPanelEl =
-                element.shadowRoot.querySelector('c-error-panel');
+                element.shadowRoot.querySelector<ErrorPanel>('c-error-panel');
             expect(errorPanelEl).not.toBeNull();
         });
     });
 
     it('is accessible when data returned', async () => {
         // Create component
-        const element = createElement(
+        const element = createElement<ApexWireMethodWithComplexParams>(
             'c-apex-wire-method-with-complex-params',
             {
                 is: ApexWireMethodWithComplexParams
@@ -204,7 +206,7 @@ describe('c-apex-wire-method-with-complex-params', () => {
 
     it('is accessible when error returned', async () => {
         // Create component
-        const element = createElement(
+        const element = createElement<ApexWireMethodWithComplexParams>(
             'c-apex-wire-method-with-complex-params',
             {
                 is: ApexWireMethodWithComplexParams

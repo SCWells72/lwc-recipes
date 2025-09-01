@@ -2,6 +2,7 @@ import { createElement } from 'lwc';
 import MiscI18n from 'c/miscI18n';
 import USER_LOCALE from '@salesforce/i18n/locale';
 import USER_CURRENCY from '@salesforce/i18n/currency';
+import I18n from 'c/miscI18n';
 
 describe('c-misc-i18n', () => {
     afterEach(() => {
@@ -13,16 +14,16 @@ describe('c-misc-i18n', () => {
 
     it('component is initialized with correct variables', () => {
         // Create initial element
-        const element = createElement('c-misc-i18n', {
+        const element = createElement<I18n>('c-misc-i18n', {
             is: MiscI18n
         });
         document.body.appendChild(element);
 
-        const userLocale = element.shadowRoot.querySelector('span.userLocale');
+        const userLocale = element.shadowRoot.querySelector<HTMLSpanElement>('span.userLocale');
         expect(userLocale).not.toBeNull();
         expect(userLocale.textContent).toBe(USER_LOCALE);
 
-        const dateUserLocale = element.shadowRoot.querySelector(
+        const dateUserLocale = element.shadowRoot.querySelector<HTMLSpanElement>(
             'span.dateUserLocale'
         );
         expect(dateUserLocale).not.toBeNull();
@@ -30,7 +31,7 @@ describe('c-misc-i18n', () => {
             new Intl.DateTimeFormat(USER_LOCALE).format(new Date())
         );
 
-        const currencyUserLocale = element.shadowRoot.querySelector(
+        const currencyUserLocale = element.shadowRoot.querySelector<HTMLSpanElement>(
             'span.currencyUserLocale'
         );
         expect(currencyUserLocale).not.toBeNull();
@@ -42,7 +43,7 @@ describe('c-misc-i18n', () => {
             }).format(100)
         );
 
-        const dateJapanLocale = element.shadowRoot.querySelector(
+        const dateJapanLocale = element.shadowRoot.querySelector<HTMLSpanElement>(
             'span.dateJapanLocale'
         );
         expect(dateJapanLocale).not.toBeNull();
@@ -50,7 +51,7 @@ describe('c-misc-i18n', () => {
             new Intl.DateTimeFormat('ja-JP').format(new Date())
         );
 
-        const currencyJapanLocale = element.shadowRoot.querySelector(
+        const currencyJapanLocale = element.shadowRoot.querySelector<HTMLSpanElement>(
             'span.currencyJapanLocale'
         );
         expect(currencyJapanLocale).not.toBeNull();
@@ -64,7 +65,7 @@ describe('c-misc-i18n', () => {
     });
 
     it('is accessible', async () => {
-        const element = createElement('c-misc-i18n', {
+        const element = createElement<I18n>('c-misc-i18n', {
             is: MiscI18n
         });
 

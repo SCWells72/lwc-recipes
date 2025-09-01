@@ -3,6 +3,7 @@
 import { createElement } from 'lwc';
 import RecordPickerDynamicTarget from 'c/recordPickerDynamicTarget';
 import LightningCombobox from 'lightning/combobox';
+import LightningRecordPicker from 'lightning/recordPicker';
 
 describe('recordPickerDynamicTarget', () => {
     let element: RecordPickerDynamicTarget;
@@ -34,13 +35,14 @@ describe('recordPickerDynamicTarget', () => {
     }
 
     it('renders a lightning-record-picker component', () => {
-        const recordPickerElement = element.shadowRoot.querySelector(
+        const recordPickerElement = element.shadowRoot.querySelector<LightningRecordPicker>(
             'lightning-record-picker'
         );
         expect(recordPickerElement).toBeTruthy();
     });
 
     it('is accessible', async () => {
+        // noinspection ES6MissingAwait
         expect(element).toBeAccessible();
     });
 
@@ -56,15 +58,14 @@ describe('recordPickerDynamicTarget', () => {
         await flushPromises();
 
         // Check that the target object of the record picker has been updated
-        const recordPickerElement = element.shadowRoot.querySelector(
+        const recordPickerElement = element.shadowRoot.querySelector<LightningRecordPicker>(
             'lightning-record-picker'
         );
-        // @ts-expect-error Not sure what type of element mapping is happening here
         expect(recordPickerElement.objectApiName).toBe('Case');
     });
 
     it('hides the target selector when a record is selected', async () => {
-        const recordPickerElement = element.shadowRoot.querySelector(
+        const recordPickerElement = element.shadowRoot.querySelector<LightningRecordPicker>(
             'lightning-record-picker'
         );
 
@@ -79,14 +80,14 @@ describe('recordPickerDynamicTarget', () => {
         await flushPromises();
 
         // Check that the target selector is not displayed anymore
-        const targetSelector = element.shadowRoot.querySelector(
+        const targetSelector = element.shadowRoot.querySelector<LightningCombobox>(
             '[data-id="targetSelector"]'
         );
         expect(targetSelector).toBeFalsy();
     });
 
     it('displays the target selector again after clearing the selected record', async () => {
-        const recordPickerElement = element.shadowRoot.querySelector(
+        const recordPickerElement = element.shadowRoot.querySelector<LightningRecordPicker>(
             'lightning-record-picker'
         );
         // Simulate a record selection in the record picker
@@ -108,7 +109,7 @@ describe('recordPickerDynamicTarget', () => {
         await flushPromises();
 
         // Check that the target selector is not displayed anymore
-        const targetSelector = element.shadowRoot.querySelector(
+        const targetSelector = element.shadowRoot.querySelector<LightningCombobox>(
             '[data-id="targetSelector"]'
         );
         expect(targetSelector).toBeTruthy();

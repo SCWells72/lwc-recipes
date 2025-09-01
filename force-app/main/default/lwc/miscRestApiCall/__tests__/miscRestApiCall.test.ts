@@ -13,6 +13,8 @@ const QUERY_URL =
 import FETCH_DATA from './data/fetch.json';
 // Realistic test data for an unsuccessful fetch request.
 import FETCH_ERROR from './data/fetchError.json';
+import MiscRestCall from 'c/miscRestApiCall';
+import ErrorPanel from 'c/errorPanel';
 
 describe('c-misc-rest-api-call', () => {
     afterEach(() => {
@@ -53,7 +55,7 @@ describe('c-misc-rest-api-call', () => {
         const QUERY_INPUT = QUERY_URL + USER_INPUT;
 
         // Create component
-        const element = createElement('c-misc-rest-api-call', {
+        const element = createElement<MiscRestCall>('c-misc-rest-api-call', {
             is: MiscRestApiCall
         });
         document.body.appendChild(element);
@@ -83,13 +85,13 @@ describe('c-misc-rest-api-call', () => {
 
     it('renders no book details on default', () => {
         // Create component
-        const element = createElement('c-misc-rest-api-call', {
+        const element = createElement<MiscRestCall>('c-misc-rest-api-call', {
             is: MiscRestApiCall
         });
         document.body.appendChild(element);
 
         // Validating that no p elements are rendered per default.
-        const detailEls = element.shadowRoot.querySelectorAll('p');
+        const detailEls = element.shadowRoot.querySelectorAll<HTMLParagraphElement>('p');
         expect(detailEls.length).toBe(0);
     });
 
@@ -100,12 +102,11 @@ describe('c-misc-rest-api-call', () => {
         );
 
         // Create component
-        const element = createElement('c-misc-rest-api-call', {
+        const element = createElement<MiscRestCall>('c-misc-rest-api-call', {
             is: MiscRestApiCall
         });
         document.body.appendChild(element);
 
-        // eslint-disable-next-line no-unused-vars,@typescript-eslint/no-unused-vars
         (global.fetch = mockFetch(FETCH_DATA));
 
         // Query the input field for simulating user input.
@@ -123,19 +124,18 @@ describe('c-misc-rest-api-call', () => {
         // Validating that as many p elements are rendered as book items are
         // returned by fetch, and that they are populated with the book titles.
         const EXPECTED = Array.from(
-            element.shadowRoot.querySelectorAll('p')
+            element.shadowRoot.querySelectorAll<HTMLParagraphElement>('p')
         ).map((p) => p.textContent);
         expect(EXPECTED).toEqual(BOOK_TITLES);
     });
 
     it('renders an error message when the API request returns an error', async () => {
         // Create component
-        const element = createElement('c-misc-rest-api-call', {
+        const element = createElement<MiscRestCall>('c-misc-rest-api-call', {
             is: MiscRestApiCall
         });
         document.body.appendChild(element);
 
-        // eslint-disable-next-line no-unused-vars,@typescript-eslint/no-unused-vars
         global.fetch = mockFetchError(FETCH_ERROR);
 
         // Query the button for simulating the user action.
@@ -146,18 +146,17 @@ describe('c-misc-rest-api-call', () => {
         await flushPromises();
 
         // Check for error panel
-        const errorPanelEl = element.shadowRoot.querySelector('c-error-panel');
+        const errorPanelEl = element.shadowRoot.querySelector<ErrorPanel>('c-error-panel');
         expect(errorPanelEl).not.toBeNull();
     });
 
     it('is accessible when data is returned', async () => {
         // Create component
-        const element = createElement('c-misc-rest-api-call', {
+        const element = createElement<MiscRestCall>('c-misc-rest-api-call', {
             is: MiscRestApiCall
         });
         document.body.appendChild(element);
 
-        // eslint-disable-next-line no-unused-vars,@typescript-eslint/no-unused-vars
         (global.fetch = mockFetch(FETCH_DATA));
 
         // Query the button for simulating the user action.
@@ -173,12 +172,11 @@ describe('c-misc-rest-api-call', () => {
 
     it('is accessible when error is returned', async () => {
         // Create component
-        const element = createElement('c-misc-rest-api-call', {
+        const element = createElement<MiscRestCall>('c-misc-rest-api-call', {
             is: MiscRestApiCall
         });
         document.body.appendChild(element);
 
-        // eslint-disable-next-line no-unused-vars,@typescript-eslint/no-unused-vars
         global.fetch = mockFetchError(FETCH_ERROR);
 
         // Query the button for simulating the user action.

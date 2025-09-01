@@ -27,7 +27,7 @@ describe('c-child', () => {
         document.body.appendChild(element);
 
         // Query p for validating default welcome message
-        const pEl = element.shadowRoot.querySelector('p');
+        const pEl = element.shadowRoot.querySelector<HTMLParagraphElement>('p');
 
         // Validation for default welcome message with initial values in public properties
         expect(pEl.textContent).toBe('Hello, Amy Taylor!');

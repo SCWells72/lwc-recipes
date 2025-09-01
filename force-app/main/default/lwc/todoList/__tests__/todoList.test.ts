@@ -22,13 +22,13 @@ describe('c-todo-list', () => {
 
     it('renders without any list items as default', () => {
         // Create component
-        const element = createElement('c-todo-list', {
+        const element = createElement<TodoList>('c-todo-list', {
             is: TodoList
         });
         document.body.appendChild(element);
 
         // Query for rendered list items
-        const listItemEls = element.shadowRoot.querySelectorAll('li');
+        const listItemEls = element.shadowRoot.querySelectorAll<HTMLLIElement>('li');
         expect(listItemEls.length).toBe(0);
     });
 
@@ -44,7 +44,7 @@ describe('c-todo-list', () => {
         document.body.appendChild(element);
 
         // Query list items for initial values
-        const listItemEls = element.shadowRoot.querySelectorAll('li');
+        const listItemEls = element.shadowRoot.querySelectorAll<HTMLLIElement>('li');
         expect(listItemEls.length).toBe(todosLength);
     });
 
@@ -61,7 +61,7 @@ describe('c-todo-list', () => {
         await flushPromises();
 
         // Validate rendered output for first todo object
-        const outputEls = element.shadowRoot.querySelectorAll('p');
+        const outputEls = element.shadowRoot.querySelectorAll<HTMLParagraphElement>('p');
         expect(outputEls[0].textContent).toBe(TODOS[0].description);
         const msg = `Priority: ${TODOS[0].priority}`;
         expect(outputEls[1].textContent).toBe(msg);

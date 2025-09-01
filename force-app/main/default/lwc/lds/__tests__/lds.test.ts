@@ -6,6 +6,7 @@ import { getNavigateCalledWith } from 'lightning/navigation';
 import getSingleContact from '@salesforce/apex/ContactController.getSingleContact';
 import { ApexTestWireAdapter } from '@salesforce/wire-service-jest-util';
 import LightningButton from 'lightning/button';
+import ErrorPanel from 'c/errorPanel';
 
 // Realistic data with a single record
 import mockGetSingleContact from './data/getSingleContact.json';
@@ -43,7 +44,7 @@ describe('c-lds', () => {
     describe('getSingleContact @wire data', () => {
         it('render UI with record', async () => {
             // Create component
-            const element = createElement('c-lds', {
+            const element = createElement<Lds>('c-lds', {
                 is: Lds
             });
             document.body.appendChild(element);
@@ -56,7 +57,7 @@ describe('c-lds', () => {
 
             // Select elements for validation
             const buttonEl =
-                element.shadowRoot.querySelector('lightning-button');
+                element.shadowRoot.querySelector<LightningButton>('lightning-button');
             expect(buttonEl).not.toBeNull();
         });
 
@@ -65,7 +66,7 @@ describe('c-lds', () => {
             const INPUT_TYPE = 'standard__recordPage';
 
             // Create component
-            const element = createElement('c-lds', {
+            const element = createElement<Lds>('c-lds', {
                 is: Lds
             });
             document.body.appendChild(element);
@@ -95,7 +96,7 @@ describe('c-lds', () => {
     describe('getSingleContact @wire error', () => {
         it('shows error panel element', async () => {
             // Create component
-            const element = createElement('c-lds', {
+            const element = createElement<Lds>('c-lds', {
                 is: Lds
             });
             document.body.appendChild(element);
@@ -108,13 +109,13 @@ describe('c-lds', () => {
 
             // Check for error panel
             const errorPanelEl =
-                element.shadowRoot.querySelector('c-error-panel');
+                element.shadowRoot.querySelector<ErrorPanel>('c-error-panel');
             expect(errorPanelEl).not.toBeNull();
         });
     });
 
     it('is accessible', async () => {
-        const element = createElement('c-lds', {
+        const element = createElement<Lds>('c-lds', {
             is: Lds
         });
         document.body.appendChild(element);

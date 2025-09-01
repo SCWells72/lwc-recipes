@@ -26,7 +26,7 @@ describe('c-misc-permission-based-u-i', () => {
     }
 
     it('displays the correct UI when custom permission is true', async () => {
-        const element = createElement('c-misc-permission-based-u-i', {
+        const element = createElement<MiscPermissionBasedUI>('c-misc-permission-based-u-i', {
             is: MiscPermissionBasedUI
         });
         document.body.appendChild(element);
@@ -34,12 +34,12 @@ describe('c-misc-permission-based-u-i', () => {
         // Wait for any asynchronous DOM updates
         await flushPromises();
 
-        const pEl = element.shadowRoot.querySelector('p');
+        const pEl = element.shadowRoot.querySelector<HTMLParagraphElement>('p');
         expect(pEl.textContent).toBe('The permission set is assigned');
     });
 
     it('is accessible when custom permission is true', async () => {
-        const element = createElement('c-misc-permission-based-u-i', {
+        const element = createElement<MiscPermissionBasedUI>('c-misc-permission-based-u-i', {
             is: MiscPermissionBasedUI
         });
         document.body.appendChild(element);

@@ -2,6 +2,7 @@ import { createElement } from 'lwc';
 import GraphqlVariables from 'c/graphqlVariables';
 import { graphql } from 'lightning/uiGraphQLApi';
 import { LdsTestWireAdapter } from '@salesforce/wire-service-jest-util';
+import ErrorPanel from 'c/errorPanel';
 
 // Mock realistic data
 import mockGraphQL from './data/graphqlVariablesResponse.json';
@@ -23,7 +24,7 @@ describe('c-graphql-variables', () => {
     describe('graphql @wire data', () => {
         it('renders the returned records', async () => {
             // Create component
-            const element = createElement('c-graphql-variables', {
+            const element = createElement<GraphqlVariables>('c-graphql-variables', {
                 is: GraphqlVariables
             });
             document.body.appendChild(element);
@@ -35,7 +36,7 @@ describe('c-graphql-variables', () => {
             await flushPromises();
 
             // Select paragraphs for length check
-            const contactEls = element.shadowRoot.querySelectorAll('p');
+            const contactEls = element.shadowRoot.querySelectorAll<HTMLParagraphElement>('p');
             expect(contactEls.length).toBe(
                 mockGraphQL.uiapi.query.Contact.edges.length
             );
@@ -45,7 +46,7 @@ describe('c-graphql-variables', () => {
     describe('graphql @wire error', () => {
         it('shows error panel element', async () => {
             // Create component
-            const element = createElement('c-graphql-variables', {
+            const element = createElement<GraphqlVariables>('c-graphql-variables', {
                 is: GraphqlVariables
             });
             document.body.appendChild(element);
@@ -60,14 +61,14 @@ describe('c-graphql-variables', () => {
             // Verify error panel is displayed
             // Check for error panel
             const errorPanelEl =
-                element.shadowRoot.querySelector('c-error-panel');
+                element.shadowRoot.querySelector<ErrorPanel>('c-error-panel');
             expect(errorPanelEl).not.toBeNull();
         });
     });
 
     it('is accessible when data returned', async () => {
         // Create component
-        const element = createElement('c-graphql-variables', {
+        const element = createElement<GraphqlVariables>('c-graphql-variables', {
             is: GraphqlVariables
         });
         document.body.appendChild(element);
@@ -84,7 +85,7 @@ describe('c-graphql-variables', () => {
 
     it('is accessible when error returned', async () => {
         // Create component
-        const element = createElement('c-graphql-variables', {
+        const element = createElement<GraphqlVariables>('c-graphql-variables', {
             is: GraphqlVariables
         });
         document.body.appendChild(element);

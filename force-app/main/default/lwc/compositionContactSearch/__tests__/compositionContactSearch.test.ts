@@ -5,6 +5,7 @@ import CompositionContactSearch from 'c/compositionContactSearch';
 import findContacts from '@salesforce/apex/ContactController.findContacts';
 import LightningInput from 'lightning/input';
 import ContactTile from 'c/contactTile';
+import ErrorPanel from 'c/errorPanel';
 
 // Mocking imperative Apex method call
 jest.mock(
@@ -69,14 +70,14 @@ describe('c-composition-contact-search', () => {
 
     it('does not render contact tiles by default', () => {
         // Create component
-        const element = createElement('c-composition-contact-search', {
+        const element = createElement<CompositionContactSearch>('c-composition-contact-search', {
             is: CompositionContactSearch
         });
         document.body.appendChild(element);
 
         // Select rendered contact tile for length check
         const contactTileEls =
-            element.shadowRoot.querySelectorAll('c-contact-tile');
+            element.shadowRoot.querySelectorAll<ContactTile>('c-contact-tile');
         expect(contactTileEls.length).toBe(0);
     });
 
@@ -87,7 +88,7 @@ describe('c-composition-contact-search', () => {
         (<jest.MockInstance<any, any>><unknown>findContacts).mockResolvedValue(APEX_CONTACTS_SUCCESS);
 
         // Create component
-        const element = createElement('c-composition-contact-search', {
+        const element = createElement<CompositionContactSearch>('c-composition-contact-search', {
             is: CompositionContactSearch
         });
         document.body.appendChild(element);
@@ -119,7 +120,7 @@ describe('c-composition-contact-search', () => {
         (<jest.MockInstance<any, any>><unknown>findContacts).mockRejectedValue(APEX_CONTACTS_ERROR);
 
         // Create component
-        const element = createElement('c-composition-contact-search', {
+        const element = createElement<CompositionContactSearch>('c-composition-contact-search', {
             is: CompositionContactSearch
         });
         document.body.appendChild(element);
@@ -140,7 +141,7 @@ describe('c-composition-contact-search', () => {
         await flushPromises();
 
         // Check for error panel
-        const errorPanelEl = element.shadowRoot.querySelector('c-error-panel');
+        const errorPanelEl = element.shadowRoot.querySelector<ErrorPanel>('c-error-panel');
         expect(errorPanelEl).not.toBeNull();
     });
 
@@ -153,7 +154,7 @@ describe('c-composition-contact-search', () => {
         (<jest.MockInstance<any, any>><unknown>findContacts).mockResolvedValue(APEX_CONTACTS_SUCCESS);
 
         // Create component
-        const element = createElement('c-composition-contact-search', {
+        const element = createElement<CompositionContactSearch>('c-composition-contact-search', {
             is: CompositionContactSearch
         });
         document.body.appendChild(element);
@@ -180,7 +181,7 @@ describe('c-composition-contact-search', () => {
         (<jest.MockInstance<any, any>><unknown>findContacts).mockRejectedValue(APEX_CONTACTS_ERROR);
 
         // Create component
-        const element = createElement('c-composition-contact-search', {
+        const element = createElement<CompositionContactSearch>('c-composition-contact-search', {
             is: CompositionContactSearch
         });
         document.body.appendChild(element);

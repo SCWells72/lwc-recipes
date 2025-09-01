@@ -30,7 +30,7 @@ describe('c-nav-to-chatter-home', () => {
         const NAV_PAGE = 'chatter';
 
         // Create initial lwc element and attach to virtual DOM
-        const element = createElement('c-nav-to-chatter-home', {
+        const element = createElement<NavToChatterHome>('c-nav-to-chatter-home', {
             is: NavToChatterHome
         });
         document.body.appendChild(element);
@@ -50,7 +50,7 @@ describe('c-nav-to-chatter-home', () => {
     });
 
     it('is accessible', async () => {
-        const element = createElement('c-nav-to-chatter-home', {
+        const element = createElement<NavToChatterHome>('c-nav-to-chatter-home', {
             is: NavToChatterHome
         });
         document.body.appendChild(element);

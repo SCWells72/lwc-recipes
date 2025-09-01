@@ -24,7 +24,7 @@ describe('c-misc-notification-modules', () => {
 
     it('shows an alert notification', async () => {
         // Create component
-        const element = createElement('c-misc-notification-modules', {
+        const element = createElement<MiscNotificationModules>('c-misc-notification-modules', {
             is: MiscNotificationModules
         });
         document.body.appendChild(element);
@@ -47,7 +47,7 @@ describe('c-misc-notification-modules', () => {
 
     it('shows a confirm notification and text when ok', async () => {
         // Create component
-        const element = createElement('c-misc-notification-modules', {
+        const element = createElement<MiscNotificationModules>('c-misc-notification-modules', {
             is: MiscNotificationModules
         });
         document.body.appendChild(element);
@@ -68,7 +68,7 @@ describe('c-misc-notification-modules', () => {
 
         // Check if event has been fired
         const confirmResult =
-            element.shadowRoot.querySelector('p.confirmResult');
+            element.shadowRoot.querySelector<HTMLParagraphElement>('p.confirmResult');
         expect(LightningConfirm.open).toHaveBeenCalledTimes(1);
         expect(confirmResult.textContent).toBe(
             'Confirm Status: Ok was clicked'
@@ -77,7 +77,7 @@ describe('c-misc-notification-modules', () => {
 
     it('shows a confirm notification and text when cancelled', async () => {
         // Create component
-        const element = createElement('c-misc-notification-modules', {
+        const element = createElement<MiscNotificationModules>('c-misc-notification-modules', {
             is: MiscNotificationModules
         });
         document.body.appendChild(element);
@@ -98,7 +98,7 @@ describe('c-misc-notification-modules', () => {
 
         // Check if event has been fired
         const confirmResult =
-            element.shadowRoot.querySelector('p.confirmResult');
+            element.shadowRoot.querySelector<HTMLParagraphElement>('p.confirmResult');
         expect(LightningConfirm.open).toHaveBeenCalledTimes(1);
         expect(confirmResult.textContent).toBe(
             'Confirm Status: Cancel was clicked'
@@ -109,7 +109,7 @@ describe('c-misc-notification-modules', () => {
         const PROMPT_VALUE = 'test value';
 
         // Create component
-        const element = createElement('c-misc-notification-modules', {
+        const element = createElement<MiscNotificationModules>('c-misc-notification-modules', {
             is: MiscNotificationModules
         });
         document.body.appendChild(element);
@@ -129,7 +129,7 @@ describe('c-misc-notification-modules', () => {
         await flushPromises();
 
         // Check if event has been fired
-        const promptResult = element.shadowRoot.querySelector('p.promptResult');
+        const promptResult = element.shadowRoot.querySelector<HTMLParagraphElement>('p.promptResult');
         expect(LightningPrompt.open).toHaveBeenCalledTimes(1);
         expect(promptResult.textContent).toBe(
             'Entered value is: ' + PROMPT_VALUE
@@ -138,7 +138,7 @@ describe('c-misc-notification-modules', () => {
 
     it('shows a prompt notification and text when cancelled', async () => {
         // Create component
-        const element = createElement('c-misc-notification-modules', {
+        const element = createElement<MiscNotificationModules>('c-misc-notification-modules', {
             is: MiscNotificationModules
         });
         document.body.appendChild(element);
@@ -158,13 +158,13 @@ describe('c-misc-notification-modules', () => {
         await flushPromises();
 
         // Check if event has been fired
-        const promptResult = element.shadowRoot.querySelector('p.promptResult');
+        const promptResult = element.shadowRoot.querySelector<HTMLParagraphElement>('p.promptResult');
         expect(LightningPrompt.open).toHaveBeenCalledTimes(1);
         expect(promptResult.textContent).toBe('Entered value is: ');
     });
 
     it('is accessible', async () => {
-        const element = createElement('c-misc-notification-modules', {
+        const element = createElement<MiscNotificationModules>('c-misc-notification-modules', {
             is: MiscNotificationModules
         });
         document.body.appendChild(element);

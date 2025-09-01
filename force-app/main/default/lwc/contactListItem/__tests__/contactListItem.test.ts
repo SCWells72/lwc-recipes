@@ -29,9 +29,9 @@ describe('c-contact-list-item', () => {
         document.body.appendChild(element);
 
         // Select elements for validation
-        const imgEl = element.shadowRoot.querySelector('img');
+        const imgEl = element.shadowRoot.querySelector<HTMLImageElement>('img');
         expect(imgEl.src).toBe(CONTACT.Picture__c);
-        const nameEl = element.shadowRoot.querySelector('p');
+        const nameEl = element.shadowRoot.querySelector<HTMLParagraphElement>('p');
         expect(nameEl.textContent).toBe(CONTACT.Name);
     });
 
@@ -47,7 +47,7 @@ describe('c-contact-list-item', () => {
         document.body.appendChild(element);
 
         // Simulate click
-        const linkEl = element.shadowRoot.querySelector('a');
+        const linkEl = element.shadowRoot.querySelector<HTMLAnchorElement>('a');
         linkEl.click();
 
         // Check that select event was fire

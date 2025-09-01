@@ -8,6 +8,7 @@ import {
 
 import WorkspaceAPIDisableTabClose from 'c/workspaceAPIDisableTabClose';
 import { TestWireAdapter } from '@salesforce/wire-service-jest-util';
+import LightningInput from 'lightning/input';
 
 describe('c-workspace-api-disable-tab-close', () => {
     afterEach(() => {
@@ -35,7 +36,7 @@ describe('c-workspace-api-disable-tab-close', () => {
         await flushPromises();
 
         // Find and toggle input
-        const inputEl = element.shadowRoot.querySelector('lightning-input');
+        const inputEl = element.shadowRoot.querySelector<LightningInput>('lightning-input');
         const toggleValue = true;
         inputEl.dispatchEvent(
             new CustomEvent('change', { detail: { checked: toggleValue } })

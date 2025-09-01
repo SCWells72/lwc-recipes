@@ -2,6 +2,8 @@ import { createElement } from 'lwc';
 import GraphqlContacts from 'c/graphqlContacts';
 import { graphql } from 'lightning/uiGraphQLApi';
 import { LdsTestWireAdapter } from '@salesforce/wire-service-jest-util';
+import ErrorPanel from 'c/errorPanel';
+import ContactTile from 'c/contactTile';
 
 // Mock realistic data
 import mockGraphQL from './data/graphqlContactsResponse.json';
@@ -23,7 +25,7 @@ describe('c-graphql-contacts', () => {
     describe('graphql @wire data', () => {
         it('renders the records in contact tiles', async () => {
             // Create component
-            const element = createElement('c-graphql-contacts', {
+            const element = createElement<GraphqlContacts>('c-graphql-contacts', {
                 is: GraphqlContacts
             });
             document.body.appendChild(element);
@@ -36,7 +38,7 @@ describe('c-graphql-contacts', () => {
 
             // Select rendered contact tile for length check
             const contactTileEls =
-                element.shadowRoot.querySelectorAll('c-contact-tile');
+                element.shadowRoot.querySelectorAll<ContactTile>('c-contact-tile');
             expect(contactTileEls.length).toBe(
                 mockGraphQL.uiapi.query.Contact.edges.length
             );
@@ -46,7 +48,7 @@ describe('c-graphql-contacts', () => {
     describe('graphql @wire error', () => {
         it('shows error panel element', async () => {
             // Create component
-            const element = createElement('c-graphql-contacts', {
+            const element = createElement<GraphqlContacts>('c-graphql-contacts', {
                 is: GraphqlContacts
             });
             document.body.appendChild(element);
@@ -61,14 +63,14 @@ describe('c-graphql-contacts', () => {
             // Verify error panel is displayed
             // Check for error panel
             const errorPanelEl =
-                element.shadowRoot.querySelector('c-error-panel');
+                element.shadowRoot.querySelector<ErrorPanel>('c-error-panel');
             expect(errorPanelEl).not.toBeNull();
         });
     });
 
     it('is accessible when data returned', async () => {
         // Create component
-        const element = createElement('c-graphql-contacts', {
+        const element = createElement<GraphqlContacts>('c-graphql-contacts', {
             is: GraphqlContacts
         });
         document.body.appendChild(element);
@@ -85,7 +87,7 @@ describe('c-graphql-contacts', () => {
 
     it('is accessible when error returned', async () => {
         // Create component
-        const element = createElement('c-graphql-contacts', {
+        const element = createElement<GraphqlContacts>('c-graphql-contacts', {
             is: GraphqlContacts
         });
         document.body.appendChild(element);

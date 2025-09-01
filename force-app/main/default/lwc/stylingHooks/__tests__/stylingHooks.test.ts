@@ -10,7 +10,7 @@ describe('c-misc-stylesheets', () => {
     });
 
     it('is accessible', async () => {
-        const element = createElement('c-styling-hooks', {
+        const element = createElement<StylingHooks>('c-styling-hooks', {
             is: StylingHooks
         });
         document.body.appendChild(element);

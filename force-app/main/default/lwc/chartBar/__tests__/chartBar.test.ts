@@ -2,6 +2,8 @@
 
 import { createElement } from 'lwc';
 import ChartBar from 'c/chartBar';
+import LightningLayoutItem from 'lightning/layoutItem';
+import LightningLayout from 'lightning/layout';
 
 describe('c-chart-bar', () => {
     afterEach(() => {
@@ -19,18 +21,18 @@ describe('c-chart-bar', () => {
 
     it('renders a lightning-layout with two lightning-layout-items', () => {
         // Create component
-        const element = createElement('c-chart-bar', {
+        const element = createElement<ChartBar>('c-chart-bar', {
             is: ChartBar
         });
         document.body.appendChild(element);
 
         // Query lightning-layout element
         const lightningLayoutEl =
-            element.shadowRoot.querySelector('lightning-layout');
+            element.shadowRoot.querySelector<LightningLayout>('lightning-layout');
         expect(lightningLayoutEl).not.toBeNull();
 
         // Query lightning-layout-item elements
-        const lightningLayoutItemEls = element.shadowRoot.querySelectorAll(
+        const lightningLayoutItemEls = element.shadowRoot.querySelectorAll<LightningLayoutItem>(
             'lightning-layout-item'
         );
         expect(lightningLayoutItemEls.length).toBe(2);

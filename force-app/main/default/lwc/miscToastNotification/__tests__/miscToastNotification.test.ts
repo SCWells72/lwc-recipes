@@ -27,7 +27,7 @@ describe('c-misc-notification', () => {
         const TOAST_VARIANT = 'warning';
 
         // Create component
-        const element = createElement('c-misc-toast-notification', {
+        const element = createElement<MiscToastNotification>('c-misc-toast-notification', {
             is: MiscToastNotification
         });
         document.body.appendChild(element);
@@ -72,7 +72,7 @@ describe('c-misc-notification', () => {
     });
 
     it('is accessible', async () => {
-        const element = createElement('c-misc-toast-notification', {
+        const element = createElement<MiscToastNotification>('c-misc-toast-notification', {
             is: MiscToastNotification
         });
         document.body.appendChild(element);

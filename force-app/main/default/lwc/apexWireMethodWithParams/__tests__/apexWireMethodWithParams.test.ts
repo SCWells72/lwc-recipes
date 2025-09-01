@@ -11,6 +11,7 @@ import ApexWireMethodWithParams from 'c/apexWireMethodWithParams';
 import findContacts from '@salesforce/apex/ContactController.findContacts';
 import LightningInput from 'lightning/input';
 import { ApexTestWireAdapter } from '@salesforce/wire-service-jest-util';
+import ErrorPanel from 'c/errorPanel';
 
 // Realistic data with a list of contacts
 import mockFindContacts from './data/findContacts.json';
@@ -57,7 +58,7 @@ describe('c-apex-wire-method-with-params', () => {
             const WIRE_PARAMETER = { searchKey: USER_INPUT };
 
             // Create component
-            const element = createElement('c-apex-wire-method-with-params', {
+            const element = createElement<ApexWireMethodWithParams>('c-apex-wire-method-with-params', {
                 is: ApexWireMethodWithParams
             });
             document.body.appendChild(element);
@@ -81,7 +82,7 @@ describe('c-apex-wire-method-with-params', () => {
             const USER_INPUT = 'Amy';
 
             // Create component
-            const element = createElement('c-apex-wire-method-with-params', {
+            const element = createElement<ApexWireMethodWithParams>('c-apex-wire-method-with-params', {
                 is: ApexWireMethodWithParams
             });
             document.body.appendChild(element);
@@ -101,7 +102,7 @@ describe('c-apex-wire-method-with-params', () => {
             await flushPromises();
 
             // Select elements for validation
-            const detailEls = element.shadowRoot.querySelectorAll('p');
+            const detailEls = element.shadowRoot.querySelectorAll<HTMLParagraphElement>('p');
             expect(detailEls.length).toBe(mockFindContacts.length);
             expect(detailEls[0].textContent).toBe(mockFindContacts[0].Name);
         });
@@ -110,7 +111,7 @@ describe('c-apex-wire-method-with-params', () => {
     describe('findContacts @wire error', () => {
         it('shows error panel element', async () => {
             // Create component
-            const element = createElement('c-apex-wire-method-with-params', {
+            const element = createElement<ApexWireMethodWithParams>('c-apex-wire-method-with-params', {
                 is: ApexWireMethodWithParams
             });
             document.body.appendChild(element);
@@ -123,7 +124,7 @@ describe('c-apex-wire-method-with-params', () => {
 
             // Check for error panel
             const errorPanelEl =
-                element.shadowRoot.querySelector('c-error-panel');
+                element.shadowRoot.querySelector<ErrorPanel>('c-error-panel');
             expect(errorPanelEl).not.toBeNull();
         });
     });

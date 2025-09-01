@@ -5,6 +5,7 @@ import GraphqlPagination from 'c/graphqlPagination';
 import { graphql } from 'lightning/uiGraphQLApi';
 import { LdsTestWireAdapter } from '@salesforce/wire-service-jest-util';
 import LightningButtonIcon from 'lightning/buttonIcon';
+import ErrorPanel from 'c/errorPanel';
 
 // Mock realistic data
 import mockGraphQLFirstPage from './data/graphqlPaginationResponseFirstPage.json';
@@ -39,7 +40,7 @@ describe('c-graphql-pagination', () => {
             await flushPromises();
 
             // Select paragraphs for length check
-            const contactEls = element.shadowRoot.querySelectorAll('p');
+            const contactEls = element.shadowRoot.querySelectorAll<HTMLParagraphElement>('p');
             expect(contactEls.length).toBe(
                 mockGraphQLFirstPage.uiapi.query.Contact.edges.length
             );
@@ -49,7 +50,7 @@ describe('c-graphql-pagination', () => {
             expect(resetButtonEl.disabled).toBe(true);
 
             // Validate status text
-            const statusEl = element.shadowRoot.querySelector('.status');
+            const statusEl = element.shadowRoot.querySelector<HTMLDivElement>('.status');
             // eslint-disable-next-line @lwc/lwc/no-inner-html
             expect(statusEl.innerHTML).toEqual('4 items • page 1 of 2');
 
@@ -87,7 +88,7 @@ describe('c-graphql-pagination', () => {
             await flushPromises();
 
             // Select paragraphs for length check
-            const contactEls = element.shadowRoot.querySelectorAll('p');
+            const contactEls = element.shadowRoot.querySelectorAll<HTMLParagraphElement>('p');
             expect(contactEls.length).toBe(
                 mockGraphQLLastPage.uiapi.query.Contact.edges.length
             );
@@ -97,7 +98,7 @@ describe('c-graphql-pagination', () => {
             expect(resetButtonEl.disabled).toBe(false);
 
             // Validate status text
-            const statusEl = element.shadowRoot.querySelector('.status');
+            const statusEl = element.shadowRoot.querySelector<HTMLDivElement>('.status');
             // eslint-disable-next-line @lwc/lwc/no-inner-html
             expect(statusEl.innerHTML).toEqual('4 items • page 2 of 2');
 
@@ -125,7 +126,7 @@ describe('c-graphql-pagination', () => {
             // Verify error panel is displayed
             // Check for error panel
             const errorPanelEl =
-                element.shadowRoot.querySelector('c-error-panel');
+                element.shadowRoot.querySelector<ErrorPanel>('c-error-panel');
             expect(errorPanelEl).not.toBeNull();
         });
     });

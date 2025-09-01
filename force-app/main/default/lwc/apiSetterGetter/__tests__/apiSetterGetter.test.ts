@@ -23,7 +23,7 @@ describe('c-api-setter-getter', () => {
         const TODO_DESCRIPTION = 'Some ToDo';
 
         // Create component
-        const element = createElement('c-api-setter-getter', {
+        const element = createElement<ApiSetterGetter>('c-api-setter-getter', {
             is: ApiSetterGetter
         });
         document.body.appendChild(element);
@@ -61,7 +61,7 @@ describe('c-api-setter-getter', () => {
 
     it('is accessible', async () => {
         // Create component
-        const element = createElement('c-api-setter-getter', {
+        const element = createElement<ApiSetterGetter>('c-api-setter-getter', {
             is: ApiSetterGetter
         });
         document.body.appendChild(element);

@@ -26,12 +26,12 @@ describe('c-view-source', () => {
         document.body.appendChild(element);
 
         // Select element for validation
-        const linkEl = element.shadowRoot.querySelector('a');
+        const linkEl = element.shadowRoot.querySelector<HTMLAnchorElement>('a');
         expect(linkEl.href).toBe(RESULT);
     });
 
     it('is accessible', async () => {
-        const element = createElement('c-view-source', {
+        const element = createElement<ViewSource>('c-view-source', {
             is: ViewSource
         });
         document.body.appendChild(element);

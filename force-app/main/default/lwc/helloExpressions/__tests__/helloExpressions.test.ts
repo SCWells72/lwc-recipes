@@ -38,7 +38,7 @@ describe('c-hello-expressions', () => {
 
     it('displays first name as uppercase', async () => {
         // Create component
-        const element = createElement('c-hello-expressions', {
+        const element = createElement<HelloExpressions>('c-hello-expressions', {
             is: HelloExpressions
         });
         document.body.appendChild(element);
@@ -49,13 +49,13 @@ describe('c-hello-expressions', () => {
         await flushPromises();
 
         // Verify displayed message
-        const detailEl = element.shadowRoot.querySelector('p');
+        const detailEl = element.shadowRoot.querySelector<HTMLParagraphElement>('p');
         expect(detailEl.textContent).toBe(`${PREFIX} PETER`);
     });
 
     it('displays last name as uppercase', async () => {
         // Create component
-        const element = createElement('c-hello-expressions', {
+        const element = createElement<HelloExpressions>('c-hello-expressions', {
             is: HelloExpressions
         });
         document.body.appendChild(element);
@@ -66,13 +66,13 @@ describe('c-hello-expressions', () => {
         await flushPromises();
 
         // Verify displayed message
-        const detailEl = element.shadowRoot.querySelector('p');
+        const detailEl = element.shadowRoot.querySelector<HTMLParagraphElement>('p');
         expect(detailEl.textContent).toBe(`${PREFIX} PAN`);
     });
 
     it('displays first and last name as uppercase', async () => {
         // Create component
-        const element = createElement('c-hello-expressions', {
+        const element = createElement<HelloExpressions>('c-hello-expressions', {
             is: HelloExpressions
         });
         document.body.appendChild(element);
@@ -83,12 +83,12 @@ describe('c-hello-expressions', () => {
         await flushPromises();
 
         // Verify displayed message
-        const detailEl = element.shadowRoot.querySelector('p');
+        const detailEl = element.shadowRoot.querySelector<HTMLParagraphElement>('p');
         expect(detailEl.textContent).toBe(`${PREFIX} PETER PAN`);
     });
 
     it('is accessible', async () => {
-        const element = createElement('c-hello-expressions', {
+        const element = createElement<HelloExpressions>('c-hello-expressions', {
             is: HelloExpressions
         });
         document.body.appendChild(element);

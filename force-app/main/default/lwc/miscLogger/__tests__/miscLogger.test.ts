@@ -13,7 +13,7 @@ describe('c-misc-logger', () => {
 
     it('When log to event monitoring is clicked, the lightning log function is called', () => {
         // Create component
-        const element = createElement('c-misc-logger', {
+        const element = createElement<MiscLogger>('c-misc-logger', {
             is: MiscLogger
         });
         document.body.appendChild(element);

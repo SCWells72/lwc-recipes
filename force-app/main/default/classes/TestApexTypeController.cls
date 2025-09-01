@@ -1,6 +1,6 @@
-@isTest
+@IsTest
 public with sharing class TestApexTypeController {
-    @isTest
+    @IsTest
     static void checkApexTypes() {
         CustomWrapper wrapper = new CustomWrapper();
         wrapper.someInteger = 33;

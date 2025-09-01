@@ -32,7 +32,7 @@ describe('c-libs-d3', () => {
 
     it('contains a svg element for D3', () => {
         // Create component
-        const element = createElement('c-libs-d3', {
+        const element = createElement<LibsD3>('c-libs-d3', {
             is: LibsD3
         });
         document.body.appendChild(element);
@@ -47,7 +47,7 @@ describe('c-libs-d3', () => {
         const D3_CSS = 'd3/style.css';
 
         // Create component
-        const element = createElement('c-libs-d3', {
+        const element = createElement<LibsD3>('c-libs-d3', {
             is: LibsD3
         });
         document.body.appendChild(element);
@@ -69,7 +69,7 @@ describe('c-libs-d3', () => {
         (<jest.MockInstance<any, any>><unknown>loadScript).mockRejectedValue(LOAD_SCRIPT_ERROR);
 
         // Create component
-        const element = createElement('c-libs-d3', {
+        const element = createElement<LibsD3>('c-libs-d3', {
             is: LibsD3
         });
         document.body.appendChild(element);
@@ -89,7 +89,7 @@ describe('c-libs-d3', () => {
     });
 
     it('is accessible', async () => {
-        const element = createElement('c-libs-d3', {
+        const element = createElement<LibsD3>('c-libs-d3', {
             is: LibsD3
         });
         document.body.appendChild(element);

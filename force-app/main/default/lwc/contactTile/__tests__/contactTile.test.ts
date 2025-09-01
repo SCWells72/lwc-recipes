@@ -32,10 +32,10 @@ describe('c-contact-tile', () => {
         document.body.appendChild(element);
 
         // Select elements for validation
-        const imgEl = element.shadowRoot.querySelector('img');
+        const imgEl = element.shadowRoot.querySelector<HTMLImageElement>('img');
         expect(imgEl.src).toBe(CONTACT_INPUT.Picture__c);
 
-        const detailEls = element.shadowRoot.querySelectorAll('p');
+        const detailEls = element.shadowRoot.querySelectorAll<HTMLParagraphElement>('p');
         expect(detailEls[0].textContent).toBe(CONTACT_INPUT.Name);
         expect(detailEls[1].textContent).toBe(CONTACT_INPUT.Title);
 
@@ -49,13 +49,13 @@ describe('c-contact-tile', () => {
         const MESSAGE = 'No contact data available.';
 
         // Create component
-        const element = createElement('c-contact-tile', {
+        const element = createElement<ContactTile>('c-contact-tile', {
             is: ContactTile
         });
         document.body.appendChild(element);
 
         // Select element for validation
-        const detailEl = element.shadowRoot.querySelector('p');
+        const detailEl = element.shadowRoot.querySelector<HTMLParagraphElement>('p');
         expect(detailEl.textContent).toBe(MESSAGE);
     });
 

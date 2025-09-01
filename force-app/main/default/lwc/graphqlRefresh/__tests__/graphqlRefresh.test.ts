@@ -4,6 +4,7 @@ import { graphql, refreshGraphQL } from 'lightning/uiGraphQLApi';
 import randomizeAccountData from '@salesforce/apex/AccountController.randomizeAccountData';
 import { LdsTestWireAdapter } from '@salesforce/wire-service-jest-util';
 import LightningButton from 'lightning/button';
+import ErrorPanel from 'c/errorPanel';
 
 // Mock realistic data
 import mockGraphQL from './data/graphqlAccountResponse.json';
@@ -53,7 +54,7 @@ describe('c-graphql-refresh', () => {
     describe('graphql @wire data', () => {
         it('renders account info', async () => {
             // Create component
-            const element = createElement('c-graphql-refresh', {
+            const element = createElement<GraphqlRefresh>('c-graphql-refresh', {
                 is: GraphqlRefresh
             });
             document.body.appendChild(element);
@@ -67,7 +68,7 @@ describe('c-graphql-refresh', () => {
             // Check that record info is displayed
             const account = mockGraphQL.uiapi.query.Account.edges[0].node;
             const accountInfoEl =
-                element.shadowRoot.querySelector('.account-info');
+                element.shadowRoot.querySelector<HTMLDivElement>('.account-info');
             expect(accountInfoEl).not.toBeNull();
             expect(accountInfoEl.textContent).toBe(
                 `The ${account.Name.value} account has ${account.NumberOfEmployees.value} employees.`
@@ -76,7 +77,7 @@ describe('c-graphql-refresh', () => {
 
         it('renders error when no account found', async () => {
             // Create component
-            const element = createElement('c-graphql-refresh', {
+            const element = createElement<GraphqlRefresh>('c-graphql-refresh', {
                 is: GraphqlRefresh
             });
             document.body.appendChild(element);
@@ -90,13 +91,13 @@ describe('c-graphql-refresh', () => {
             // Verify error panel is displayed
             // Check for error panel
             const errorPanelEl =
-                element.shadowRoot.querySelector('c-error-panel');
+                element.shadowRoot.querySelector<ErrorPanel>('c-error-panel');
             expect(errorPanelEl).not.toBeNull();
         });
 
         it('is accessible when data returned', async () => {
             // Create component
-            const element = createElement('c-graphql-refresh', {
+            const element = createElement<GraphqlRefresh>('c-graphql-refresh', {
                 is: GraphqlRefresh
             });
             document.body.appendChild(element);
@@ -115,7 +116,7 @@ describe('c-graphql-refresh', () => {
     describe('graphql @wire error', () => {
         it('shows error panel element', async () => {
             // Create component
-            const element = createElement('c-graphql-refresh', {
+            const element = createElement<GraphqlRefresh>('c-graphql-refresh', {
                 is: GraphqlRefresh
             });
             document.body.appendChild(element);
@@ -130,13 +131,13 @@ describe('c-graphql-refresh', () => {
             // Verify error panel is displayed
             // Check for error panel
             const errorPanelEl =
-                element.shadowRoot.querySelector('c-error-panel');
+                element.shadowRoot.querySelector<ErrorPanel>('c-error-panel');
             expect(errorPanelEl).not.toBeNull();
         });
 
         it('is accessible when error returned', async () => {
             // Create component
-            const element = createElement('c-graphql-refresh', {
+            const element = createElement<GraphqlRefresh>('c-graphql-refresh', {
                 is: GraphqlRefresh
             });
             document.body.appendChild(element);
@@ -156,7 +157,7 @@ describe('c-graphql-refresh', () => {
     describe('graphql refresh', () => {
         it('calls refreshGraphQL when refresh is clicked', async () => {
             // Create component
-            const element = createElement('c-graphql-refresh', {
+            const element = createElement<GraphqlRefresh>('c-graphql-refresh', {
                 is: GraphqlRefresh
             });
             document.body.appendChild(element);
@@ -180,7 +181,7 @@ describe('c-graphql-refresh', () => {
     describe('randomize account data', () => {
         it('calls randomizeAccountData when randomize is clicked', async () => {
             // Create component
-            const element = createElement('c-graphql-refresh', {
+            const element = createElement<GraphqlRefresh>('c-graphql-refresh', {
                 is: GraphqlRefresh
             });
             document.body.appendChild(element);

@@ -32,7 +32,7 @@ describe('c-nav-to-list-view', () => {
         const NAV_FILTER_NAME = 'Recent';
 
         // Create initial lwc element and attach to virtual DOM
-        const element = createElement('c-nav-to-list-view', {
+        const element = createElement<NavToListView>('c-nav-to-list-view', {
             is: NavToListView
         });
         document.body.appendChild(element);
@@ -56,7 +56,7 @@ describe('c-nav-to-list-view', () => {
     });
 
     it('is accessible', async () => {
-        const element = createElement('c-nav-to-list-view', {
+        const element = createElement<NavToListView>('c-nav-to-list-view', {
             is: NavToListView
         });
         document.body.appendChild(element);

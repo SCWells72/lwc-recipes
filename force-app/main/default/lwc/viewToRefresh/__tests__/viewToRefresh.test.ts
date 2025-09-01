@@ -54,7 +54,7 @@ describe('c-view-to-refresh', () => {
 
     it('registers itself as refresh handler on connected callback', () => {
         // Create component
-        const element = createElement('c-view-to-refresh', {
+        const element = createElement<ViewToRefresh>('c-view-to-refresh', {
             is: ViewToRefresh
         });
         document.body.appendChild(element);
@@ -65,7 +65,7 @@ describe('c-view-to-refresh', () => {
 
     it('invokes getTotalNumber onload', async () => {
         // Create component
-        const element = createElement('c-view-to-refresh', {
+        const element = createElement<ViewToRefresh>('c-view-to-refresh', {
             is: ViewToRefresh
         });
         document.body.appendChild(element);
@@ -77,13 +77,13 @@ describe('c-view-to-refresh', () => {
         await flushPromises();
 
         // Check UI
-        const divEl = element.shadowRoot.querySelector('div.account-number');
+        const divEl = element.shadowRoot.querySelector<HTMLDivElement>('div.account-number');
         expect(divEl.textContent).toBe('Number of accounts: 10');
     });
 
     it('invokes refreshApex when RefreshEvent is listened', async () => {
         // Create component
-        const element = createElement('c-view-to-refresh', {
+        const element = createElement<ViewToRefresh>('c-view-to-refresh', {
             is: ViewToRefresh
         });
         document.body.appendChild(element);
@@ -103,7 +103,7 @@ describe('c-view-to-refresh', () => {
 
     it('unregisters itself as refresh handler on disconnected callback', () => {
         // Create component
-        const element = createElement('c-view-to-refresh', {
+        const element = createElement<ViewToRefresh>('c-view-to-refresh', {
             is: ViewToRefresh
         });
         document.body.appendChild(element);
@@ -116,7 +116,7 @@ describe('c-view-to-refresh', () => {
 
     it('is accessible', async () => {
         // Create component
-        const element = createElement('c-view-to-refresh', {
+        const element = createElement<ViewToRefresh>('c-view-to-refresh', {
             is: ViewToRefresh
         });
         document.body.appendChild(element);

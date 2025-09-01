@@ -19,20 +19,20 @@ describe('c-hello-for-each', () => {
         ];
 
         // Create component
-        const element = createElement('c-hello-for-each', {
+        const element = createElement<HelloForEach>('c-hello-for-each', {
             is: HelloForEach
         });
         document.body.appendChild(element);
 
         // Verify displayed list
         const contacts = Array.from(
-            element.shadowRoot.querySelectorAll('li')
+            element.shadowRoot.querySelectorAll<HTMLLIElement>('li')
         ).map((li) => li.textContent);
         expect(contacts).toEqual(EXPECTED);
     });
 
     it('is accessible on initialization', async () => {
-        const element = createElement('c-hello-for-each', {
+        const element = createElement<HelloForEach>('c-hello-for-each', {
             is: HelloForEach
         });
         document.body.appendChild(element);

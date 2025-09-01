@@ -2,6 +2,7 @@ import { createElement } from 'lwc';
 import DispatchRefreshEvent from 'c/dispatchRefreshEvent';
 // @ts-expect-error What is "RefreshEventName"?
 import { RefreshEventName } from 'lightning/refresh';
+import LightningRecordEditForm from 'lightning/recordEditForm';
 
 describe('c-dispatch-refresh-event', () => {
     afterEach(() => {
@@ -19,7 +20,7 @@ describe('c-dispatch-refresh-event', () => {
 
     it('should dispatch refresh event on success', async () => {
         // Create component
-        const element = createElement('c-dispatch-refresh-event', {
+        const element = createElement<DispatchRefreshEvent>('c-dispatch-refresh-event', {
             is: DispatchRefreshEvent
         });
         document.body.appendChild(element);
@@ -29,7 +30,7 @@ describe('c-dispatch-refresh-event', () => {
         // Add event listener to catch refresh event
         element.addEventListener(RefreshEventName, refreshHandler);
 
-        const lightningEditFormEl = element.shadowRoot.querySelector(
+        const lightningEditFormEl = element.shadowRoot.querySelector<LightningRecordEditForm>(
             'lightning-record-edit-form'
         );
         lightningEditFormEl.dispatchEvent(
@@ -44,7 +45,7 @@ describe('c-dispatch-refresh-event', () => {
     });
 
     it('is accessible', async () => {
-        const element = createElement('c-dispatch-refresh-event', {
+        const element = createElement<DispatchRefreshEvent>('c-dispatch-refresh-event', {
             is: DispatchRefreshEvent
         });
         document.body.appendChild(element);

@@ -4,6 +4,8 @@ import { createElement } from 'lwc';
 import EventWithData from 'c/eventWithData';
 import getContactList from '@salesforce/apex/ContactController.getContactList';
 import { ApexTestWireAdapter } from '@salesforce/wire-service-jest-util';
+import ContactListItem from 'c/contactListItem';
+import ErrorPanel from 'c/errorPanel';
 
 // Realistic data with a list of records
 import mockGetContactList from './data/getContactList.json';
@@ -44,7 +46,7 @@ describe('c-event-with-data', () => {
     describe('getContactList @wire data', () => {
         it('renders two c-contact-list-item elements', async () => {
             // Create component
-            const element = createElement('c-event-with-data', {
+            const element = createElement<EventWithData>('c-event-with-data', {
                 is: EventWithData
             });
             document.body.appendChild(element);
@@ -56,7 +58,7 @@ describe('c-event-with-data', () => {
             await flushPromises();
 
             // Select elements for validation
-            const contactListItemEls = element.shadowRoot.querySelectorAll(
+            const contactListItemEls = element.shadowRoot.querySelectorAll<ContactListItem>(
                 'c-contact-list-item'
             );
             expect(contactListItemEls.length).toBe(mockGetContactList.length);
@@ -64,7 +66,7 @@ describe('c-event-with-data', () => {
 
         it('renders no c-contact-list-item-bubbling elements when no data', async () => {
             // Create component
-            const element = createElement('c-event-with-data', {
+            const element = createElement<EventWithData>('c-event-with-data', {
                 is: EventWithData
             });
             document.body.appendChild(element);
@@ -76,7 +78,7 @@ describe('c-event-with-data', () => {
             await flushPromises();
 
             // Select elements for validation
-            const contactListItemEls = element.shadowRoot.querySelectorAll(
+            const contactListItemEls = element.shadowRoot.querySelectorAll<ContactListItem>(
                 'c-contact-list-item'
             );
             expect(contactListItemEls.length).toBe(
@@ -88,7 +90,7 @@ describe('c-event-with-data', () => {
     describe('getContactList @wire error', () => {
         it('shows error panel element', async () => {
             // Create component
-            const element = createElement('c-event-with-data', {
+            const element = createElement<EventWithData>('c-event-with-data', {
                 is: EventWithData
             });
             document.body.appendChild(element);
@@ -101,14 +103,14 @@ describe('c-event-with-data', () => {
 
             // Check for error panel
             const errorPanelEl =
-                element.shadowRoot.querySelector('c-error-panel');
+                element.shadowRoot.querySelector<ErrorPanel>('c-error-panel');
             expect(errorPanelEl).not.toBeNull();
         });
     });
 
     it('shows selected contact data after event', async () => {
         // Create component
-        const element = createElement('c-event-with-data', {
+        const element = createElement<EventWithData>('c-event-with-data', {
             is: EventWithData
         });
         document.body.appendChild(element);
@@ -120,7 +122,7 @@ describe('c-event-with-data', () => {
         await flushPromises();
 
         // Select element for validation
-        const contactListItemEls = element.shadowRoot.querySelectorAll(
+        const contactListItemEls = element.shadowRoot.querySelectorAll<ContactListItem>(
             'c-contact-list-item'
         );
         expect(contactListItemEls.length).toBe(mockGetContactList.length);
@@ -135,13 +137,13 @@ describe('c-event-with-data', () => {
         await flushPromises();
 
         // Select element for validation
-        const contactNameEl = element.shadowRoot.querySelector('p');
+        const contactNameEl = element.shadowRoot.querySelector<HTMLParagraphElement>('p');
         expect(contactNameEl.textContent).toBe(mockGetContactList[0].Name);
     });
 
     it('is accessible when data is returned', async () => {
         // Create component
-        const element = createElement('c-event-with-data', {
+        const element = createElement<EventWithData>('c-event-with-data', {
             is: EventWithData
         });
         document.body.appendChild(element);
@@ -158,7 +160,7 @@ describe('c-event-with-data', () => {
 
     it('is accessible when error is returned', async () => {
         // Create component
-        const element = createElement('c-event-with-data', {
+        const element = createElement<EventWithData>('c-event-with-data', {
             is: EventWithData
         });
         document.body.appendChild(element);
@@ -175,7 +177,7 @@ describe('c-event-with-data', () => {
 
     it('is accessible when contact is selected', async () => {
         // Create component
-        const element = createElement('c-event-with-data', {
+        const element = createElement<EventWithData>('c-event-with-data', {
             is: EventWithData
         });
         document.body.appendChild(element);
@@ -187,7 +189,7 @@ describe('c-event-with-data', () => {
         await flushPromises();
 
         // Select element for validation
-        const contactListItemEls = element.shadowRoot.querySelectorAll(
+        const contactListItemEls = element.shadowRoot.querySelectorAll<ContactListItem>(
             'c-contact-list-item'
         );
         expect(contactListItemEls.length).toBe(mockGetContactList.length);

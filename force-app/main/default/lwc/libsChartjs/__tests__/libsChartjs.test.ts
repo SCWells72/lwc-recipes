@@ -3,6 +3,7 @@
 import { createElement } from 'lwc';
 import LibsChartjs from 'c/libsChartjs';
 import { loadScript } from 'lightning/platformResourceLoader';
+import ErrorPanel from 'c/errorPanel';
 
 // Sample error for loadScript error
 const LOAD_SCRIPT_ERROR = {
@@ -31,13 +32,13 @@ describe('c-libs-chartjs', () => {
 
     it('contains a canvas element for ChartJs', () => {
         // Create component
-        const element = createElement('c-libs-chartjs', {
+        const element = createElement<LibsChartjs>('c-libs-chartjs', {
             is: LibsChartjs
         });
         document.body.appendChild(element);
 
         // Querying the DOM element that has the lwc:dom directive set.
-        const domEl = element.shadowRoot.querySelector('div.chart');
+        const domEl = element.shadowRoot.querySelector<HTMLDivElement>('div.chart');
         expect(domEl).not.toBeNull();
     });
 
@@ -45,7 +46,7 @@ describe('c-libs-chartjs', () => {
         const CHARTJS_JS = 'chartJs';
 
         // Create component
-        const element = createElement('c-libs-chartjs', {
+        const element = createElement<LibsChartjs>('c-libs-chartjs', {
             is: LibsChartjs
         });
         document.body.appendChild(element);
@@ -60,7 +61,7 @@ describe('c-libs-chartjs', () => {
         (<jest.MockInstance<any, any>><unknown>loadScript).mockRejectedValue(LOAD_SCRIPT_ERROR);
 
         // Create component
-        const element = createElement('c-libs-chartjs', {
+        const element = createElement<LibsChartjs>('c-libs-chartjs', {
             is: LibsChartjs
         });
         document.body.appendChild(element);
@@ -69,12 +70,12 @@ describe('c-libs-chartjs', () => {
         await flushPromises();
 
         // Check for error panel
-        const errorPanelEl = element.shadowRoot.querySelector('c-error-panel');
+        const errorPanelEl = element.shadowRoot.querySelector<ErrorPanel>('c-error-panel');
         return expect(errorPanelEl).not.toBeNull();
     });
 
     it('is accessible when library is loaded', async () => {
-        const element = createElement('c-libs-chartjs', {
+        const element = createElement<LibsChartjs>('c-libs-chartjs', {
             is: LibsChartjs
         });
         document.body.appendChild(element);
@@ -86,7 +87,7 @@ describe('c-libs-chartjs', () => {
     it('is accessible when there is an error loading library', async () => {
         (<jest.MockInstance<any, any>><unknown>loadScript).mockRejectedValue(LOAD_SCRIPT_ERROR);
 
-        const element = createElement('c-libs-chartjs', {
+        const element = createElement<LibsChartjs>('c-libs-chartjs', {
             is: LibsChartjs
         });
         document.body.appendChild(element);

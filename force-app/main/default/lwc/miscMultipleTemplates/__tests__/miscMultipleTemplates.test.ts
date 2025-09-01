@@ -28,24 +28,24 @@ describe('c-misc-multiple-templates', () => {
 
     it('displays templateOne on initial render', () => {
         // Create component
-        const element = createElement('c-misc-multiple-templates', {
+        const element = createElement<MiscMultipleTemplates>('c-misc-multiple-templates', {
             is: MiscMultipleTemplates
         });
         document.body.appendChild(element);
 
         // On initial render templateOne should be displayed
         // Retrieve and verify text element from DOM
-        const pEl = element.shadowRoot.querySelector('p');
+        const pEl = element.shadowRoot.querySelector<HTMLParagraphElement>('p');
         expect(pEl.textContent).toBe(TEMPLATE1_TEXT_CONTENT);
 
         // Retrieve and verify image element from DOM
-        const imgEl = element.shadowRoot.querySelector('img');
+        const imgEl = element.shadowRoot.querySelector<HTMLImageElement>('img');
         expect(imgEl.getAttribute('src')).toBe(TEMPLATE1_LOGO_URL);
     });
 
     it('displays templateTwo on click', async () => {
         // Create component
-        const element = createElement('c-misc-multiple-templates', {
+        const element = createElement<MiscMultipleTemplates>('c-misc-multiple-templates', {
             is: MiscMultipleTemplates
         });
         document.body.appendChild(element);
@@ -60,17 +60,17 @@ describe('c-misc-multiple-templates', () => {
         // Once click invoked, templateTwo should be in place.
 
         // Retrieve and verify text element from DOM
-        const pEl = element.shadowRoot.querySelector('p');
+        const pEl = element.shadowRoot.querySelector<HTMLParagraphElement>('p');
         expect(pEl.textContent).toBe(TEMPLATE2_TEXT_CONTENT);
 
         // Retrieve and verify image element from DOM
-        const imgEl = element.shadowRoot.querySelector('img');
+        const imgEl = element.shadowRoot.querySelector<HTMLImageElement>('img');
         expect(imgEl.getAttribute('src')).toBe(TEMPLATE2_LOGO_URL);
     });
 
     it('displays templateOne after two clicks', async () => {
         // Create component
-        const element = createElement('c-misc-multiple-templates', {
+        const element = createElement<MiscMultipleTemplates>('c-misc-multiple-templates', {
             is: MiscMultipleTemplates
         });
         document.body.appendChild(element);
@@ -86,16 +86,16 @@ describe('c-misc-multiple-templates', () => {
         // Once two clicks invoked, templateOne should be in place.
 
         // Retrieve and verify text element from DOM
-        const pEl = element.shadowRoot.querySelector('p');
+        const pEl = element.shadowRoot.querySelector<HTMLParagraphElement>('p');
         expect(pEl.textContent).toBe(TEMPLATE1_TEXT_CONTENT);
 
         // Retrieve and verify image element from DOM
-        const imgEl = element.shadowRoot.querySelector('img');
+        const imgEl = element.shadowRoot.querySelector<HTMLImageElement>('img');
         expect(imgEl.getAttribute('src')).toBe(TEMPLATE1_LOGO_URL);
     });
 
     it('is accessible when template1 is shown', async () => {
-        const element = createElement('c-misc-multiple-templates', {
+        const element = createElement<MiscMultipleTemplates>('c-misc-multiple-templates', {
             is: MiscMultipleTemplates
         });
         document.body.appendChild(element);
@@ -105,7 +105,7 @@ describe('c-misc-multiple-templates', () => {
     });
 
     it('is accessible when template2 is shown', async () => {
-        const element = createElement('c-misc-multiple-templates', {
+        const element = createElement<MiscMultipleTemplates>('c-misc-multiple-templates', {
             is: MiscMultipleTemplates
         });
         document.body.appendChild(element);

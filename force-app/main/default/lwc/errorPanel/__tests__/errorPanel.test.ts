@@ -2,6 +2,7 @@
 
 import { createElement } from 'lwc';
 import ErrorPanel from 'c/errorPanel';
+import LightningInput from 'lightning/input';
 
 describe('c-error-panel', () => {
     afterEach(() => {
@@ -21,12 +22,12 @@ describe('c-error-panel', () => {
         const MESSAGE = 'Error retrieving data';
 
         // Create component
-        const element = createElement('c-error-panel', {
+        const element = createElement<ErrorPanel>('c-error-panel', {
             is: ErrorPanel
         });
         document.body.appendChild(element);
 
-        const messageEl = element.shadowRoot.querySelector('h3');
+        const messageEl = element.shadowRoot.querySelector<HTMLHeadingElement>('h3');
         expect(messageEl.textContent).toBe(MESSAGE);
     });
 
@@ -40,18 +41,18 @@ describe('c-error-panel', () => {
         element.friendlyMessage = MESSAGE;
         document.body.appendChild(element);
 
-        const messageEl = element.shadowRoot.querySelector('h3');
+        const messageEl = element.shadowRoot.querySelector<HTMLHeadingElement>('h3');
         expect(messageEl.textContent).toBe(MESSAGE);
     });
 
     it('displays no error details when no errors are passed as parameters', () => {
         // Create component
-        const element = createElement('c-error-panel', {
+        const element = createElement<ErrorPanel>('c-error-panel', {
             is: ErrorPanel
         });
         document.body.appendChild(element);
 
-        const inputEl = element.shadowRoot.querySelector('lightning-input');
+        const inputEl = element.shadowRoot.querySelector<LightningInput>('lightning-input');
         expect(inputEl).toBeNull();
     });
 
@@ -97,7 +98,7 @@ describe('c-error-panel', () => {
         document.body.appendChild(element);
 
         // Click link to show details
-        element.shadowRoot.querySelector('a').click();
+        (element.shadowRoot.querySelector<HTMLAnchorElement>('a')).click();
 
         // Wait for any asynchronous DOM updates
         await flushPromises();
@@ -121,7 +122,7 @@ describe('c-error-panel', () => {
         document.body.appendChild(element);
 
         // Click link to show details
-        element.shadowRoot.querySelector('a').click();
+        (element.shadowRoot.querySelector<HTMLAnchorElement>('a')).click();
 
         // Wait for any asynchronous DOM updates
         await flushPromises();

@@ -41,7 +41,7 @@ describe('c-my-modal', () => {
 
     it('displays close button in footer', () => {
         // Create component and set the content public property
-        const element = createElement('c-my-modal', {
+        const element = createElement<MyModal>('c-my-modal', {
             is: MyModal
         });
         document.body.appendChild(element);
@@ -70,7 +70,7 @@ describe('c-my-modal', () => {
 
     it('is accessible when error is returned', async () => {
         // Create component
-        const element = createElement('c-my-modal', {
+        const element = createElement<MyModal>('c-my-modal', {
             is: MyModal
         });
         document.body.appendChild(element);

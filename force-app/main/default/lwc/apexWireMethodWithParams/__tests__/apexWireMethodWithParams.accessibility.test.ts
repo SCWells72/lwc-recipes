@@ -39,7 +39,7 @@ describe('c-apex-wire-method-with-params-accessibility', () => {
 
     it('is accessible when data is returned', async () => {
         // Create component
-        const element = createElement('c-apex-wire-method-with-params', {
+        const element = createElement<ApexWireMethodWithParams>('c-apex-wire-method-with-params', {
             is: ApexWireMethodWithParams
         });
         document.body.appendChild(element);
@@ -56,7 +56,7 @@ describe('c-apex-wire-method-with-params-accessibility', () => {
 
     it('is accessible when error is returned', async () => {
         // Create component
-        const element = createElement('c-apex-wire-method-with-params', {
+        const element = createElement<ApexWireMethodWithParams>('c-apex-wire-method-with-params', {
             is: ApexWireMethodWithParams
         });
         document.body.appendChild(element);

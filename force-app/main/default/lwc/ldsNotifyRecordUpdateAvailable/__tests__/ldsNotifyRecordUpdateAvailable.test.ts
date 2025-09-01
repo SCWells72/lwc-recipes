@@ -46,7 +46,7 @@ describe('c-lds-notify-record-update-available', () => {
 
     it('populates name from getRecord wire', async () => {
         // Create component
-        const element = createElement('c-lds-notify-record-update-available', {
+        const element = createElement<LdsNotifyRecordUpdateAvailable>('c-lds-notify-record-update-available', {
             is: LdsNotifyRecordUpdateAvailable
         });
         document.body.appendChild(element);
@@ -65,7 +65,7 @@ describe('c-lds-notify-record-update-available', () => {
 
     it('should update contact and call notifyRecordUpdateAvailable', async () => {
         // Create component
-        const element = createElement('c-lds-notify-record-update-available', {
+        const element = createElement<LdsNotifyRecordUpdateAvailable>('c-lds-notify-record-update-available', {
             is: LdsNotifyRecordUpdateAvailable
         });
         document.body.appendChild(element);
@@ -110,7 +110,7 @@ describe('c-lds-notify-record-update-available', () => {
 
     it('displays an error toast on update record error', async () => {
         // Create component
-        const element = createElement('c-lds-notify-record-update-available', {
+        const element = createElement<LdsNotifyRecordUpdateAvailable>('c-lds-notify-record-update-available', {
             is: LdsNotifyRecordUpdateAvailable
         });
         document.body.appendChild(element);
@@ -143,7 +143,7 @@ describe('c-lds-notify-record-update-available', () => {
 
     it('is accessible when data is returned', async () => {
         // Create component
-        const element = createElement('c-lds-notify-record-update-available', {
+        const element = createElement<LdsNotifyRecordUpdateAvailable>('c-lds-notify-record-update-available', {
             is: LdsNotifyRecordUpdateAvailable
         });
         document.body.appendChild(element);
@@ -160,7 +160,7 @@ describe('c-lds-notify-record-update-available', () => {
 
     it('is accessible when error is returned', async () => {
         // Create component
-        const element = createElement('c-lds-notify-record-update-available', {
+        const element = createElement<LdsNotifyRecordUpdateAvailable>('c-lds-notify-record-update-available', {
             is: LdsNotifyRecordUpdateAvailable
         });
         document.body.appendChild(element);

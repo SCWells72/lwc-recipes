@@ -2,6 +2,7 @@ import { createElement } from 'lwc';
 import WireGetRecordsDifferentTypes from 'c/wireGetRecordsDifferentTypes';
 import { getRecords } from 'lightning/uiRecordApi';
 import { LdsTestWireAdapter } from '@salesforce/wire-service-jest-util';
+import ErrorPanel from 'c/errorPanel';
 
 // Mock realistic data
 import mockGetRecords from './data/wireGetRecordsDifferentTypesResponse.json';
@@ -23,7 +24,7 @@ describe('c-wire-get-records-different-types', () => {
     describe('getRecords @wire data', () => {
         it('renders the records value in the pre tag', async () => {
             // Create component
-            const element = createElement(
+            const element = createElement<WireGetRecordsDifferentTypes>(
                 'c-wire-get-records-different-types',
                 {
                     is: WireGetRecordsDifferentTypes
@@ -38,7 +39,7 @@ describe('c-wire-get-records-different-types', () => {
             await flushPromises();
 
             // Select element for validation
-            const preEl = element.shadowRoot.querySelector('pre');
+            const preEl = element.shadowRoot.querySelector<HTMLPreElement>('pre');
             expect(preEl.textContent).toEqual(
                 JSON.stringify(mockGetRecords, null, 2)
             );
@@ -48,7 +49,7 @@ describe('c-wire-get-records-different-types', () => {
     describe('getRecords @wire error', () => {
         it('shows error panel element', async () => {
             // Create component
-            const element = createElement(
+            const element = createElement<WireGetRecordsDifferentTypes>(
                 'c-wire-get-records-different-types',
                 {
                     is: WireGetRecordsDifferentTypes
@@ -64,14 +65,14 @@ describe('c-wire-get-records-different-types', () => {
 
             // Check for error panel
             const errorPanelEl =
-                element.shadowRoot.querySelector('c-error-panel');
+                element.shadowRoot.querySelector<ErrorPanel>('c-error-panel');
             expect(errorPanelEl).not.toBeNull();
         });
     });
 
     it('is accessible when records returned', async () => {
         // Create component
-        const element = createElement('c-wire-get-records-different-types', {
+        const element = createElement<WireGetRecordsDifferentTypes>('c-wire-get-records-different-types', {
             is: WireGetRecordsDifferentTypes
         });
         document.body.appendChild(element);
@@ -88,7 +89,7 @@ describe('c-wire-get-records-different-types', () => {
 
     it('is accessible when error returned', async () => {
         // Create component
-        const element = createElement('c-wire-get-records-different-types', {
+        const element = createElement<WireGetRecordsDifferentTypes>('c-wire-get-records-different-types', {
             is: WireGetRecordsDifferentTypes
         });
         document.body.appendChild(element);

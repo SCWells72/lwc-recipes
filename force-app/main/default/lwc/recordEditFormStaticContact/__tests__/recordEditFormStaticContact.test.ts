@@ -84,7 +84,7 @@ describe('c-record-edit-form-static-contact', () => {
     });
 
     it('is accessible', async () => {
-        const element = createElement('c-record-edit-form-static-contact', {
+        const element = createElement<RecordEditFormStaticContact>('c-record-edit-form-static-contact', {
             is: RecordEditFormStaticContact
         });
         document.body.appendChild(element);

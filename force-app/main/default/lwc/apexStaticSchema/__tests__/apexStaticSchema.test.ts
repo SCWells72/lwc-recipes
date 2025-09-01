@@ -3,6 +3,7 @@ import ApexStaticSchema from 'c/apexStaticSchema';
 import getSingleContact from '@salesforce/apex/ContactController.getSingleContact';
 import { ApexTestWireAdapter } from '@salesforce/wire-service-jest-util';
 import LightningFormattedEmail from 'lightning/formattedEmail';
+import ErrorPanel from 'c/errorPanel';
 
 // Realistic data with a single record
 import mockGetSingleContact from './data/getSingleContact.json';
@@ -41,7 +42,7 @@ describe('c-apex-static-schema', () => {
     describe('getSingleContact @wire', () => {
         it('renders single record when data returned', async () => {
             // Create component
-            const element = createElement('c-apex-static-schema', {
+            const element = createElement<ApexStaticSchema>('c-apex-static-schema', {
                 is: ApexStaticSchema
             });
             document.body.appendChild(element);
@@ -53,7 +54,7 @@ describe('c-apex-static-schema', () => {
             await flushPromises();
 
             // Select elements for validation
-            const detailEls = element.shadowRoot.querySelectorAll('p');
+            const detailEls = element.shadowRoot.querySelectorAll<HTMLParagraphElement>('p');
             expect(detailEls[0].textContent).toBe(mockGetSingleContact.Name);
             expect(detailEls[1].textContent).toBe(mockGetSingleContact.Title);
 
@@ -65,7 +66,7 @@ describe('c-apex-static-schema', () => {
 
         it('shows error panel element when error returned', async () => {
             // Create component
-            const element = createElement('c-apex-static-schema', {
+            const element = createElement<ApexStaticSchema>('c-apex-static-schema', {
                 is: ApexStaticSchema
             });
             document.body.appendChild(element);
@@ -78,14 +79,14 @@ describe('c-apex-static-schema', () => {
 
             // Check for error panel
             const errorPanelEl =
-                element.shadowRoot.querySelector('c-error-panel');
+                element.shadowRoot.querySelector<ErrorPanel>('c-error-panel');
             expect(errorPanelEl).not.toBeNull();
         });
     });
 
     it('is accessible when data is returned', async () => {
         // Create component
-        const element = createElement('c-apex-static-schema', {
+        const element = createElement<ApexStaticSchema>('c-apex-static-schema', {
             is: ApexStaticSchema
         });
         document.body.appendChild(element);
@@ -103,7 +104,7 @@ describe('c-apex-static-schema', () => {
 
     it('is accessible when error is returned', async () => {
         // Create component
-        const element = createElement('c-apex-static-schema', {
+        const element = createElement<ApexStaticSchema>('c-apex-static-schema', {
             is: ApexStaticSchema
         });
         document.body.appendChild(element);

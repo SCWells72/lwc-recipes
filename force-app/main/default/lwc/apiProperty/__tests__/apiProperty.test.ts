@@ -22,7 +22,7 @@ describe('c-api-property', () => {
 
     it('renders c-chart-bar component with a default percentage value', () => {
         // Create component
-        const element = createElement('c-api-property', {
+        const element = createElement<ApiProperty>('c-api-property', {
             is: ApiProperty
         });
         document.body.appendChild(element);
@@ -37,7 +37,7 @@ describe('c-api-property', () => {
 
     it('changes the value of the c-chart-bar child component based on user input', async () => {
         // Create component
-        const element = createElement('c-api-property', {
+        const element = createElement<ApiProperty>('c-api-property', {
             is: ApiProperty
         });
         document.body.appendChild(element);
@@ -60,7 +60,7 @@ describe('c-api-property', () => {
 
     it('is accessible', async () => {
         // Create component
-        const element = createElement('c-api-property', {
+        const element = createElement<ApiProperty>('c-api-property', {
             is: ApiProperty
         });
         document.body.appendChild(element);

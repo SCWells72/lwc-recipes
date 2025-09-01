@@ -55,7 +55,7 @@ describe('c-record-view-form-dynamic-contact', () => {
     });
 
     it('is accessible', async () => {
-        const element = createElement('c-record-view-form-dynamic-contact', {
+        const element = createElement<RecordViewFormDynamicContact>('c-record-view-form-dynamic-contact', {
             is: RecordViewFormDynamicContact
         });
         document.body.appendChild(element);

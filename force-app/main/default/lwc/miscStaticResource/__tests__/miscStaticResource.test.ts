@@ -11,7 +11,7 @@ describe('c-misc-static-resource', () => {
 
     it('sets img urls based on static resources', () => {
         // Create component
-        const element = createElement('c-misc-static-resource', {
+        const element = createElement<MiscStaticResource>('c-misc-static-resource', {
             is: MiscStaticResource
         });
         document.body.appendChild(element);
@@ -36,7 +36,7 @@ describe('c-misc-static-resource', () => {
     });
 
     it('is accessible', async () => {
-        const element = createElement('c-misc-static-resource', {
+        const element = createElement<MiscStaticResource>('c-misc-static-resource', {
             is: MiscStaticResource
         });
         document.body.appendChild(element);

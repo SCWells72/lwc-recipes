@@ -7,6 +7,7 @@ import {
     FOCUSED_TAB_ID
 } from 'lightning/platformWorkspaceApi';
 import { TestWireAdapter } from '@salesforce/wire-service-jest-util';
+import LightningInput from 'lightning/input';
 
 describe('c-workspace-api-highlight-tab', () => {
     afterEach(() => {
@@ -33,7 +34,7 @@ describe('c-workspace-api-highlight-tab', () => {
         (<TestWireAdapter><unknown>IsConsoleNavigation).emit(true);
 
         // Find and toggle input
-        const inputEl = element.shadowRoot.querySelector('lightning-input');
+        const inputEl = element.shadowRoot.querySelector<LightningInput>('lightning-input');
         inputEl.dispatchEvent(
             new CustomEvent('change', { detail: { checked: true } })
         );

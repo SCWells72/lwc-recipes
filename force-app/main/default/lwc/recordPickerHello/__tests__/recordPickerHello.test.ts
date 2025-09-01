@@ -5,6 +5,7 @@ import RecordPickerHello from 'c/recordPickerHello';
 import { graphql } from 'lightning/uiGraphQLApi';
 import { LdsTestWireAdapter } from '@salesforce/wire-service-jest-util';
 import LightningRecordPicker from 'lightning/recordPicker';
+import ErrorPanel from 'c/errorPanel';
 
 // Mock realistic data
 import mockGraphQL from './data/graphqlContactResult.json';
@@ -40,18 +41,19 @@ describe('recordPickerHello', () => {
     }
 
     it('renders a lightning-record-picker component', () => {
-        const recordPickerElement = element.shadowRoot.querySelector(
+        const recordPickerElement = element.shadowRoot.querySelector<LightningRecordPicker>(
             'lightning-record-picker'
         );
         expect(recordPickerElement).toBeTruthy();
     });
 
     it('is accessible', async () => {
+        // noinspection ES6MissingAwait
         expect(element).toBeAccessible();
     });
 
     it('hides the Contact tile when no records are selected', async () => {
-        const selectedRecordDetails = element.shadowRoot.querySelector(
+        const selectedRecordDetails = element.shadowRoot.querySelector<HTMLDivElement>(
             '.selectedRecordDetails'
         );
         expect(selectedRecordDetails).toBeFalsy();
@@ -72,7 +74,7 @@ describe('recordPickerHello', () => {
         (<LdsTestWireAdapter><unknown>graphql).emit(mockGraphQL);
         await flushPromises();
 
-        const selectedRecordDetails = element.shadowRoot.querySelector(
+        const selectedRecordDetails = element.shadowRoot.querySelector<HTMLDivElement>(
             '.selectedRecordDetails'
         );
 
@@ -104,7 +106,7 @@ describe('recordPickerHello', () => {
         (<LdsTestWireAdapter><unknown>graphql).emit(mockGraphQLEmptyResults);
         await flushPromises();
 
-        const selectedRecordDetails = element.shadowRoot.querySelector(
+        const selectedRecordDetails = element.shadowRoot.querySelector<HTMLDivElement>(
             '.selectedRecordDetails'
         );
 
@@ -120,7 +122,7 @@ describe('recordPickerHello', () => {
 
             // Check for error panel
             const errorPanelEl =
-                element.shadowRoot.querySelector('c-error-panel');
+                element.shadowRoot.querySelector<ErrorPanel>('c-error-panel');
             expect(errorPanelEl).not.toBeNull();
         });
     });

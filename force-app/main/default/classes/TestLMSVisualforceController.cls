@@ -19,9 +19,9 @@
  *
  * See the Apex Language Reference for more information about Testing and Code Coverage.
  */
-@isTest
+@IsTest
 private class TestLMSVisualforceController {
-    @isTest
+    @IsTest
     static void testInitialPageRender() {
         LMSVisualforceController controller = new LMSVisualforceController();
 
@@ -35,7 +35,7 @@ private class TestLMSVisualforceController {
         );
     }
 
-    @isTest
+    @IsTest
     static void testRefreshContact() {
         // Set up test data: 1 contact record
         Contact testContact = new Contact(

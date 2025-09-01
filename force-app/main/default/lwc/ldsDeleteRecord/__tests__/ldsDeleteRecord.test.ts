@@ -4,6 +4,9 @@ import { deleteRecord } from 'lightning/uiRecordApi';
 import getAccountList from '@salesforce/apex/AccountController.getAccountList';
 import { ApexTestWireAdapter } from '@salesforce/wire-service-jest-util';
 import LightningButtonIcon from 'lightning/buttonIcon';
+import ErrorPanel from 'c/errorPanel';
+import ApexWireMethodToFunction from 'c/apexWireMethodToFunction';
+import LightningLayoutItem from 'lightning/layoutItem';
 
 // Realistic data with a list of contacts
 import mockGetAccountList from './data/getAccountList.json';
@@ -44,7 +47,7 @@ describe('c-lds-delete-record', () => {
     describe('getAccountList @wire data', () => {
         it('renders seven records with name and lightning-button-icon', async () => {
             // Create component
-            const element = createElement('c-lds-delete-record', {
+            const element = createElement<LdsDeleteRecord>('c-lds-delete-record', {
                 is: LdsDeleteRecord
             });
             document.body.appendChild(element);
@@ -56,16 +59,15 @@ describe('c-lds-delete-record', () => {
             await flushPromises();
 
             // Select elements for validation
-            const nameEl = element.shadowRoot.querySelector(
+            const nameEl = element.shadowRoot.querySelector<LightningLayoutItem>(
                 'lightning-layout-item'
             );
             expect(nameEl.textContent).toBe(mockGetAccountList[0].Name);
 
-            const buttonEls = element.shadowRoot.querySelectorAll(
+            const buttonEls = element.shadowRoot.querySelectorAll<LightningButtonIcon>(
                 'lightning-button-icon'
             );
             expect(buttonEls.length).toBe(mockGetAccountList.length);
-            // @ts-expect-error Not sure how "data-recordid" should be interpreted
             expect(buttonEls[0].dataset.recordid).toBe(
                 mockGetAccountList[0].Id
             );
@@ -73,7 +75,7 @@ describe('c-lds-delete-record', () => {
 
         it('renders no buttons when no record exists', async () => {
             // Create component
-            const element = createElement('c-lds-delete-record', {
+            const element = createElement<LdsDeleteRecord>('c-lds-delete-record', {
                 is: LdsDeleteRecord
             });
             document.body.appendChild(element);
@@ -85,12 +87,12 @@ describe('c-lds-delete-record', () => {
             await flushPromises();
 
             // Select elements for validation
-            const nameEl = element.shadowRoot.querySelector(
+            const nameEl = element.shadowRoot.querySelector<LightningButtonIcon>(
                 'lightning-button-icon'
             );
             expect(nameEl).toBeNull();
 
-            const detailEls = element.shadowRoot.querySelectorAll(
+            const detailEls = element.shadowRoot.querySelectorAll<LightningButtonIcon>(
                 'lightning-button-icon'
             );
             expect(detailEls.length).toBe(mockGetAccountListNoRecords.length);
@@ -100,7 +102,7 @@ describe('c-lds-delete-record', () => {
     describe('getAccountList @wire error', () => {
         it('shows error panel element', async () => {
             // Create component
-            const element = createElement('c-apex-wire-method-to-function', {
+            const element = createElement<ApexWireMethodToFunction>('c-apex-wire-method-to-function', {
                 is: LdsDeleteRecord
             });
             document.body.appendChild(element);
@@ -113,14 +115,14 @@ describe('c-lds-delete-record', () => {
 
             // Check for error panel
             const errorPanelEl =
-                element.shadowRoot.querySelector('c-error-panel');
+                element.shadowRoot.querySelector<ErrorPanel>('c-error-panel');
             expect(errorPanelEl).not.toBeNull();
         });
     });
 
     it('deletes the first entry of the account list on button click', async () => {
         // Create component
-        const element = createElement('c-lds-delete-record', {
+        const element = createElement<LdsDeleteRecord>('c-lds-delete-record', {
             is: LdsDeleteRecord
         });
         document.body.appendChild(element);
@@ -147,7 +149,7 @@ describe('c-lds-delete-record', () => {
 
     it('is accessible when data is returned', async () => {
         // Create component
-        const element = createElement('c-lds-delete-record', {
+        const element = createElement<LdsDeleteRecord>('c-lds-delete-record', {
             is: LdsDeleteRecord
         });
         document.body.appendChild(element);
@@ -164,7 +166,7 @@ describe('c-lds-delete-record', () => {
 
     it('is accessible when error is returned', async () => {
         // Create component
-        const element = createElement('c-lds-delete-record', {
+        const element = createElement<LdsDeleteRecord>('c-lds-delete-record', {
             is: LdsDeleteRecord
         });
         document.body.appendChild(element);

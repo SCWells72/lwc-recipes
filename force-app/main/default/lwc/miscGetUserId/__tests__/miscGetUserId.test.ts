@@ -14,13 +14,13 @@ describe('c-misc-get-user-id', () => {
 
     it('renders with default user id', () => {
         // Create component
-        const element = createElement('c-misc-get-user-id', {
+        const element = createElement<MiscGetUserId>('c-misc-get-user-id', {
             is: MiscGetUserId
         });
         document.body.appendChild(element);
 
         // Query div element that displays user id.
-        const divEl = element.shadowRoot.querySelector(
+        const divEl = element.shadowRoot.querySelector<HTMLDivElement>(
             'div.slds-var-m-around_medium'
         );
         expect(divEl).not.toBeNull();
@@ -28,7 +28,7 @@ describe('c-misc-get-user-id', () => {
     });
 
     it('is accessible', async () => {
-        const element = createElement('c-misc-get-user-id', {
+        const element = createElement<MiscGetUserId>('c-misc-get-user-id', {
             is: MiscGetUserId
         });
         document.body.appendChild(element);

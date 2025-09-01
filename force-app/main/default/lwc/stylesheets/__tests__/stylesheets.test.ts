@@ -10,7 +10,7 @@ describe('c-misc-stylesheets', () => {
     });
 
     it('is accessible', async () => {
-        const element = createElement('c-stylesheets', {
+        const element = createElement<Stylesheets>('c-stylesheets', {
             is: Stylesheets
         });
         document.body.appendChild(element);

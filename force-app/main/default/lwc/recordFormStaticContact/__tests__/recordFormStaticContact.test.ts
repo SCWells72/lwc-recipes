@@ -58,7 +58,7 @@ describe('c-record-form-static-contact', () => {
     });
 
     it('is accessible', async () => {
-        const element = createElement('c-record-form-static-contact', {
+        const element = createElement<RecordFormStaticContact>('c-record-form-static-contact', {
             is: RecordFormStaticContact
         });
         document.body.appendChild(element);
