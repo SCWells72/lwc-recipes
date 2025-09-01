@@ -9,7 +9,7 @@
  */
 export function loadScript(_ctx: any, url: string) {
     return new Promise((resolve, reject) => {
-        const script = document.createElement('script');
+        const script = document.createElement('script') as HTMLScriptElement;
         script.src = url;
         script.charset = 'utf-8';
         script.type = 'text/javascript';
