@@ -28,7 +28,7 @@ describe('c-graphql-pagination', () => {
     describe('graphql @wire data', () => {
         it('renders the returned records', async () => {
             // Create component
-            const element = createElement('c-graphql-pagination', {
+            const element = createElement<GraphqlPagination>('c-graphql-pagination', {
                 is: GraphqlPagination
             });
             document.body.appendChild(element);
@@ -61,7 +61,7 @@ describe('c-graphql-pagination', () => {
 
         it('pages forward correctly', async () => {
             // Create component
-            const element = createElement('c-graphql-pagination', {
+            const element = createElement<GraphqlPagination>('c-graphql-pagination', {
                 is: GraphqlPagination
             });
             document.body.appendChild(element);
@@ -111,7 +111,7 @@ describe('c-graphql-pagination', () => {
     describe('graphql @wire error', () => {
         it('shows error panel element', async () => {
             // Create component
-            const element = createElement('c-graphql-pagination', {
+            const element = createElement<GraphqlPagination>('c-graphql-pagination', {
                 is: GraphqlPagination
             });
             document.body.appendChild(element);
@@ -133,7 +133,7 @@ describe('c-graphql-pagination', () => {
 
     it('is accessible when data returned', async () => {
         // Create component
-        const element = createElement('c-graphql-pagination', {
+        const element = createElement<GraphqlPagination>('c-graphql-pagination', {
             is: GraphqlPagination
         });
         document.body.appendChild(element);
@@ -150,7 +150,7 @@ describe('c-graphql-pagination', () => {
 
     it('is accessible when error returned', async () => {
         // Create component
-        const element = createElement('c-graphql-pagination', {
+        const element = createElement<GraphqlPagination>('c-graphql-pagination', {
             is: GraphqlPagination
         });
         document.body.appendChild(element);

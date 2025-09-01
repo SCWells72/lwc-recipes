@@ -4,8 +4,7 @@ import { gql, graphql, GraphQlQueryResponse } from 'lightning/uiGraphQLApi';
 const pageSize = 3;
 
 export default class GraphqlPagination extends LightningElement {
-    // @ts-expect-error Overrides a base property; should probably rename it
-    after: string;
+    myAfter: string;
     pageNumber = 1;
 
     @wire(graphql, {
@@ -45,7 +44,7 @@ export default class GraphqlPagination extends LightningElement {
 
     get variables() {
         return {
-            after: this.after || null,
+            after: this.myAfter || null,
             pageSize
         };
     }
@@ -73,14 +72,14 @@ export default class GraphqlPagination extends LightningElement {
 
     handleNext() {
         if (this.contacts.data?.uiapi.query.Contact.pageInfo.hasNextPage) {
-            this.after =
+            this.myAfter =
                 this.contacts.data.uiapi.query.Contact.pageInfo.endCursor;
             this.pageNumber++;
         }
     }
 
     handleReset() {
-        this.after = null;
+        this.myAfter = null;
         this.pageNumber = 1;
     }
 }
